@@ -104,6 +104,7 @@
 | `prompt` | ✓ | string | 行动提示，通常是"选一本书来应对"或类似 |
 | `solutions` | ✓ | array | 各种解法，按数组顺序匹配 |
 | `default_outcome` | ✓ | Outcome | 没有任何匹配时的默认结果 |
+| `harsh` | 可选 | boolean | 为 `true` 时，用错书会扣 HP；默认 `false`，用错书仅显示 miss 面板，不扣血 |
 
 ### Solution 字段
 
