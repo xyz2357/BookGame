@@ -1,0 +1,29 @@
+{
+  "endings": [
+    {
+      "id": "ending_truth",
+      "name": "结局：真相",
+      "conditions": [
+        {"type": "flag", "key": "found_lin", "value": true}
+      ],
+      "text": "你抱着林回到地面。\n\n没人知道她去了哪里。但你知道。\n\n她现在是你书架上最厚的那本书。",
+      "priority": 50
+    },
+    {
+      "id": "ending_silence",
+      "name": "结局：沉默",
+      "conditions": [
+        {"type": "key_choice", "choice_id": "final_choice", "value": "give_handbook"}
+      ],
+      "text": "你独自一个人爬上石阶。\n\n那天之后你没再下去过。\n\n几个月后，又一位实习生入职了。",
+      "priority": 30
+    },
+    {
+      "id": "ending_default",
+      "name": "结局：未完",
+      "conditions": [],
+      "text": "你在底层书库里待了很久。\n\n有些事你没弄明白。但天色已晚，你该回去了。",
+      "priority": 0
+    }
+  ]
+}

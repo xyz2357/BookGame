@@ -1,0 +1,115 @@
+{
+  "events": [
+    {
+      "id": "e_intro",
+      "node_id": "entrance",
+      "description": "主管的话还在你耳边：'今天就你一个人下去——上次的姑娘，林，就是从那里出事的。'",
+      "prompt": "（任意翻一本书来稳定心情）",
+      "solutions": [
+        {
+          "type": "tag_match",
+          "required_tags": ["规则", "基础", "知识"],
+          "outcome": {
+            "text": "你翻了翻手册。'第一条：保持冷静。' 你深吸一口气，往下走。",
+            "effects": [],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "你犹豫了一下，但还是往下走。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e_lin_desk",
+      "node_id": "front_room",
+      "description": "桌上有一张折叠的纸条，写着你的名字。",
+      "prompt": "（自动获得纸条）",
+      "solutions": [],
+      "default_outcome": {
+        "text": "你打开纸条。上面写着：'如果你看到这个，别下来找我。但如果你已经下来了——记得，有些书是会读人的。'",
+        "effects": [
+          {"type": "gain_book", "book_id": "lin_letter"},
+          {"type": "set_flag", "key": "got_lin_letter", "value": true}
+        ],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e_rusty_door",
+      "node_id": "main_corridor",
+      "description": "一扇生锈的铁门挡住了去路。门把手上有薄薄一层尘。",
+      "prompt": "选一本书来应对",
+      "solutions": [
+        {
+          "type": "book_match",
+          "required_book_id": "metamorphosis",
+          "outcome": {
+            "text": "你想象自己是一只甲虫——足够小，足够薄。当你回过神，你已经在门的另一边了。\n\n这本书在你手里微微发烫。",
+            "effects": [
+              {"type": "mark_book", "book_id": "metamorphosis", "state": "glowing"},
+              {"type": "set_flag", "key": "passed_rusty_door", "value": true},
+              {"type": "trigger_super_match", "match_id": "sm_metamorphosis_door"}
+            ],
+            "next_node": "deepest"
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["揭露", "鬼怪"],
+          "outcome": {
+            "text": "你心一横，把这本书贴在门上。门的影子动了一下，然后悄无声息地开了。",
+            "effects": [
+              {"type": "set_flag", "key": "passed_rusty_door", "value": true}
+            ],
+            "next_node": "deepest"
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "这本书在这里似乎用不上。门依然紧闭。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e_final",
+      "node_id": "deepest",
+      "description": "林转过身。她的脸有些模糊，像是没对焦。她说：'你来了。我没想到你真的会来。'",
+      "prompt": "选一本书递给她",
+      "solutions": [
+        {
+          "type": "book_match",
+          "required_book_id": "lin_letter",
+          "outcome": {
+            "text": "你把她自己的纸条递给她。她看了很久，最后笑了。\n\n'谢谢。'她说，'这是我能想到的最好的告别。'\n\n她变成了一本书，落进你怀里。",
+            "effects": [
+              {"type": "lose_book", "book_id": "lin_letter"},
+              {"type": "set_flag", "key": "found_lin", "value": true},
+              {"type": "record_choice", "choice_id": "final_choice", "option_id": "give_letter"}
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["规则", "基础"],
+          "outcome": {
+            "text": "你把手册递给她。她接过去，翻了几页。\n\n'第一条……保持冷静。'她念出声，'我已经做不到了。'\n\n她转身，走向更深的阴影。你没敢跟。",
+            "effects": [
+              {"type": "record_choice", "choice_id": "final_choice", "option_id": "give_handbook"}
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "她看了看你递来的书，摇摇头。'不是这本。'她说。",
+        "effects": [],
+        "next_node": null
+      }
+    }
+  ]
+}

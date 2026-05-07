@@ -1,0 +1,38 @@
+{
+  "nodes": [
+    {
+      "id": "entrance",
+      "name": "入口",
+      "description": "你站在底层书库的入口。一段石阶向下延伸，下面光线昏黄。空气里有旧纸的味道。",
+      "events": ["e_intro"],
+      "connections": [
+        { "target": "front_room", "label": "走下石阶", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "front_room",
+      "name": "前厅",
+      "description": "一张办公桌，一盏台灯还亮着。台灯下有什么东西。",
+      "events": ["e_lin_desk"],
+      "connections": [
+        { "target": "main_corridor", "label": "走向主走廊", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "main_corridor",
+      "name": "主走廊",
+      "description": "两侧是高耸的书架。前方有一扇生锈的铁门。",
+      "events": ["e_rusty_door"],
+      "connections": [
+        { "target": "deepest", "label": "穿过铁门", "requirement": "flag", "requirement_value": "passed_rusty_door" }
+      ]
+    },
+    {
+      "id": "deepest",
+      "name": "最深处",
+      "description": "你来到了书库的尽头。一个人影站在最深的阴影里。\n\n是林。",
+      "events": ["e_final"],
+      "connections": []
+    }
+  ]
+}

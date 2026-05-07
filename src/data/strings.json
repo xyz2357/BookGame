@@ -1,0 +1,24 @@
+{
+  "ui": {
+    "main_menu": {
+      "title": "底层书库",
+      "start": "开始",
+      "continue": "继续",
+      "quit": "退出"
+    },
+    "inventory": {
+      "title": "你的书",
+      "empty": "你的背包是空的。",
+      "back": "返回"
+    },
+    "event": {
+      "select_book": "选一本书来应对",
+      "use_book": "使用《{title}》",
+      "no_book_chosen": "你还没选书。",
+      "continue": "继续"
+    },
+    "ending": {
+      "back_to_menu": "返回主菜单"
+    }
+  }
+}
