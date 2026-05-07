@@ -5,8 +5,29 @@ import EventView from './EventView';
 import InventoryView from './InventoryView';
 import EndingView from './EndingView';
 
+function GameHeader() {
+  const { state, openInventory } = useGame();
+  const { gameState, screen } = state;
+
+  return (
+    <header className="game-header">
+      <div className="hp-candles">
+        {Array.from({ length: gameState.maxHp }, (_, i) => (
+          <span key={i} className={`candle ${i < gameState.hp ? 'lit' : 'spent'}`} />
+        ))}
+      </div>
+      {screen !== 'inventory_view' && (
+        <button className="game-header__btn" onClick={openInventory}>
+          背包 ({gameState.inventory.length})
+        </button>
+      )}
+    </header>
+  );
+}
+
 function ScreenRouter() {
   const { state } = useGame();
+  const isGameScreen = state.screen !== 'main_menu' && state.screen !== 'ending_view';
 
   let screen;
   switch (state.screen) {
@@ -28,9 +49,12 @@ function ScreenRouter() {
   }
 
   return (
-    <div className="screen-content" key={state.screen}>
-      {screen}
-    </div>
+    <>
+      {isGameScreen && <GameHeader />}
+      <div className="screen-content" key={state.screen}>
+        {screen}
+      </div>
+    </>
   );
 }
 

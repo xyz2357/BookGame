@@ -63,7 +63,7 @@ export default function InventoryView() {
         )}
       </div>
 
-      <button className="btn-secondary" onClick={closeInventory} style={{ marginTop: '20px' }}>返回</button>
+      <button className="btn-secondary" onClick={closeInventory} style={{ marginTop: '20px' }}>返回游戏</button>
     </div>
   );
 }
