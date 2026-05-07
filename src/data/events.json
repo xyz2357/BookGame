@@ -1,112 +1,401 @@
 {
   "events": [
     {
-      "id": "e_intro",
+      "id": "e01_dust",
       "node_id": "entrance",
-      "description": "主管的话还在你耳边：'今天就你一个人下去——上次的姑娘，林，就是从那里出事的。'",
-      "prompt": "（任意翻一本书来稳定心情）",
-      "solutions": [
-        {
-          "type": "tag_match",
-          "required_tags": ["规则", "基础", "知识"],
-          "outcome": {
-            "text": "你翻了翻手册。'第一条：保持冷静。' 你深吸一口气，往下走。",
-            "effects": [],
-            "next_node": null
-          }
-        }
-      ],
+      "description": "石阶上积着厚厚的灰尘。你的脚印是很长时间以来唯一的痕迹。\n\n主管的话还在耳边——'上次的姑娘，林，就是从那里出事的。'",
+      "prompt": "",
+      "solutions": [],
       "default_outcome": {
-        "text": "你犹豫了一下，但还是往下走。",
+        "text": "你深吸一口气，一步步走下石阶。灰尘在脚下无声地碎开。\n\n灯光越来越暗，空气越来越冷。",
         "effects": [],
         "next_node": null
       }
     },
     {
-      "id": "e_lin_desk",
+      "id": "e02_lin_desk",
       "node_id": "front_room",
-      "description": "桌上有一张折叠的纸条，写着你的名字。",
-      "prompt": "（自动获得纸条）",
+      "description": "台灯下是一张折叠的纸条。上面用蓝色圆珠笔写着你的名字。",
+      "prompt": "",
       "solutions": [],
       "default_outcome": {
-        "text": "你打开纸条。上面写着：'如果你看到这个，别下来找我。但如果你已经下来了——记得，有些书是会读人的。'",
+        "text": "你打开纸条。字迹急促但清晰：\n\n'如果你看到这个，别下来找我。但如果你已经下来了——\n记得，有些书是会读人的。不要翻开那本没有名字的书。'\n\n签名是'林'。墨迹有些晕开，像是写的时候手在发抖。",
         "effects": [
-          {"type": "gain_book", "book_id": "lin_letter"},
-          {"type": "set_flag", "key": "got_lin_letter", "value": true}
+          { "type": "gain_book", "book_id": "lin_letter" },
+          { "type": "set_flag", "key": "got_lin_letter", "value": true }
         ],
         "next_node": null
       }
     },
     {
-      "id": "e_rusty_door",
-      "node_id": "main_corridor",
-      "description": "一扇生锈的铁门挡住了去路。门把手上有薄薄一层尘。",
-      "prompt": "选一本书来应对",
+      "id": "e03_old_librarian",
+      "node_id": "admin_office",
+      "description": "老管理员放下手中的搪瓷杯，镜片后面的眼睛打量着你。\n\n'你是新来的？'他的声音很平，'林啊……她是自愿离职的。年轻人嘛，待不住很正常。别想太多，也别往深处去。'\n\n他看着你，等你的反应。",
+      "prompt": "翻开一本书，作为你的回应",
       "solutions": [
         {
-          "type": "book_match",
-          "required_book_id": "metamorphosis",
+          "type": "tag_match",
+          "required_tags": ["揭露", "觉醒", "谜题"],
           "outcome": {
-            "text": "你想象自己是一只甲虫——足够小，足够薄。当你回过神，你已经在门的另一边了。\n\n这本书在你手里微微发烫。",
+            "text": "你把书翻到某一页递过去。老人的目光停在上面，久久没有移开。\n\n'你不信我。'他把书推回来，声音忽然变低，'那你自己去看吧。有些事情知道了反而不好。'\n\n他转过身，不再看你。你注意到他的手在轻轻发抖。",
             "effects": [
-              {"type": "mark_book", "book_id": "metamorphosis", "state": "glowing"},
-              {"type": "set_flag", "key": "passed_rusty_door", "value": true},
-              {"type": "trigger_super_match", "match_id": "sm_metamorphosis_door"}
+              { "type": "record_choice", "choice_id": "trust_old_librarian", "option_id": "doubt" },
+              { "type": "set_flag", "key": "doubted_librarian", "value": true }
             ],
-            "next_node": "deepest"
+            "next_node": null
           }
         },
         {
           "type": "tag_match",
-          "required_tags": ["揭露", "鬼怪"],
+          "required_tags": ["规则", "整理", "基础", "知识", "恐惧"],
           "outcome": {
-            "text": "你心一横，把这本书贴在门上。门的影子动了一下，然后悄无声息地开了。",
+            "text": "你点点头，合上手中的书。也许他说得对——没什么好追查的。\n\n'好孩子。'老人松了口气，重新端起茶杯，'做完今天的工作就上去吧。底下的书归好类就行。'\n\n你转身离开办公室。走廊那头的灯光在摇晃。",
             "effects": [
-              {"type": "set_flag", "key": "passed_rusty_door", "value": true}
+              { "type": "record_choice", "choice_id": "trust_old_librarian", "option_id": "trust" }
             ],
-            "next_node": "deepest"
+            "next_node": "epilogue"
           }
         }
       ],
       "default_outcome": {
-        "text": "这本书在这里似乎用不上。门依然紧闭。",
+        "text": "老人看了看你手里的书，又看了看你，表情没有变化。\n\n'这个……和林没什么关系吧。'他慢慢地说。",
         "effects": [],
         "next_node": null
       }
     },
     {
-      "id": "e_final",
-      "node_id": "deepest",
-      "description": "林转过身。她的脸有些模糊，像是没对焦。她说：'你来了。我没想到你真的会来。'",
-      "prompt": "选一本书递给她",
+      "id": "e05_whispering",
+      "node_id": "main_corridor",
+      "description": "走廊深处传来细微的声音。不是脚步，也不是风——像是很多人同时在小声念什么。\n\n你走近一排书架，声音就在书脊之间。",
+      "prompt": "选一本书来回应低语",
       "solutions": [
         {
-          "type": "book_match",
-          "required_book_id": "lin_letter",
-          "outcome": {
-            "text": "你把她自己的纸条递给她。她看了很久，最后笑了。\n\n'谢谢。'她说，'这是我能想到的最好的告别。'\n\n她变成了一本书，落进你怀里。",
-            "effects": [
-              {"type": "lose_book", "book_id": "lin_letter"},
-              {"type": "set_flag", "key": "found_lin", "value": true},
-              {"type": "record_choice", "choice_id": "final_choice", "option_id": "give_letter"}
-            ],
-            "next_node": null
-          }
-        },
-        {
           "type": "tag_match",
-          "required_tags": ["规则", "基础"],
+          "required_tags": ["整理", "知识", "揭露", "觉醒"],
           "outcome": {
-            "text": "你把手册递给她。她接过去，翻了几页。\n\n'第一条……保持冷静。'她念出声，'我已经做不到了。'\n\n她转身，走向更深的阴影。你没敢跟。",
+            "text": "你翻开书，对着书架。低语停了一瞬，然后变成了叹息。\n\n书架上有几本书的书脊微微发亮——它们似乎在向你展示什么。你记住了其中一个位置。",
             "effects": [
-              {"type": "record_choice", "choice_id": "final_choice", "option_id": "give_handbook"}
+              { "type": "set_flag", "key": "heard_whispers", "value": true }
             ],
             "next_node": null
           }
         }
       ],
       "default_outcome": {
-        "text": "她看了看你递来的书，摇摇头。'不是这本。'她说。",
+        "text": "低语声忽然变大了一瞬，又归于沉默。你不确定它在说什么。\n\n也许不是什么重要的东西。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e07_find_book_a",
+      "node_id": "shelf_a",
+      "description": "地上散落着几本从架上掉下来的书。其中一本封面格外精致——金色烫字，但已经褪了大半。",
+      "prompt": "",
+      "solutions": [],
+      "default_outcome": {
+        "text": "你捡起那本书：《道林·格雷的画像》。封面上的金色字迹在灯光下若隐若现。\n\n翻开第一页，有人用铅笔写了一行字：'镜子只照出你想看到的。'",
+        "effects": [
+          { "type": "gain_book", "book_id": "dorian_gray" }
+        ],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e06_misplaced",
+      "node_id": "shelf_a",
+      "description": "这一区的索书号完全是乱的。A区混进了Z区的书，编年史和食谱摆在一起。\n\n但乱中似乎有某种规律——像是有人故意打乱的。",
+      "prompt": "选一本书来整理线索",
+      "solutions": [
+        {
+          "type": "tag_match",
+          "required_tags": ["整理", "规则", "知识", "谜题"],
+          "outcome": {
+            "text": "你按照书中的逻辑重新审视这些错位的书。\n\n渐渐地你发现了：如果把被挪位的书的首字母连起来，拼出一个词——'救命'。\n\n在最后一本被挪位的书后面，你找到了一本藏起来的书。",
+            "effects": [
+              { "type": "gain_book", "book_id": "madman_diary" }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "你试着整理了一会儿，但越理越乱。这些书好像有自己的意志。\n\n算了。也许这不是你现在该解决的问题。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e09_find_book_b",
+      "node_id": "shelf_b",
+      "description": "书架最底层，一本薄薄的小书歪斜地靠着架脚。封面是手写的毛笔字。",
+      "prompt": "",
+      "solutions": [],
+      "default_outcome": {
+        "text": "你蹲下来捡起它：《促织》。页面泛黄，但字迹清晰。\n\n扉页上画着一只蟋蟀，旁边有铅笔字：'他变成了一只虫子，为了让父亲不挨打。'",
+        "effects": [
+          { "type": "gain_book", "book_id": "crooked_field" }
+        ],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e08_crying_child",
+      "node_id": "shelf_b",
+      "description": "书架间传来低低的抽泣声。你循声走去，看到一个小小的身影蜷缩在角落。\n\n不像是真人——更像是一个影子。但那哭声是真的。",
+      "prompt": "选一本书来安抚这个孩子",
+      "solutions": [
+        {
+          "type": "book_match",
+          "required_book_id": "crooked_field",
+          "outcome": {
+            "text": "你轻轻翻开《促织》，念出那个关于蟋蟀的故事。\n\n小小的身影慢慢抬起头。他的脸模糊不清，但你能感觉到他在笑。\n\n'谢谢。'一个很小的声音说，'你是第一个念这个给我听的人。'\n\n他化成一团温暖的光，消失在书架间。你手中的书微微发烫。",
+            "effects": [
+              { "type": "mark_book", "book_id": "crooked_field", "state": "glowing" },
+              { "type": "trigger_super_match", "match_id": "sm_crooked_child" },
+              { "type": "set_flag", "key": "comforted_child", "value": true }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["家庭", "儿童", "东方"],
+          "outcome": {
+            "text": "你把书放在孩子面前。他伸出手摸了摸封面，抽泣声渐渐小了。\n\n过了一会儿，他站起来，一步步走进书架的阴影里，消失了。\n\n角落里留下一片淡淡的温暖。",
+            "effects": [
+              { "type": "set_flag", "key": "comforted_child", "value": true }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "孩子看了看你递来的书，哭得更厉害了。\n\n你慌忙收回手。也许不是这本。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e10_mirror",
+      "node_id": "mirror_hall",
+      "description": "镜子很大，几乎占满整面墙。镜框上的雕花已经模糊，但镜面依然清澈。\n\n你的倒影在镜中望着你——但在你身后，镜中映出另一个身影。\n\n一个女人的轮廓。她似乎在向你伸手。",
+      "prompt": "翻开一本书，决定你的选择",
+      "solutions": [
+        {
+          "type": "tag_match",
+          "required_tags": ["镜子", "双生", "伪装", "画像"],
+          "outcome": {
+            "text": "你把书贴近镜面。镜中的文字和现实的文字重叠在一起，像是在对话。\n\n镜面开始起涟漪。你深吸一口气，把手伸了进去——\n\n一阵冰凉。然后你发现自己站在了镜子的另一边。\n\n一切都是反的。",
+            "effects": [
+              { "type": "set_flag", "key": "mirror_reached_in", "value": true },
+              { "type": "record_choice", "choice_id": "mirror_choice", "option_id": "reach_in" }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["恐惧", "规则", "整理", "基础", "警告"],
+          "outcome": {
+            "text": "你退后一步，把书挡在胸前，像是一面盾。\n\n镜中的身影似乎叹了口气，慢慢后退，最终消融在镜面深处。\n\n镜子恢复了正常。只有你的倒影，和你身后空无一人的走廊。",
+            "effects": [
+              { "type": "record_choice", "choice_id": "mirror_choice", "option_id": "step_back" }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "你举起书对着镜面，但什么都没发生。镜中的身影依然在那里，静静地看着你。\n\n也许需要换一本试试。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e11_mirror_lin",
+      "node_id": "mirror_world",
+      "description": "镜中世界的尽头，一个女人背对你站着。她的轮廓在微微发光。\n\n'你不该来这里。'她没有回头，声音像是隔着一层水，'但你既然来了……帮我一个忙。'\n\n她转过身。那是一张和林很像的脸——但五官有些模糊，像是被水洗过。\n\n'让我看看你带的书。'",
+      "prompt": "选一本书展示给她",
+      "solutions": [
+        {
+          "type": "book_match",
+          "required_book_id": "dorian_gray",
+          "outcome": {
+            "text": "你打开《道林·格雷的画像》。镜中的林看着那一页，忽然伸手按住了书面。\n\n书页上的文字开始变化——画像里道林的脸，渐渐变成了林的脸。\n\n'它可以替我承受这些。'她低声说。\n\n她的轮廓变得清晰了一些。镜面深处，一本新的书浮了上来。\n\n你手中的书在发烫。",
+            "effects": [
+              { "type": "mark_book", "book_id": "dorian_gray", "state": "glowing" },
+              { "type": "trigger_super_match", "match_id": "sm_dorian_mirror" },
+              { "type": "gain_book", "book_id": "usher" }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["镜子", "双生", "伪装", "异化"],
+          "outcome": {
+            "text": "镜中的林看了看你手中的书，微微点头。\n\n'这本书懂得——不是所有倒影都是自己。'\n\n她向书架深处走去，消失在镜面的折射中。书架间掉落了一本书——像是她留下的。",
+            "effects": [
+              { "type": "gain_book", "book_id": "usher" }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "镜中的林看了看你递来的书，摇了摇头。\n\n'不是这本。这里需要的是……能映出真相的东西。'",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e12_collapse",
+      "node_id": "back_corridor",
+      "harsh": true,
+      "description": "前方的通道被坍塌的书架堵死了。碎木板和散落的书页混在一起，像是一场微型灾难的现场。\n\n似乎可以清理出一条路来——如果你知道怎么做的话。",
+      "prompt": "选一本书来应对坍塌",
+      "solutions": [
+        {
+          "type": "book_match",
+          "required_book_id": "usher",
+          "outcome": {
+            "text": "你翻开《厄舍府的崩塌》，对着废墟读出声来。\n\n奇怪的事情发生了：那些碎片开始共振。书架的残骸开始自行排列——不是修复，而是完成了一种'应有的崩塌'。\n\n废墟变成了一扇拱门。像是这里本来就该有一扇门。\n\n你手中的书在轻轻发抖。",
+            "effects": [
+              { "type": "mark_book", "book_id": "usher", "state": "glowing" },
+              { "type": "trigger_super_match", "match_id": "sm_usher_collapse" },
+              { "type": "set_flag", "key": "cleared_collapse", "value": true }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["恐惧", "身体", "化身", "共鸣"],
+          "outcome": {
+            "text": "你把书贴在废墟上。有什么在响应——书架的碎片松动了。\n\n你用力推了推，一块大板滑开。缝隙足够你侧身通过。\n\n不够优雅，但管用。",
+            "effects": [
+              { "type": "set_flag", "key": "cleared_collapse", "value": true }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "你试着清理废墟，但它们纹丝不动。这些书架比看起来要重得多。\n\n也许需要换一种方式。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e13_darkness",
+      "node_id": "back_corridor",
+      "description": "走廊的一侧有一间没有灯的小房间。门半开着，里面一片漆黑。\n\n黑暗中有什么在轻轻呼吸。",
+      "prompt": "选一本书照亮黑暗",
+      "solutions": [
+        {
+          "type": "tag_match",
+          "required_tags": ["揭露", "觉醒", "知识", "东方"],
+          "outcome": {
+            "text": "你翻开书，文字在黑暗中居然隐隐发光。\n\n借着那微弱的光，你看到房间里没有什么可怕的东西——只有一面墙上写满了字。\n\n都是名字。几十个名字，最后一个是'林'。",
+            "effects": [
+              { "type": "set_flag", "key": "found_names_wall", "value": true }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "你把书伸进黑暗中，但什么也看不到。呼吸声还在继续。\n\n你退了出来。有些门还是关着比较好。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e14_reading_book",
+      "node_id": "forbidden_entry",
+      "harsh": true,
+      "description": "封条后面的书架上，只摆着一本书。\n\n它没有标题，没有作者名。封面是白色的——或者说，是你看不清的那种白。\n\n你走近时，有一瞬间觉得书页在动。不是风吹的——像是呼吸。\n\n林的纸条上写过：'有些书是会读人的。不要翻开那本没有名字的书。'",
+      "prompt": "选一本书来应对这本异常的书",
+      "solutions": [
+        {
+          "type": "tag_match",
+          "required_tags": ["揭露", "觉醒", "警告", "谜题"],
+          "outcome": {
+            "text": "你没有直接碰它。你先翻开自己的书，用文字做一面盾。\n\n那本无名之书的书页停止了颤动。像是被认出了——被另一本书的目光压制了。\n\n你小心翼翼地把它从架上取下来。它在你手中很轻，几乎没有重量。\n\n但你知道它很危险。",
+            "effects": [
+              { "type": "gain_book", "book_id": "the_book_that_reads_you" },
+              { "type": "set_flag", "key": "dealt_with_book", "value": true }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "你把书凑近那本无名之书。它的书页猛地翻开——上面映出你的脸。\n\n你慌忙退后。心跳如鼓。\n\n还没准备好。也许需要一本更'懂'它的书。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e15_final",
+      "node_id": "deepest",
+      "harsh": true,
+      "description": "林转过身。她的脸比记忆中的照片要模糊——像是一张被水泡过的照片。\n\n'你来了。'她的声音很平静，'我没想到你真的会来。'\n\n她低头看着自己的手。手指的边缘在微微透明。\n\n'我快要变成一本书了。'她说，'这里所有人最后都会变成书。'\n\n她抬头看你。'把你带的书给我看看——也许其中某一本能改变什么。'",
+      "prompt": "选一本书递给林",
+      "solutions": [
+        {
+          "type": "book_match",
+          "required_book_id": "the_book_that_reads_you",
+          "outcome": {
+            "text": "你把那本无名之书递给林。她的眼睛猛地睁大了。\n\n'你把它带来了。'她接过去，翻开第一页。\n\n书页上什么都没有——不，不是什么都没有。文字正在生成，一行一行，写的是这座书库的故事。\n\n'原来是这样。'林低声说，'这本书不是在读人——它在记录。它记录了每一个下来的人。'\n\n她合上书。整座底层书库轻轻颤动了一下。\n\n'如果读完它——这里就结束了。'\n\n她看着你，微笑。'谢谢你把它带来。'",
+            "effects": [
+              { "type": "trigger_super_match", "match_id": "sm_read_the_book" },
+              { "type": "set_flag", "key": "found_lin", "value": true },
+              { "type": "record_choice", "choice_id": "final_choice", "option_id": "read_the_book" }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "book_match",
+          "required_book_id": "lin_letter",
+          "outcome": {
+            "text": "你把她自己的纸条递回给她。\n\n林接过去，看了很久。指尖摩挲着那些急促的字迹。\n\n'我写这个的时候，'她的声音很轻，'还以为自己能出去。'\n\n她把纸条折好，放在心口。她的轮廓变得清晰了一些——像是这张纸条帮她记起了自己是谁。\n\n'谢谢你。'她说，'这是我能想到的最好的告别。'\n\n她闭上眼睛，化成了一本书，轻轻落进你怀里。",
+            "effects": [
+              { "type": "lose_book", "book_id": "lin_letter" },
+              { "type": "set_flag", "key": "found_lin", "value": true },
+              { "type": "record_choice", "choice_id": "final_choice", "option_id": "give_letter" }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["家庭", "儿童", "孩子"],
+          "outcome": {
+            "text": "林看着你手中的书，眼眶微微发红。\n\n'这个故事我知道。'她说，'有时候人会变成别的东西——为了保护自己在乎的人。'\n\n她伸手碰了碰书的封面。手指的透明感消退了一点。\n\n'也许我也是这样。变成一本书，是为了……记住什么重要的事。'\n\n她抬头看你。'带我走吧。'",
+            "effects": [
+              { "type": "set_flag", "key": "found_lin", "value": true },
+              { "type": "record_choice", "choice_id": "final_choice", "option_id": "comfort" }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["规则", "整理", "基础"],
+          "outcome": {
+            "text": "你把手册递给林。她接过去，慢慢翻了几页。\n\n'第一条：保持冷静。'她念出声，嘴角弯了一下，不知道是笑还是别的什么。\n\n'你是个好员工。'她把书还给你，'但我需要的不是规则。'\n\n她转身，一步步走向更深的阴影。你没敢跟。\n\n她的背影变得越来越淡，最终消失在黑暗里。",
+            "effects": [
+              { "type": "record_choice", "choice_id": "final_choice", "option_id": "give_handbook" }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "林看了看你递来的书，轻轻摇头。\n\n'不是这本。'她说，声音有些疲倦，'你还有别的吗？'",
         "effects": [],
         "next_node": null
       }

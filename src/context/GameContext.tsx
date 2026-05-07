@@ -105,18 +105,20 @@ function reducer(state: State, action: Action): State {
       const { outcome, matchType } = resolveEvent(state.currentEvent, action.bookId);
       let newGameState = applyEffects(state.gameState, outcome.effects);
       if (matchType === 'default') {
-        newGameState = loseHp(newGameState);
-        if (newGameState.hp <= 0) {
-          deleteSave();
-          return {
-            ...state,
-            gameState: newGameState,
-            ending: GAME_OVER_ENDING,
-            screen: 'ending_view',
-            currentEvent: null,
-            lastOutcome: null,
-            lastMatchType: null,
-          };
+        if (state.currentEvent.harsh) {
+          newGameState = loseHp(newGameState);
+          if (newGameState.hp <= 0) {
+            deleteSave();
+            return {
+              ...state,
+              gameState: newGameState,
+              ending: GAME_OVER_ENDING,
+              screen: 'ending_view',
+              currentEvent: null,
+              lastOutcome: null,
+              lastMatchType: null,
+            };
+          }
         }
       } else {
         newGameState = completeEvent(newGameState, state.currentEvent.id);

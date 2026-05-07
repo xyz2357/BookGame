@@ -17,9 +17,9 @@ describe('getBook', () => {
 
 describe('getEvent', () => {
   it('returns correct event', () => {
-    const event = getEvent('e_rusty_door');
+    const event = getEvent('e12_collapse');
     expect(event).toBeDefined();
-    expect(event!.node_id).toBe('main_corridor');
+    expect(event!.node_id).toBe('back_corridor');
     expect(event!.solutions).toHaveLength(2);
   });
 });
@@ -37,16 +37,16 @@ describe('getEventsByNode', () => {
   it('returns events for a given node', () => {
     const events = getEventsByNode('entrance');
     expect(events).toHaveLength(1);
-    expect(events[0].id).toBe('e_intro');
+    expect(events[0].id).toBe('e01_dust');
   });
 });
 
 describe('getEndings', () => {
   it('returns all endings', () => {
     const endings = getEndings();
-    expect(endings).toHaveLength(3);
+    expect(endings).toHaveLength(5);
     expect(endings.map(e => e.id)).toEqual(
-      expect.arrayContaining(['ending_truth', 'ending_silence', 'ending_default'])
+      expect.arrayContaining(['ending_read', 'ending_truth', 'ending_substitute', 'ending_peace', 'ending_default'])
     );
   });
 });

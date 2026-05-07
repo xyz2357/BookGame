@@ -21,11 +21,12 @@ export default function EventView() {
 
   if (lastOutcome) {
     const isFailure = lastMatchType === 'default';
+    const isHarshFailure = isFailure && !!currentEvent.harsh;
     return (
       <div>
         <HpCandles hp={gameState.hp} maxHp={gameState.maxHp} />
-        <div className={`result-panel ${isFailure ? 'result-panel--failure' : 'result-panel--success'}`}>
-          {isFailure && <p className="hp-loss">蜡烛熄灭了一根…</p>}
+        <div className={`result-panel ${isFailure ? (isHarshFailure ? 'result-panel--failure' : 'result-panel--miss') : 'result-panel--success'}`}>
+          {isHarshFailure && <p className="hp-loss">蜡烛熄灭了一根…</p>}
           <p className="description">{lastOutcome.text}</p>
         </div>
         <button
