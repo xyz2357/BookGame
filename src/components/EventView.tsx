@@ -43,7 +43,7 @@ export default function EventView() {
     <div>
       <HpCandles hp={gameState.hp} maxHp={gameState.maxHp} />
       <p className="description">{currentEvent.description}</p>
-      <p className="event-prompt">{currentEvent.prompt}</p>
+      <p className={`event-prompt${currentEvent.harsh ? ' event-prompt--harsh' : ''}`}>{currentEvent.prompt}</p>
 
       <h3 className="section-heading">选择一本书</h3>
       {gameState.inventory.map((inst) => {

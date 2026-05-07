@@ -39,8 +39,16 @@ export default function NodeView() {
 
   if (!node) return <div>未知区域</div>;
 
-  const availableEvents = node.events.filter(
-    (eid) => !gameState.completedEvents.includes(eid)
+  const manualEvents = node.events
+    .map(eid => ({ id: eid, event: getEvent(eid) }))
+    .filter(({ event }) => event && event.solutions.length > 0);
+
+  const availableEvents = manualEvents.filter(
+    ({ id }) => !gameState.completedEvents.includes(id)
+  );
+
+  const completedEvents = manualEvents.filter(
+    ({ id }) => gameState.completedEvents.includes(id)
   );
 
   if (lastOutcome) {
@@ -62,18 +70,19 @@ export default function NodeView() {
       <h2>{node.name}</h2>
       <p className="description">{node.description}</p>
 
-      {availableEvents.length > 0 && (
+      {(availableEvents.length > 0 || completedEvents.length > 0) && (
         <div>
           <h3 className="section-heading">事件</h3>
-          {availableEvents.map((eid) => {
-            const event = getEvent(eid);
-            if (!event || event.solutions.length === 0) return null;
-            return (
-              <button key={eid} className="btn-event" onClick={() => enterEvent(eid)}>
-                {event.prompt || event.description}
-              </button>
-            );
-          })}
+          {availableEvents.map(({ id, event }) => (
+            <button key={id} className={`btn-event${event!.harsh ? ' btn-event--harsh' : ''}`} onClick={() => enterEvent(id)}>
+              {event!.prompt || event!.description}
+            </button>
+          ))}
+          {completedEvents.map(({ id, event }) => (
+            <div key={id} className="event-done">
+              {event!.prompt || event!.description}
+            </div>
+          ))}
         </div>
       )}
 

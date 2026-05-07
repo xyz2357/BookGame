@@ -1,57 +1,37 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Tag Match Path - Alternate Playthrough', () => {
-  test('completes the game using tag matches and reaches silence ending', async ({ page }) => {
+test.describe('Tag Match Path - Peace Ending', () => {
+  test('trusts the librarian and reaches ending_peace (安宁)', async ({ page }) => {
     await page.goto('/');
 
     // Start game
     await page.getByRole('button', { name: '开始游戏' }).click();
 
-    // Entrance: handle intro event (use any book - handbook has matching tags)
-    await expect(page.getByRole('heading', { name: '入口' })).toBeVisible();
-    await page.getByRole('button', { name: /任意翻一本书/ }).click();
-    await page.locator('.book-card').filter({ hasText: '图书馆员手册' }).click();
-    await page.getByRole('button', { name: '使用《图书馆员手册》' }).click();
-    await expect(page.getByText('保持冷静')).toBeVisible();
+    // Entrance: auto e01
+    await expect(page.getByText('你深吸一口气')).toBeVisible();
     await page.getByRole('button', { name: '继续' }).click();
-
-    // Move to front room
     await page.getByRole('button', { name: '走下石阶' }).click();
 
-    // Front room: auto-event with note
+    // Front room: auto e02 (gain lin_letter)
     await expect(page.getByText('如果你看到这个')).toBeVisible();
     await page.getByRole('button', { name: '继续' }).click();
 
-    // Move to main corridor
-    await page.getByRole('button', { name: '走向主走廊' }).click();
+    // Go to admin office instead of corridor
+    await page.getByRole('button', { name: '走向管理员办公室' }).click();
 
-    // Main corridor: use painted_skin on rusty door (tag match via "揭露"/"鬼怪")
-    await expect(page.getByRole('heading', { name: '主走廊' })).toBeVisible();
-    await page.getByRole('button', { name: '选一本书来应对' }).click();
+    // Admin office: e03 with handbook → trust path → next_node epilogue → peace ending
+    await expect(page.getByRole('heading', { name: '管理员办公室' })).toBeVisible();
+    await page.getByRole('button', { name: /翻开一本书/ }).click();
 
-    await expect(page.getByText('选择一本书')).toBeVisible();
-    await page.locator('.book-card').filter({ hasText: '画皮' }).click();
-    await page.getByRole('button', { name: '使用《画皮》' }).click();
-
-    // Tag match success text
-    await expect(page.getByText('贴在门上')).toBeVisible();
-    await page.getByRole('button', { name: '继续' }).click();
-
-    // Now at deepest
-    await expect(page.getByRole('heading', { name: '最深处' })).toBeVisible();
-
-    // Final event: use starter_handbook (tag match via "规则"/"基础")
-    await page.getByRole('button', { name: '选一本书递给她' }).click();
-
-    await expect(page.getByText('选择一本书')).toBeVisible();
     await page.locator('.book-card').filter({ hasText: '图书馆员手册' }).click();
     await page.getByRole('button', { name: '使用《图书馆员手册》' }).click();
 
-    // Tag match outcome: Lin reads the handbook and walks away
-    await expect(page.getByText('保持冷静')).toBeVisible();
+    // Trust outcome: librarian approves, sends to epilogue
+    await expect(page.getByText('好孩子')).toBeVisible();
     await page.getByRole('button', { name: '继续' }).click();
 
-    // Ending view: silence ending
-    await expect(page.getByRole('heading', { name: '结局：沉默' })).toBeVisible();
+    // Ending: peace ending
+    await expect(page.getByRole('heading', { name: '结局：安宁' })).toBeVisible();
+    await expect(page.getByText('很远的地方翻书')).toBeVisible();
   });
 });

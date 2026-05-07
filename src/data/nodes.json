@@ -12,7 +12,7 @@
     {
       "id": "front_room",
       "name": "前厅",
-      "description": "一张办公桌，一盏台灯还亮着。桌上散落着表格和笔。\n\n台灯下似乎有什么东西。",
+      "description": "灰白色的荧光灯嗡嗡地响着。一张铁皮办公桌，桌面被茶渍染出深浅不一的圆。\n\n台灯还亮着——一杯水放在桌角，水面上浮着灰尘，像是很久没人碰过。但也没人关灯。\n\n台灯下压着一张折叠的纸。",
       "events": ["e02_lin_desk"],
       "connections": [
         { "target": "admin_office", "label": "走向管理员办公室", "requirement": "none" },
@@ -31,7 +31,7 @@
     {
       "id": "main_corridor",
       "name": "主走廊",
-      "description": "两侧是高耸入天花板的书架。走廊分出几条岔路。\n\n偶尔能听到书架深处传来细微的声响。",
+      "description": "走廊向两个方向延伸，看不到尽头。两侧的书架高耸入天花板，顶上积了厚厚的灰。\n\n头顶的灯管闪了一下，又稳住了。走廊分出几条岔路。\n\n偶尔能听到书架深处传来细微的声响——不是虫子，也不是风。像是有人在翻书。",
       "events": ["e05_whispering"],
       "connections": [
         { "target": "shelf_a", "label": "走向书架A区", "requirement": "none" },
@@ -51,7 +51,7 @@
     {
       "id": "shelf_b",
       "name": "书架B区",
-      "description": "这一区的书架更旧，木头发黑。空气潮湿。\n\n你似乎听到了什么声音。",
+      "description": "这一区的书架更旧，木头发黑，仿佛浸过水又晒干了很多次。空气潮湿而沉重。\n\n书脊上的字迹大多已经模糊。有些书的封面长出了淡绿色的霉斑。\n\n深处传来一阵微弱的声音——像是有人在小声哭。",
       "events": ["e09_find_book_b", "e08_crying_child"],
       "connections": [
         { "target": "back_corridor", "label": "穿过书架间的缝隙", "requirement": "none" }
@@ -70,7 +70,7 @@
     {
       "id": "mirror_world",
       "name": "镜中世界",
-      "description": "一切都是反的——左右、明暗、远近。书架上的书标题都是镜像字。\n\n你在最深处看到一个背影。",
+      "description": "一切都是反的。你伸出右手，镜中的你伸出左手。书架上的标题全是镜像字，你一个也读不出来。\n\n光线从不可能的方向照来，影子落在不该落的地方。你走了几步，觉得地面在微微倾斜。\n\n最深处，一个背影静静站着。长发垂到肩膀。",
       "events": ["e11_mirror_lin"],
       "connections": [
         { "target": "shelf_b", "label": "从镜中走出", "requirement": "none" }
@@ -79,7 +79,7 @@
     {
       "id": "back_corridor",
       "name": "后廊",
-      "description": "灯光到这里已经很暗了。前方的书架像是坍塌过，堵住了大半通道。\n\n隐约能闻到更深处传来的纸张焦味。",
+      "description": "灯光到这里已经衰减到几乎不可见。你的影子在墙上拉得很长。\n\n前方的通道被坍塌的书架堵住了大半。碎木板和散落的书页混在一起。\n\n隐约能闻到更深处传来的纸张焦味——像是什么东西烧过，又灭了很久。",
       "events": ["e12_collapse", "e13_darkness"],
       "connections": [
         { "target": "main_corridor", "label": "回到主走廊", "requirement": "none" },
@@ -98,7 +98,7 @@
     {
       "id": "deepest",
       "name": "最深处",
-      "description": "你来到了书库的尽头。\n\n这里没有书架，只有一把空椅子和散落一地的纸页。\n\n一个人影站在最深的阴影里。她转过身——是林。",
+      "description": "石阶到这里就断了。\n\n眼前是一个不大的圆形空间，穹顶上漏着一丝微光。没有书架——只有一把木椅，椅面已经开裂，旁边散落一地手写的纸页。\n\n纸页上的字迹你认得。是林的。\n\n一个人影站在最远的阴影里。她慢慢转过身。她看起来像是等了很久。",
       "events": ["e15_final"],
       "connections": []
     },

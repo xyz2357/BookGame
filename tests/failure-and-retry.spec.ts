@@ -1,59 +1,51 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Failure and Retry', () => {
-  test('shows HP loss on failure and allows retry with different book', async ({ page }) => {
+  test('shows HP loss on harsh failure and allows retry with different book', async ({ page }) => {
     await page.goto('/');
-
-    // Start game
     await page.getByRole('button', { name: '开始游戏' }).click();
 
-    // Entrance: handle intro event
-    await expect(page.getByRole('heading', { name: '入口' })).toBeVisible();
-    await page.getByRole('button', { name: /任意翻一本书/ }).click();
-    await page.locator('.book-card').filter({ hasText: '图书馆员手册' }).click();
-    await page.getByRole('button', { name: '使用《图书馆员手册》' }).click();
+    // Navigate: entrance → front_room → main_corridor → shelf_a → back_corridor
+    await expect(page.getByText('你深吸一口气')).toBeVisible();
     await page.getByRole('button', { name: '继续' }).click();
-
-    // Move to front room
     await page.getByRole('button', { name: '走下石阶' }).click();
 
-    // Front room: auto-event
     await expect(page.getByText('如果你看到这个')).toBeVisible();
     await page.getByRole('button', { name: '继续' }).click();
-
-    // Move to main corridor
     await page.getByRole('button', { name: '走向主走廊' }).click();
 
-    // Main corridor: try starter_handbook on rusty door (no match - will fail)
-    await expect(page.getByRole('heading', { name: '主走廊' })).toBeVisible();
-    await page.getByRole('button', { name: '选一本书来应对' }).click();
+    await page.getByRole('button', { name: '走向书架A区' }).click();
+    await expect(page.getByText('道林·格雷的画像')).toBeVisible();
+    await page.getByRole('button', { name: '继续' }).click();
+    await page.getByRole('button', { name: '穿过书架间的缝隙' }).click();
 
-    await expect(page.getByText('选择一本书')).toBeVisible();
+    // At back_corridor: verify harsh indicator on collapse event
+    await expect(page.getByRole('heading', { name: '后廊' })).toBeVisible();
+    await expect(page.locator('.btn-event--harsh')).toBeVisible();
+
+    // Try e12_collapse with handbook (no matching tags → harsh failure)
+    await page.getByRole('button', { name: /应对坍塌/ }).click();
     await page.locator('.book-card').filter({ hasText: '图书馆员手册' }).click();
     await page.getByRole('button', { name: '使用《图书馆员手册》' }).click();
 
-    // Failure: verify failure text, HP loss indicator, and retry button
-    await expect(page.getByText('门依然紧闭')).toBeVisible();
-    await expect(page.locator('.hp-loss')).toBeVisible();
+    // Verify failure: HP loss message, 2 lit + 1 spent candles
+    await expect(page.getByText('蜡烛熄灭了一根')).toBeVisible();
+    await expect(page.getByText('纹丝不动')).toBeVisible();
+    await expect(page.locator('.candle.lit')).toHaveCount(2);
+    await expect(page.locator('.candle.spent')).toHaveCount(1);
     await expect(page.getByRole('button', { name: '换一本书试试' })).toBeVisible();
 
-    // Verify HP display shows 2 full hearts (lost 1 from 3)
-    const hpBar = page.locator('.hp-bar');
-    await expect(hpBar).toContainText('❤ ❤ ♡');
-
-    // Click retry
+    // Retry with metamorphosis (tag match on 恐惧/身体)
     await page.getByRole('button', { name: '换一本书试试' }).click();
-
-    // Back to book selection: use painted_skin this time (tag match)
-    await expect(page.getByText('选择一本书')).toBeVisible();
-    await page.locator('.book-card').filter({ hasText: '画皮' }).click();
-    await page.getByRole('button', { name: '使用《画皮》' }).click();
+    await page.locator('.book-card').filter({ hasText: '变形记' }).click();
+    await page.getByRole('button', { name: '使用《变形记》' }).click();
 
     // Success this time
-    await expect(page.getByText('贴在门上')).toBeVisible();
+    await expect(page.getByText('不够优雅，但管用')).toBeVisible();
     await page.getByRole('button', { name: '继续' }).click();
 
-    // Should be at deepest now
-    await expect(page.getByRole('heading', { name: '最深处' })).toBeVisible();
+    // Back at node view, collapse route now open
+    await expect(page.getByRole('heading', { name: '后廊' })).toBeVisible();
+    await expect(page.getByRole('button', { name: '穿过坍塌处' })).toBeEnabled();
   });
 });

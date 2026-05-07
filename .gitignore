@@ -19,3 +19,6 @@ playwright-report/
 
 # Logs
 *.log
+
+# Local docs
+DEPLOY.md
