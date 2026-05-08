@@ -15,16 +15,16 @@ type SfxName =
 type BgmName = 'menu' | 'explore' | 'tension' | 'ending';
 
 const SFX_FILES: Record<SfxName, string> = {
-  page_turn: 'sfx/page_turn.mp3',
-  book_select: 'sfx/book_select.mp3',
-  book_use: 'sfx/book_use.mp3',
-  move_node: 'sfx/move_node.mp3',
-  success: 'sfx/success.mp3',
-  super_match: 'sfx/super_match.mp3',
-  fail: 'sfx/fail.mp3',
-  hp_loss: 'sfx/hp_loss.mp3',
-  gain_book: 'sfx/gain_book.mp3',
-  ui_click: 'sfx/ui_click.mp3',
+  page_turn: 'sfx/page_turn.wav',
+  book_select: 'sfx/book_select.wav',
+  book_use: 'sfx/book_use.wav',
+  move_node: 'sfx/move_node.wav',
+  success: 'sfx/success.wav',
+  super_match: 'sfx/super_match.wav',
+  fail: 'sfx/fail.wav',
+  hp_loss: 'sfx/hp_loss.wav',
+  gain_book: 'sfx/gain_book.wav',
+  ui_click: 'sfx/ui_click.wav',
 };
 
 const BGM_FILES: Record<BgmName, string> = {
