@@ -123,6 +123,12 @@ body {
   animation: fadeIn 0.8s ease both;
 }
 
+.scene-illustration__placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-primary) 100%);
+}
+
 /* ===== Book Cover ===== */
 .book-cover {
   max-width: 160px;

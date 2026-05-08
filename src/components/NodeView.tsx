@@ -56,11 +56,12 @@ export default function NodeView() {
   return (
     <div className="node-layout">
       <div className="node-layout__story">
-        {node.image && (
-          <div className="scene-illustration">
-            <img src={`${import.meta.env.BASE_URL}images/nodes/${node.image}`} alt={node.name} />
-          </div>
-        )}
+        <div className="scene-illustration">
+          {node.image
+            ? <img src={`${import.meta.env.BASE_URL}images/nodes/${node.image}`} alt={node.name} />
+            : <div className="scene-illustration__placeholder" />
+          }
+        </div>
         <h2>{node.name}</h2>
         <p className="description">{node.description}</p>
       </div>

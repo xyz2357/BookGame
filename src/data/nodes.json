@@ -25,6 +25,7 @@
       "id": "admin_office",
       "name": "管理员办公室",
       "description": "一间狭小的办公室，堆满了档案盒。\n\n一位白发老人坐在角落里，正透过老花镜看着你。",
+      "image": "front_room.svg",
       "events": ["e03_old_librarian"],
       "connections": [
         { "target": "main_corridor", "label": "前往主走廊", "requirement": "none" }
@@ -46,6 +47,7 @@
       "id": "shelf_a",
       "name": "书架A区",
       "description": "这一区的书架排列整齐，但仔细看会发现索书号全是乱的。\n\n地上散落着几本掉下来的书。",
+      "image": "main_corridor.svg",
       "events": ["e07_find_book_a", "e06_misplaced"],
       "connections": [
         { "target": "back_corridor", "label": "穿过书架间的缝隙", "requirement": "none" }
@@ -55,6 +57,7 @@
       "id": "shelf_b",
       "name": "书架B区",
       "description": "这一区的书架更旧，木头发黑，仿佛浸过水又晒干了很多次。空气潮湿而沉重。\n\n书脊上的字迹大多已经模糊。有些书的封面长出了淡绿色的霉斑。\n\n深处传来一阵微弱的声音——像是有人在小声哭。",
+      "image": "main_corridor.svg",
       "events": ["e09_find_book_b", "e08_crying_child"],
       "connections": [
         { "target": "back_corridor", "label": "穿过书架间的缝隙", "requirement": "none" }
@@ -75,6 +78,7 @@
       "id": "mirror_world",
       "name": "镜中世界",
       "description": "一切都是反的。你伸出右手，镜中的你伸出左手。书架上的标题全是镜像字，你一个也读不出来。\n\n光线从不可能的方向照来，影子落在不该落的地方。你走了几步，觉得地面在微微倾斜。\n\n最深处，一个背影静静站着。长发垂到肩膀。",
+      "image": "mirror_hall.svg",
       "events": ["e11_mirror_lin"],
       "connections": [
         { "target": "shelf_b", "label": "从镜中走出", "requirement": "none" }
@@ -84,6 +88,7 @@
       "id": "back_corridor",
       "name": "后廊",
       "description": "灯光到这里已经衰减到几乎不可见。你的影子在墙上拉得很长。\n\n前方的通道被坍塌的书架堵住了大半。碎木板和散落的书页混在一起。\n\n隐约能闻到更深处传来的纸张焦味——像是什么东西烧过，又灭了很久。",
+      "image": "back_corridor.svg",
       "events": ["e12_collapse", "e13_darkness"],
       "connections": [
         { "target": "main_corridor", "label": "回到主走廊", "requirement": "none" },
@@ -94,6 +99,7 @@
       "id": "forbidden_entry",
       "name": "禁区入口",
       "description": "一道铁门，上面贴着褪色的封条：'禁止进入'。\n\n门是虚掩的。门后的书架上只有一本书。",
+      "image": "forbidden_entry.svg",
       "events": ["e14_reading_book"],
       "connections": [
         { "target": "deepest", "label": "继续深入", "requirement": "flag", "requirement_value": "dealt_with_book" }
@@ -111,6 +117,7 @@
       "id": "epilogue",
       "name": "尾声",
       "description": "你爬上石阶，回到地面。图书馆的灯已经关了大半。\n\n走廊里只剩下你的脚步声。",
+      "image": "entrance.svg",
       "events": [],
       "connections": []
     }
