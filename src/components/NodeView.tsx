@@ -60,53 +60,56 @@ export default function NodeView() {
   }
 
   return (
-    <div className="node-layout">
-      <div className="node-layout__story">
-        <div className="scene-illustration">
-          {node.image
-            ? <img src={`${import.meta.env.BASE_URL}images/nodes/${node.image}`} alt={node.name} />
-            : <div className="scene-illustration__placeholder" />
-          }
-        </div>
-        <h2>{node.name}</h2>
-        <p className="description">{node.description}</p>
+    <div>
+      <div className="scene-illustration">
+        {node.image
+          ? <img src={`${import.meta.env.BASE_URL}images/nodes/${node.image}`} alt={node.name} />
+          : <div className="scene-illustration__placeholder" />
+        }
       </div>
+      <h2>{node.name}</h2>
 
-      <div className="node-layout__actions">
-        {(availableEvents.length > 0 || completedEvents.length > 0) && (
-          <div>
-            <h3 className="section-heading">事件</h3>
-            {availableEvents.map(({ id, event }) => (
-              <button key={id} className={`btn-event${event!.harsh ? ' btn-event--harsh' : ''}`} onClick={() => enterEvent(id)}>
-                {event!.prompt || event!.description}
-              </button>
-            ))}
-            {completedEvents.map(({ id, event }) => (
-              <div key={id} className="event-done">
-                {event!.prompt || event!.description}
-              </div>
-            ))}
-          </div>
-        )}
+      <div className="node-layout">
+        <div className="node-layout__story">
+          <p className="description">{node.description}</p>
+        </div>
 
-        {node.connections.length > 0 && (
-          <div>
-            <h3 className="section-heading">前往</h3>
-            {node.connections.map((conn) => {
-              const traversable = canTraverse(gameState, conn);
-              return (
-                <button
-                  key={conn.target}
-                  className="btn-nav"
-                  onClick={() => moveToNode(conn.target)}
-                  disabled={!traversable}
-                >
-                  {conn.label}
+        <div className="node-layout__actions">
+          {(availableEvents.length > 0 || completedEvents.length > 0) && (
+            <div>
+              <h3 className="section-heading">事件</h3>
+              {availableEvents.map(({ id, event }) => (
+                <button key={id} className={`btn-event${event!.harsh ? ' btn-event--harsh' : ''}`} onClick={() => enterEvent(id)}>
+                  {event!.prompt || event!.description}
                 </button>
-              );
-            })}
-          </div>
-        )}
+              ))}
+              {completedEvents.map(({ id, event }) => (
+                <div key={id} className="event-done">
+                  {event!.prompt || event!.description}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {node.connections.length > 0 && (
+            <div>
+              <h3 className="section-heading">前往</h3>
+              {node.connections.map((conn) => {
+                const traversable = canTraverse(gameState, conn);
+                return (
+                  <button
+                    key={conn.target}
+                    className="btn-nav"
+                    onClick={() => moveToNode(conn.target)}
+                    disabled={!traversable}
+                  >
+                    {conn.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
