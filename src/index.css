@@ -783,6 +783,23 @@ button:disabled {
   border-radius: 4px;
   padding: 16px 20px;
   position: relative;
+  animation: fadeIn 0.3s ease both;
+}
+
+.detail-panel--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.inventory-use-btn {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.inventory-back-btn {
+  margin-top: 20px;
 }
 
 .detail-panel::before,

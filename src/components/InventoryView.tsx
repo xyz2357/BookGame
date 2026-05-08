@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { useGame } from '../context/GameContext';
 import { getBook } from '../core/DataLoader';
 import type { Book, BookInstance } from '../core/types';
@@ -74,9 +74,16 @@ export default function InventoryView() {
     ? gameState.inventory.find((b) => b.bookId === selectedBookId)
     : null;
 
+  const detailRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (selectedBookId && detailRef.current) {
+      detailRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, [selectedBookId]);
+
   return (
     <div>
-      <h2>{isSelectMode ? '选择一本书' : '背包'}</h2>
+      <h2>{isSelectMode ? '选择一本书' : `背包 (${gameState.inventory.length})`}</h2>
 
       <div className="inventory-toolbar">
         <input
@@ -128,9 +135,9 @@ export default function InventoryView() {
           )}
         </div>
 
-        {selectedBook && selectedInstance && (
-          <div className="inventory-detail">
-            <div className="detail-panel">
+        <div className="inventory-detail" ref={detailRef}>
+          {selectedBook && selectedInstance ? (
+            <div className="detail-panel" key={selectedBookId}>
               {selectedBook.image && (
                 <div className="book-cover">
                   <AssetImage kind="books" image={selectedBook.image} alt={selectedBook.title} />
@@ -151,16 +158,20 @@ export default function InventoryView() {
               <p className="description">{selectedBook.description}</p>
 
               {isSelectMode && (
-                <button className="btn-primary" onClick={() => { playSfx('book_use'); useBook(selectedBookId!); }} style={{ marginTop: '16px', width: '100%' }}>
+                <button className="btn-primary inventory-use-btn" onClick={() => { playSfx('book_use'); useBook(selectedBookId!); }}>
                   使用《{selectedBook.title}》
                 </button>
               )}
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="detail-panel detail-panel--empty">
+              <p className="inventory-empty">选择一本书查看详情</p>
+            </div>
+          )}
+        </div>
       </div>
 
-      <button className="btn-secondary" onClick={closeInventory} style={{ marginTop: '20px' }}>
+      <button className="btn-secondary inventory-back-btn" onClick={closeInventory}>
         {isSelectMode ? '返回事件' : '返回游戏'}
       </button>
     </div>
