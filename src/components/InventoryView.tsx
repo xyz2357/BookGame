@@ -3,6 +3,7 @@ import { useGame } from '../context/GameContext';
 import { getBook } from '../core/DataLoader';
 import type { Book, BookInstance } from '../core/types';
 import AssetImage from './AssetImage';
+import { playSfx } from '../core/AudioManager';
 
 const stateLabels: Record<string, string> = {
   normal: '',
@@ -107,7 +108,7 @@ export default function InventoryView() {
               <div
                 key={inst.bookId}
                 className={`book-card${selectedBookId === inst.bookId ? ' selected' : ''}${inst.state === 'glowing' ? ' glowing' : ''}${isRelevant ? ' book-card--hint' : ''}`}
-                onClick={() => setSelectedBookId(inst.bookId)}
+                onClick={() => { playSfx('book_select'); setSelectedBookId(inst.bookId); }}
               >
                 <div className="book-card__body">
                   {book.image && (
@@ -150,7 +151,7 @@ export default function InventoryView() {
               <p className="description">{selectedBook.description}</p>
 
               {isSelectMode && (
-                <button className="btn-primary" onClick={() => useBook(selectedBookId!)} style={{ marginTop: '16px', width: '100%' }}>
+                <button className="btn-primary" onClick={() => { playSfx('book_use'); useBook(selectedBookId!); }} style={{ marginTop: '16px', width: '100%' }}>
                   使用《{selectedBook.title}》
                 </button>
               )}

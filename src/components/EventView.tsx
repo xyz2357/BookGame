@@ -1,13 +1,36 @@
+import { useEffect, useRef } from 'react';
 import { useGame } from '../context/GameContext';
 import { getNode, getBook } from '../core/DataLoader';
 import GameLayout, { SceneIllustration } from './GameLayout';
 import StoryText from './StoryText';
 import AssetImage from './AssetImage';
+import { playSfx } from '../core/AudioManager';
 
 export default function EventView() {
   const { state, confirmOutcome, clearOutcome, openInventory } = useGame();
   const { currentEvent, lastOutcome, lastMatchType, gameState } = state;
   const node = getNode(gameState.currentNodeId);
+
+  const prevOutcomeRef = useRef<typeof lastOutcome>(null);
+  useEffect(() => {
+    if (lastOutcome && lastOutcome !== prevOutcomeRef.current) {
+      if (lastMatchType === 'super_match') {
+        playSfx('super_match');
+      } else if (lastMatchType === 'tag_match') {
+        playSfx('success');
+      } else if (lastMatchType === 'default') {
+        if (currentEvent?.harsh) {
+          playSfx('hp_loss');
+        } else {
+          playSfx('fail');
+        }
+      }
+      if (lastOutcome.effects.some(e => e.type === 'gain_book')) {
+        setTimeout(() => playSfx('gain_book'), 600);
+      }
+    }
+    prevOutcomeRef.current = lastOutcome;
+  }, [lastOutcome]);
 
   if (!currentEvent) return null;
 
@@ -48,7 +71,7 @@ export default function EventView() {
         actions={
           <button
             className="btn-action"
-            onClick={isFailure ? clearOutcome : confirmOutcome}
+            onClick={() => { playSfx('page_turn'); isFailure ? clearOutcome() : confirmOutcome(); }}
           >
             {isFailure ? '换一本书试试' : '继续'}
           </button>

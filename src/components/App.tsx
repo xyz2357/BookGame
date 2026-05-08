@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GameProvider, useGame } from '../context/GameContext';
 import MainMenu from './MainMenu';
 import NodeView from './NodeView';
@@ -6,11 +6,19 @@ import EventView from './EventView';
 import InventoryView from './InventoryView';
 import EndingView from './EndingView';
 import ConfirmDialog from './ConfirmDialog';
+import { playSfx, playBgm, stopBgm, setMuted, isMuted, initAudioPreference } from '../core/AudioManager';
 
 function GameHeader() {
   const { state, openInventory, returnToMenu } = useGame();
   const { gameState, screen } = state;
   const [showMenuConfirm, setShowMenuConfirm] = useState(false);
+  const [audioMuted, setAudioMuted] = useState(isMuted);
+
+  const toggleMute = () => {
+    const next = !audioMuted;
+    setAudioMuted(next);
+    setMuted(next);
+  };
 
   return (
     <>
@@ -21,6 +29,9 @@ function GameHeader() {
           ))}
         </div>
         <div className="game-header__actions">
+          <button className="game-header__btn" onClick={toggleMute} title={audioMuted ? '开启声音' : '静音'}>
+            {audioMuted ? '🔇' : '🔊'}
+          </button>
           {screen !== 'inventory_view' && (
             <button className="game-header__btn" onClick={openInventory}>
               背包 ({gameState.inventory.length})
@@ -47,7 +58,29 @@ function GameHeader() {
 
 function ScreenRouter() {
   const { state } = useGame();
+  const prevScreenRef = useRef(state.screen);
   const isGameScreen = state.screen !== 'main_menu' && state.screen !== 'ending_view';
+
+  useEffect(() => {
+    const prev = prevScreenRef.current;
+    prevScreenRef.current = state.screen;
+
+    switch (state.screen) {
+      case 'main_menu':
+        playBgm('menu');
+        break;
+      case 'node_view':
+        if (prev === 'main_menu') {
+          playBgm('explore');
+        } else if (prev !== 'inventory_view' && prev !== 'event_view') {
+          playBgm('explore');
+        }
+        break;
+      case 'ending_view':
+        playBgm('ending');
+        break;
+    }
+  }, [state.screen]);
 
   let screen;
   switch (state.screen) {
@@ -79,6 +112,10 @@ function ScreenRouter() {
 }
 
 export default function App() {
+  useEffect(() => {
+    initAudioPreference();
+  }, []);
+
   return (
     <GameProvider>
       <div className="container">

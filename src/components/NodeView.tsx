@@ -6,6 +6,7 @@ import { completeEvent } from '../core/GameState';
 import GameLayout, { SceneIllustration } from './GameLayout';
 import StoryText from './StoryText';
 import AssetImage from './AssetImage';
+import { playSfx } from '../core/AudioManager';
 
 export default function NodeView() {
   const { state, enterEvent, moveToNode, autoEventApplied, clearOutcome } = useGame();
@@ -24,6 +25,7 @@ export default function NodeView() {
         const outcome = event.default_outcome;
         let newState = applyEffects(gameState, outcome.effects);
         newState = completeEvent(newState, eventId);
+        if (outcome.effects.some(e => e.type === 'gain_book')) playSfx('gain_book');
         autoEventApplied(newState, outcome);
         break;
       }
@@ -87,7 +89,7 @@ export default function NodeView() {
             <div>
               <h3 className="section-heading">事件</h3>
               {availableEvents.map(({ id, event }) => (
-                <button key={id} className={`btn-event${event!.harsh ? ' btn-event--harsh' : ''}`} onClick={() => enterEvent(id)}>
+                <button key={id} className={`btn-event${event!.harsh ? ' btn-event--harsh' : ''}`} onClick={() => { playSfx('page_turn'); enterEvent(id); }}>
                   {event!.prompt || event!.description}
                 </button>
               ))}
@@ -108,7 +110,7 @@ export default function NodeView() {
                   <button
                     key={conn.target}
                     className="btn-nav"
-                    onClick={() => moveToNode(conn.target)}
+                    onClick={() => { playSfx('move_node'); moveToNode(conn.target); }}
                     disabled={!traversable}
                   >
                     {conn.label}
