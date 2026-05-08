@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="35%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="280" fill="url(#bg)"/>
+  <rect width="200" height="280" fill="url(#glow)"/>
+  <rect x="10" y="10" width="180" height="260" fill="none" stroke="#3d3024" stroke-width="1"/>
+  <rect x="16" y="16" width="168" height="248" fill="none" stroke="#5a4a38" stroke-width="0.5"/>
+  <!-- face outline - left half visible, right half mask -->
+  <path d="M100 60 Q130 65 140 90 Q145 115 138 135 Q130 155 115 165 Q108 170 100 172" fill="none" stroke="#c9a96e" stroke-width="1.2"/>
+  <path d="M100 60 Q70 65 60 90 Q55 115 62 135 Q70 155 85 165 Q92 170 100 172" fill="none" stroke="#c9a96e" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.5"/>
+  <!-- right eye -->
+  <ellipse cx="118" cy="100" rx="10" ry="6" fill="none" stroke="#c9a96e" stroke-width="1"/>
+  <circle cx="118" cy="100" r="2.5" fill="#c9a96e" opacity="0.6"/>
+  <!-- left eye - hollow -->
+  <ellipse cx="82" cy="100" rx="10" ry="6" fill="none" stroke="#9e8455" stroke-width="0.8" opacity="0.4"/>
+  <!-- nose -->
+  <path d="M100 105 L96 122 L104 122" fill="none" stroke="#9e8455" stroke-width="0.8" opacity="0.6"/>
+  <!-- lips - half smile -->
+  <path d="M88 138 Q100 148 112 138" fill="none" stroke="#c9a96e" stroke-width="1" opacity="0.7"/>
+  <!-- mask edge - vertical split -->
+  <line x1="100" y1="55" x2="100" y2="175" stroke="#c9a96e" stroke-width="0.5" stroke-dasharray="5,5" opacity="0.3"/>
+  <!-- peeling skin detail on left -->
+  <path d="M75 80 Q65 75 60 85" fill="none" stroke="#8b3a3a" stroke-width="0.8" opacity="0.5"/>
+  <path d="M70 130 Q60 128 58 140" fill="none" stroke="#8b3a3a" stroke-width="0.8" opacity="0.5"/>
+  <!-- hair strands -->
+  <path d="M65 62 Q55 40 60 25" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.4"/>
+  <path d="M80 55 Q75 35 78 20" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.4"/>
+  <path d="M120 55 Q125 35 122 20" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.4"/>
+  <path d="M135 62 Q145 40 140 25" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.4"/>
+  <!-- title -->
+  <line x1="60" y1="205" x2="140" y2="205" stroke="#3d3024" stroke-width="0.5"/>
+  <text x="100" y="225" font-family="serif" font-size="14" fill="#c9a96e" text-anchor="middle" letter-spacing="6">画皮</text>
+  <text x="100" y="245" font-family="serif" font-size="9" fill="#7a6b5a" text-anchor="middle" letter-spacing="1">蒲松龄</text>
+  <line x1="60" y1="255" x2="140" y2="255" stroke="#3d3024" stroke-width="0.5"/>
+</svg>

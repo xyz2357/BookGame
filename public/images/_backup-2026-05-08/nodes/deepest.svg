@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0a07"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="skylight" cx="50%" cy="10%" r="20%">
+      <stop offset="0%" stop-color="#e8dcc8" stop-opacity="0.12"/>
+      <stop offset="50%" stop-color="#c9a96e" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="floorlight" cx="50%" cy="80%" r="35%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="300" fill="url(#bg)"/>
+  <rect width="600" height="300" fill="url(#skylight)"/>
+  <rect width="600" height="300" fill="url(#floorlight)"/>
+  <!-- circular room - curved walls -->
+  <ellipse cx="300" cy="280" rx="220" ry="40" fill="none" stroke="#3d3024" stroke-width="1" opacity="0.4"/>
+  <!-- dome/vault ceiling -->
+  <path d="M120 250 Q120 40 300 20 Q480 40 480 250" fill="none" stroke="#3d3024" stroke-width="1" opacity="0.3"/>
+  <!-- light shaft from above -->
+  <path d="M285 0 L260 250 L340 250 L315 0" fill="#e8dcc8" opacity="0.02"/>
+  <!-- small opening at top -->
+  <ellipse cx="300" cy="15" rx="15" ry="5" fill="#2a2118" stroke="#5a4a38" stroke-width="0.5" opacity="0.5"/>
+  <!-- chair -->
+  <rect x="340" y="210" width="22" height="25" fill="none" stroke="#9e8455" stroke-width="0.8" opacity="0.4"/>
+  <line x1="342" y1="235" x2="342" y2="255" stroke="#9e8455" stroke-width="0.6" opacity="0.3"/>
+  <line x1="360" y1="235" x2="360" y2="255" stroke="#9e8455" stroke-width="0.6" opacity="0.3"/>
+  <!-- scattered papers on ground -->
+  <rect x="310" y="248" width="14" height="10" fill="none" stroke="#9e8455" stroke-width="0.4" opacity="0.3" transform="rotate(15,317,253)"/>
+  <rect x="370" y="245" width="12" height="9" fill="none" stroke="#9e8455" stroke-width="0.4" opacity="0.25" transform="rotate(-20,376,250)"/>
+  <rect x="330" y="255" width="13" height="8" fill="none" stroke="#9e8455" stroke-width="0.4" opacity="0.2" transform="rotate(5,337,259)"/>
+  <rect x="355" y="258" width="10" height="7" fill="none" stroke="#9e8455" stroke-width="0.4" opacity="0.15" transform="rotate(-10,360,262)"/>
+  <!-- figure silhouette - Lin standing in shadow -->
+  <!-- head -->
+  <ellipse cx="200" cy="155" rx="10" ry="13" fill="#0d0a07" stroke="#9e8455" stroke-width="0.6" opacity="0.5"/>
+  <!-- body -->
+  <path d="M186 175 Q192 168 200 168 Q208 168 214 175 L210 250 L190 250 Z" fill="#0d0a07" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <!-- hair -->
+  <path d="M190 150 Q185 135 188 125" fill="none" stroke="#9e8455" stroke-width="0.5" opacity="0.3"/>
+  <path d="M195 148 Q192 130 195 120" fill="none" stroke="#9e8455" stroke-width="0.5" opacity="0.3"/>
+  <path d="M210 150 Q215 135 212 125" fill="none" stroke="#9e8455" stroke-width="0.5" opacity="0.3"/>
+  <!-- eyes - faint -->
+  <circle cx="196" cy="154" r="1.2" fill="#c9a96e" opacity="0.2"/>
+  <circle cx="204" cy="154" r="1.2" fill="#c9a96e" opacity="0.2"/>
+</svg>

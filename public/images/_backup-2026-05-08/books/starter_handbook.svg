@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="280" fill="url(#bg)"/>
+  <rect x="10" y="10" width="180" height="260" fill="none" stroke="#3d3024" stroke-width="1"/>
+  <rect x="16" y="16" width="168" height="248" fill="none" stroke="#5a4a38" stroke-width="0.5"/>
+  <!-- open book -->
+  <!-- left page -->
+  <path d="M100 75 Q85 72 55 78 L55 155 Q85 149 100 152 Z" fill="none" stroke="#c9a96e" stroke-width="1.2"/>
+  <!-- right page -->
+  <path d="M100 75 Q115 72 145 78 L145 155 Q115 149 100 152 Z" fill="none" stroke="#c9a96e" stroke-width="1.2"/>
+  <!-- spine -->
+  <line x1="100" y1="75" x2="100" y2="152" stroke="#c9a96e" stroke-width="0.8"/>
+  <!-- text lines on left page -->
+  <line x1="65" y1="92" x2="93" y2="90" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <line x1="65" y1="100" x2="93" y2="98" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <line x1="65" y1="108" x2="88" y2="106" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <line x1="65" y1="116" x2="93" y2="114" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <line x1="65" y1="124" x2="85" y2="122" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <!-- text lines on right page -->
+  <line x1="107" y1="90" x2="138" y2="92" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <line x1="107" y1="98" x2="138" y2="100" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <line x1="107" y1="106" x2="132" y2="108" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <line x1="107" y1="114" x2="138" y2="116" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <!-- candle above book -->
+  <rect x="97" y="38" width="6" height="28" fill="none" stroke="#9e8455" stroke-width="0.8" rx="1"/>
+  <!-- flame -->
+  <ellipse cx="100" cy="33" rx="5" ry="9" fill="none" stroke="#e6c87a" stroke-width="0.8" opacity="0.7"/>
+  <ellipse cx="100" cy="35" rx="2.5" ry="5" fill="#e6c87a" opacity="0.15"/>
+  <!-- wick -->
+  <line x1="100" y1="38" x2="100" y2="34" stroke="#7a6b5a" stroke-width="0.5"/>
+  <!-- title -->
+  <line x1="50" y1="190" x2="150" y2="190" stroke="#3d3024" stroke-width="0.5"/>
+  <text x="100" y="212" font-family="serif" font-size="12" fill="#c9a96e" text-anchor="middle" letter-spacing="2">图书馆员手册</text>
+  <text x="100" y="232" font-family="serif" font-size="9" fill="#7a6b5a" text-anchor="middle" letter-spacing="1">（佚名）</text>
+  <line x1="50" y1="245" x2="150" y2="245" stroke="#3d3024" stroke-width="0.5"/>
+</svg>

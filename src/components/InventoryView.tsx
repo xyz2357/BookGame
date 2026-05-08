@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { useGame } from '../context/GameContext';
 import { getBook } from '../core/DataLoader';
 import type { Book, BookInstance } from '../core/types';
+import AssetImage from './AssetImage';
 
 const stateLabels: Record<string, string> = {
   normal: '',
@@ -110,7 +111,7 @@ export default function InventoryView() {
               >
                 <div className="book-card__body">
                   {book.image && (
-                    <img className="book-card__thumb" src={`${import.meta.env.BASE_URL}images/books/${book.image}`} alt="" />
+                    <AssetImage className="book-card__thumb" kind="books" image={book.image} alt="" />
                   )}
                   <div>
                     <span className="book-card__title">《{book.title}》</span>
@@ -131,7 +132,7 @@ export default function InventoryView() {
             <div className="detail-panel">
               {selectedBook.image && (
                 <div className="book-cover">
-                  <img src={`${import.meta.env.BASE_URL}images/books/${selectedBook.image}`} alt={selectedBook.title} />
+                  <AssetImage kind="books" image={selectedBook.image} alt={selectedBook.title} />
                 </div>
               )}
               <h3>《{selectedBook.title}》</h3>

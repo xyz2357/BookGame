@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import AssetImage from './AssetImage';
 
 interface GameLayoutProps {
   illustration?: ReactNode;
@@ -24,7 +25,7 @@ export function SceneIllustration({ image, name }: { image?: string; name?: stri
   return (
     <div className="scene-illustration">
       {image
-        ? <img src={`${import.meta.env.BASE_URL}images/nodes/${image}`} alt={name || ''} />
+        ? <AssetImage kind="nodes" image={image} alt={name || ''} />
         : <div className="scene-illustration__placeholder" />}
     </div>
   );
