@@ -509,7 +509,15 @@ button:disabled {
 /* ===== Main Menu ===== */
 .main-menu {
   text-align: center;
-  padding-top: 20vh;
+  padding-top: 18vh;
+  animation: fadeIn 0.8s ease both;
+}
+
+.main-menu__icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  animation: fadeSlideUp 0.6s ease 0.1s both;
+  filter: grayscale(0.5) brightness(0.9);
 }
 
 .main-menu__title {
@@ -518,6 +526,7 @@ button:disabled {
   margin-bottom: 8px;
   position: relative;
   display: inline-block;
+  animation: fadeSlideUp 0.6s ease 0.2s both;
 }
 
 .main-menu__title::before,
@@ -526,7 +535,7 @@ button:disabled {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
+  width: 80%;
   height: 1px;
   background: linear-gradient(to right, transparent, var(--accent-gold-dim), transparent);
 }
@@ -540,10 +549,20 @@ button:disabled {
 }
 
 .main-menu__subtitle {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-family: var(--font-serif);
-  font-size: 0.95rem;
-  margin-bottom: 40px;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  animation: fadeSlideUp 0.6s ease 0.35s both;
+}
+
+.main-menu__ornament {
+  color: var(--accent-gold-dim);
+  font-size: 0.9rem;
+  letter-spacing: 16px;
+  margin-bottom: 32px;
+  opacity: 0.5;
+  animation: fadeIn 1s ease 0.5s both;
 }
 
 .main-menu__buttons {
@@ -551,6 +570,7 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  animation: fadeSlideUp 0.6s ease 0.55s both;
 }
 
 .main-menu__buttons .btn-secondary {
@@ -559,10 +579,29 @@ button:disabled {
   border-left-width: 1px;
 }
 
+.main-menu__hint {
+  color: var(--text-muted);
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-style: italic;
+  margin-top: 48px;
+  animation: fadeIn 1.2s ease 1s both;
+}
+
 /* ===== Ending View ===== */
 .ending-view {
   text-align: center;
-  padding-top: 12vh;
+  padding-top: 10vh;
+  animation: fadeIn 0.8s ease both;
+}
+
+.ending-ornament {
+  color: var(--accent-gold-dim);
+  font-size: 1.2rem;
+  letter-spacing: 16px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+  animation: fadeIn 1s ease 0.2s both;
 }
 
 .ending-title {
@@ -571,6 +610,7 @@ button:disabled {
   margin-bottom: 24px;
   position: relative;
   display: inline-block;
+  animation: fadeSlideUp 0.8s ease 0.3s both;
 }
 
 .ending-title::after {
@@ -579,19 +619,62 @@ button:disabled {
   bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 40%;
+  width: 60%;
   height: 1px;
   background: linear-gradient(to right, transparent, var(--accent-gold-dim), transparent);
 }
 
 .ending-text {
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.ending-paragraph {
   font-family: var(--font-serif);
   font-size: 1.1rem;
   line-height: 2;
   color: var(--text-primary);
-  max-width: 500px;
-  margin: 0 auto 32px;
-  animation: fadeSlideUp 0.6s ease 0.3s both;
+  margin: 0 0 16px;
+  white-space: pre-wrap;
+}
+
+.ending-paragraph:nth-child(1) { animation: fadeSlideUp 0.8s ease 0.6s both; }
+.ending-paragraph:nth-child(2) { animation: fadeSlideUp 0.8s ease 1.0s both; }
+.ending-paragraph:nth-child(3) { animation: fadeSlideUp 0.8s ease 1.4s both; }
+.ending-paragraph:nth-child(4) { animation: fadeSlideUp 0.8s ease 1.8s both; }
+.ending-paragraph:nth-child(5) { animation: fadeSlideUp 0.8s ease 2.2s both; }
+.ending-paragraph:nth-child(n+6) { animation: fadeSlideUp 0.8s ease 2.6s both; }
+
+.ending-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 32px auto;
+  max-width: 420px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  animation: fadeIn 0.8s ease 2.5s both;
+}
+
+.ending-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ending-stat__value {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.ending-stat__label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
 }
 
 /* ===== Inventory ===== */
@@ -999,8 +1082,16 @@ button:disabled {
     padding: 14px 16px;
   }
 
-  .ending-text {
+  .ending-paragraph {
     font-size: 1rem;
+  }
+
+  .ending-stats {
+    gap: 16px;
+  }
+
+  .ending-stat__value {
+    font-size: 1.25rem;
   }
 
   .game-header__btn {
