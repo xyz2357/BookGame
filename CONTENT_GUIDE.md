@@ -80,6 +80,26 @@
 }
 ```
 
+### Per-book 风味文字 (book_text)
+
+任何 outcome（包括 tag_match 的 outcome 和 default_outcome）都可以添加 `book_text` 字段，为不同书籍提供专属描述：
+
+```jsonc
+{
+  "type": "tag_match",
+  "required_tags": ["恐惧"],
+  "outcome": {
+    "text": "通用成功文字（当没有匹配的 book_text 时使用）",
+    "book_text": {
+      "metamorphosis": "变形记特有的解谜描写——甲虫的意象与场景呼应...",
+      "usher": "厄舍府特有的解谜描写——崩塌与衰朽的共鸣..."
+    },
+    "effects": [...],
+    "next_node": null
+  }
+}
+```
+
 **自动事件** vs **手动事件**：
 - `solutions` 为空数组 `[]` → 自动事件，进入节点时自动触发，使用 `default_outcome`
 - `solutions` 非空 → 手动事件，显示 prompt，玩家从背包选书
@@ -99,6 +119,9 @@
 | `crooked_field` | 促织 | 化身, 家庭, 儿童, 卑微, 东方 | e09_find_book_b（书架B自动） |
 | `usher` | 厄舍府的崩塌 | 共鸣, 崩塌, 恐惧, 双生, 衰朽 | e11_mirror_lin（镜中世界） |
 | `the_book_that_reads_you` | 无名之书 | 异常, 剧情, 镜子, 揭露 | e14_reading_book（禁区解谜） |
+| `little_prince` | 小王子 | 纯真, 离别, 星星, 儿童 | e17_forgotten_shelf（阅览室） |
+| `shanhai_jing` | 山海经 | 古老, 怪物, 东方, 知识 | e19_sealed_cabinet（档案室） |
+| `solitude` | 百年孤独 | 孤独, 记忆, 循环, 家庭 | e18_reading_puzzle（阅览室解谜） |
 
 ### 标签分布统计
 
@@ -108,8 +131,10 @@
 |---|---|
 | 恐惧 | metamorphosis, usher, madman_diary |
 | 揭露 | painted_skin, madman_diary, the_book_that_reads_you |
-| 家庭 | metamorphosis, crooked_field |
-| 东方 | painted_skin, crooked_field |
+| 家庭 | metamorphosis, crooked_field, solitude |
+| 东方 | painted_skin, crooked_field, shanhai_jing |
+| 儿童 | crooked_field, little_prince |
+| 知识 | starter_handbook, shanhai_jing |
 | 镜子 | dorian_gray, the_book_that_reads_you |
 | 规则/整理/基础/知识 | starter_handbook（独占） |
 | 异化 | metamorphosis（独占） |
@@ -182,6 +207,7 @@
 | 优先级 | 结局 | 条件 |
 |---|---|---|
 | 100 | 读完 | `sm_read_the_book` 被触发 |
+| 50 | 回忆 | `found_personnel_pattern` + `found_lin` |
 | 30 | 真相 | `found_lin` = true |
 | 20 | 替代 | `final_choice` = `give_handbook` |
 | 10 | 安宁 | `trust_old_librarian` = `trust` |
@@ -205,6 +231,8 @@ entrance → front_room → admin_office
                        → main_corridor → shelf_a ──→ back_corridor → forbidden_entry → deepest → (epilogue)
                                        → shelf_b ──↗
                                        → mirror_hall → mirror_world
+                                       → reading_room
+                       → archive_room
 ```
 
 门锁：
@@ -228,9 +256,11 @@ entrance → front_room → admin_office
 
 6. **文本高亮**：用 `**双星号**` 标记关键信息。每段最多 1-2 处。标记线索、人物、转折，不标记普通描述。
 
-7. **next_node 使用**：大多数 outcome 的 next_node 为 null（留在当前节点）。只在叙事上需要强制跳转时使用（如 e03 信任老管理员直接去 epilogue）。
+7. **Per-book 风味文字**：对 tag_match 类型的 solution，尽量在 outcome 中添加 `book_text`，为能命中该 tag 的每本书写一段专属文字。这让不同书解同一个谜时体验不同，大幅提升重玩价值。`text` 字段作为兜底，`book_text` 中的 key 是 book_id。
 
-8. **ID 约定**：
+8. **next_node 使用**：大多数 outcome 的 next_node 为 null（留在当前节点）。只在叙事上需要强制跳转时使用（如 e03 信任老管理员直接去 epilogue）。
+
+9. **ID 约定**：
    - 节点：描述性 snake_case（`mirror_hall`, `back_corridor`）
    - 事件：`e{序号}_{描述}`（`e05_whispering`）
    - 书：描述性 snake_case（`dorian_gray`, `lin_letter`）

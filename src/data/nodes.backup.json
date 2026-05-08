@@ -1,0 +1,125 @@
+{
+  "nodes": [
+    {
+      "id": "entrance",
+      "name": "入口",
+      "description": "你站在底层书库的入口。**一段石阶向下延伸**，尽头是昏黄的灯光。\n\n空气里有旧纸和灰尘的味道。石壁上刻着不知哪年的涂鸦。",
+      "image": "entrance.svg",
+      "events": ["e01_dust"],
+      "connections": [
+        { "target": "front_room", "label": "走下石阶", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "front_room",
+      "name": "前厅",
+      "description": "灰白色的荧光灯嗡嗡地响着。一张铁皮办公桌，桌面被茶渍染出深浅不一的圆。\n\n台灯还亮着——一杯水放在桌角，水面上浮着灰尘，像是很久没人碰过。但也没人关灯。\n\n**台灯下压着一张折叠的纸。**",
+      "image": "front_room.svg",
+      "events": ["e02_lin_desk"],
+      "connections": [
+        { "target": "admin_office", "label": "走向管理员办公室", "requirement": "none" },
+        { "target": "main_corridor", "label": "走向主走廊", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "admin_office",
+      "name": "管理员办公室",
+      "description": "一间狭小的办公室，堆满了档案盒。\n\n**一位白发老人**坐在角落里，正透过老花镜看着你。",
+      "image": "front_room.svg",
+      "events": ["e03_old_librarian"],
+      "connections": [
+        { "target": "main_corridor", "label": "前往主走廊", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "main_corridor",
+      "name": "主走廊",
+      "description": "走廊向两个方向延伸，看不到尽头。两侧的书架高耸入天花板，顶上积了厚厚的灰。\n\n头顶的灯管闪了一下，又稳住了。走廊分出几条岔路。\n\n偶尔能听到书架深处传来**细微的声响**——不是虫子，也不是风。像是有人在翻书。",
+      "image": "main_corridor.svg",
+      "events": ["e05_whispering"],
+      "connections": [
+        { "target": "shelf_a", "label": "走向书架A区", "requirement": "none" },
+        { "target": "mirror_hall", "label": "走向镜厅", "requirement": "none" },
+        { "target": "shelf_b", "label": "走向书架B区", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "shelf_a",
+      "name": "书架A区",
+      "description": "这一区的书架排列整齐，但仔细看会发现**索书号全是乱的**。\n\n地上散落着几本掉下来的书。",
+      "image": "main_corridor.svg",
+      "events": ["e07_find_book_a", "e06_misplaced"],
+      "connections": [
+        { "target": "back_corridor", "label": "穿过书架间的缝隙", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "shelf_b",
+      "name": "书架B区",
+      "description": "这一区的书架更旧，木头发黑，仿佛浸过水又晒干了很多次。空气潮湿而沉重。\n\n书脊上的字迹大多已经模糊。有些书的封面长出了淡绿色的霉斑。\n\n深处传来一阵微弱的声音——**像是有人在小声哭**。",
+      "image": "main_corridor.svg",
+      "events": ["e09_find_book_b", "e08_crying_child"],
+      "connections": [
+        { "target": "back_corridor", "label": "穿过书架间的缝隙", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "mirror_hall",
+      "name": "镜厅",
+      "description": "走廊尽头是**一面巨大的穿衣镜**，镜框上雕着已经模糊的花纹。\n\n镜子里映出的不只是你——好像还有别的什么。",
+      "image": "mirror_hall.svg",
+      "events": ["e10_mirror"],
+      "connections": [
+        { "target": "main_corridor", "label": "回到主走廊", "requirement": "none" },
+        { "target": "mirror_world", "label": "走进镜中", "requirement": "flag", "requirement_value": "mirror_reached_in" }
+      ]
+    },
+    {
+      "id": "mirror_world",
+      "name": "镜中世界",
+      "description": "一切都是反的。你伸出右手，镜中的你伸出左手。书架上的标题全是镜像字，你一个也读不出来。\n\n光线从不可能的方向照来，影子落在不该落的地方。你走了几步，觉得地面在微微倾斜。\n\n最深处，**一个背影静静站着**。长发垂到肩膀。",
+      "image": "mirror_hall.svg",
+      "events": ["e11_mirror_lin"],
+      "connections": [
+        { "target": "shelf_b", "label": "从镜中走出", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "back_corridor",
+      "name": "后廊",
+      "description": "灯光到这里已经衰减到几乎不可见。你的影子在墙上拉得很长。\n\n前方的通道**被坍塌的书架堵住了大半**。碎木板和散落的书页混在一起。\n\n隐约能闻到更深处传来的纸张焦味——像是什么东西烧过，又灭了很久。",
+      "image": "back_corridor.svg",
+      "events": ["e12_collapse", "e13_darkness"],
+      "connections": [
+        { "target": "main_corridor", "label": "回到主走廊", "requirement": "none" },
+        { "target": "forbidden_entry", "label": "穿过坍塌处", "requirement": "flag", "requirement_value": "cleared_collapse" }
+      ]
+    },
+    {
+      "id": "forbidden_entry",
+      "name": "禁区入口",
+      "description": "一道铁门，上面贴着褪色的封条：'禁止进入'。\n\n门是虚掩的。门后的书架上**只有一本书**。",
+      "image": "forbidden_entry.svg",
+      "events": ["e14_reading_book"],
+      "connections": [
+        { "target": "deepest", "label": "继续深入", "requirement": "flag", "requirement_value": "dealt_with_book" }
+      ]
+    },
+    {
+      "id": "deepest",
+      "name": "最深处",
+      "description": "石阶到这里就断了。\n\n眼前是一个不大的圆形空间，穹顶上漏着一丝微光。没有书架——只有一把木椅，椅面已经开裂，旁边散落一地手写的纸页。\n\n纸页上的字迹你认得。**是林的。**\n\n一个人影站在最远的阴影里。她慢慢转过身。她看起来像是等了很久。",
+      "image": "deepest.svg",
+      "events": ["e15_final"],
+      "connections": []
+    },
+    {
+      "id": "epilogue",
+      "name": "尾声",
+      "description": "你爬上石阶，回到地面。图书馆的灯已经关了大半。\n\n走廊里只剩下你的脚步声。",
+      "image": "entrance.svg",
+      "events": [],
+      "connections": []
+    }
+  ]
+}
