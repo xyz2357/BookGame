@@ -588,6 +588,13 @@ button:disabled {
   animation: fadeIn 1.2s ease 1s both;
 }
 
+.main-menu__version {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  margin-top: 12px;
+  opacity: 0.4;
+}
+
 /* ===== Ending View ===== */
 .ending-view {
   text-align: center;

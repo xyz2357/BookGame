@@ -25,6 +25,7 @@ export default function MainMenu() {
         </button>
       </div>
       <p className="main-menu__hint">一座图书馆的最底层，藏着不该被读到的书。</p>
+      <p className="main-menu__version">{__BUILD_TIME__}</p>
       {showRestartConfirm && (
         <ConfirmDialog
           title="重新开始"
