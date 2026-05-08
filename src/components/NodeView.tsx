@@ -3,6 +3,7 @@ import { useGame, canTraverse } from '../context/GameContext';
 import { getNode, getEvent } from '../core/DataLoader';
 import { applyEffects } from '../core/EffectApplier';
 import { completeEvent } from '../core/GameState';
+import GameLayout, { SceneIllustration } from './GameLayout';
 
 export default function NodeView() {
   const { state, enterEvent, moveToNode, autoEventApplied, clearOutcome } = useGame();
@@ -43,38 +44,28 @@ export default function NodeView() {
 
   if (lastOutcome) {
     return (
-      <div>
-        <div className="scene-illustration">
-          {node.image
-            ? <img src={`${import.meta.env.BASE_URL}images/nodes/${node.image}`} alt={node.name} />
-            : <div className="scene-illustration__placeholder" />
-          }
-        </div>
-        <h2>{node.name}</h2>
-        <div className="result-panel result-panel--success">
-          <p className="description">{lastOutcome.text}</p>
-        </div>
-        <button className="btn-primary" onClick={clearOutcome}>继续</button>
-      </div>
+      <GameLayout
+        illustration={<SceneIllustration image={node.image} name={node.name} />}
+        title={node.name}
+        narrative={
+          <div className="result-panel result-panel--success">
+            <p className="description">{lastOutcome.text}</p>
+          </div>
+        }
+        actions={
+          <button className="btn-action" onClick={clearOutcome}>继续</button>
+        }
+      />
     );
   }
 
   return (
-    <div>
-      <div className="scene-illustration">
-        {node.image
-          ? <img src={`${import.meta.env.BASE_URL}images/nodes/${node.image}`} alt={node.name} />
-          : <div className="scene-illustration__placeholder" />
-        }
-      </div>
-      <h2>{node.name}</h2>
-
-      <div className="node-layout">
-        <div className="node-layout__story">
-          <p className="description">{node.description}</p>
-        </div>
-
-        <div className="node-layout__actions">
+    <GameLayout
+      illustration={<SceneIllustration image={node.image} name={node.name} />}
+      title={node.name}
+      narrative={<p className="description">{node.description}</p>}
+      actions={
+        <>
           {(availableEvents.length > 0 || completedEvents.length > 0) && (
             <div>
               <h3 className="section-heading">事件</h3>
@@ -109,8 +100,8 @@ export default function NodeView() {
               })}
             </div>
           )}
-        </div>
-      </div>
-    </div>
+        </>
+      }
+    />
   );
 }

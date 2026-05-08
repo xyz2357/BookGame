@@ -307,6 +307,26 @@ button:disabled {
   opacity: 0.7;
 }
 
+.btn-action {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-gold);
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  border-radius: 2px;
+  margin: 6px 0;
+}
+
+.btn-action:hover:not(:disabled) {
+  background: var(--bg-surface-hover);
+  border-left-color: var(--accent-gold-bright);
+  transform: translateX(3px);
+}
+
 .event-done {
   color: var(--text-muted);
   padding: 6px 16px;
@@ -856,7 +876,8 @@ button:disabled {
 
   .btn-event,
   .btn-nav,
-  .btn-secondary {
+  .btn-secondary,
+  .btn-action {
     padding: 14px 16px;
     min-height: 48px;
   }
@@ -888,7 +909,8 @@ button:disabled {
 
   .btn-event:active:not(:disabled),
   .btn-nav:active:not(:disabled),
-  .btn-secondary:active:not(:disabled) {
+  .btn-secondary:active:not(:disabled),
+  .btn-action:active:not(:disabled) {
     background: var(--bg-surface-hover);
   }
 
