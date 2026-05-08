@@ -745,6 +745,37 @@ button:disabled {
   background: rgba(201, 169, 110, 0.08);
 }
 
+/* ===== Text Highlight ===== */
+.text-highlight {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* ===== Book Acquired Card ===== */
+.book-acquired {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(201, 169, 110, 0.08);
+  border: 1px solid var(--accent-gold-dim);
+  border-radius: 4px;
+  animation: fadeSlideUp 0.5s ease 0.2s both;
+}
+
+.book-acquired__label {
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+  margin-bottom: 4px;
+}
+
+.book-acquired__title {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
 /* ===== Event View ===== */
 .event-prompt {
   font-family: var(--font-serif);

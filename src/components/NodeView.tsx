@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { useGame, canTraverse } from '../context/GameContext';
-import { getNode, getEvent } from '../core/DataLoader';
+import { getNode, getEvent, getBook } from '../core/DataLoader';
 import { applyEffects } from '../core/EffectApplier';
 import { completeEvent } from '../core/GameState';
 import GameLayout, { SceneIllustration } from './GameLayout';
+import StoryText from './StoryText';
 
 export default function NodeView() {
   const { state, enterEvent, moveToNode, autoEventApplied, clearOutcome } = useGame();
@@ -49,7 +50,22 @@ export default function NodeView() {
         title={node.name}
         narrative={
           <div className="result-panel result-panel--success">
-            <p className="description">{lastOutcome.text}</p>
+            <StoryText text={lastOutcome.text} className="description" />
+            {lastOutcome.effects
+              .filter(e => e.type === 'gain_book')
+              .map(e => {
+                const book = getBook((e as { type: 'gain_book'; book_id: string }).book_id);
+                if (!book) return null;
+                return (
+                  <div key={book.id} className="book-acquired">
+                    {book.image && <img className="book-card__thumb" src={`${import.meta.env.BASE_URL}images/books/${book.image}`} alt={book.title} />}
+                    <div>
+                      <div className="book-acquired__label">获得书籍</div>
+                      <div className="book-acquired__title">《{book.title}》</div>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         }
         actions={
@@ -63,7 +79,7 @@ export default function NodeView() {
     <GameLayout
       illustration={<SceneIllustration image={node.image} name={node.name} />}
       title={node.name}
-      narrative={<p className="description">{node.description}</p>}
+      narrative={<StoryText text={node.description} className="description" />}
       actions={
         <>
           {(availableEvents.length > 0 || completedEvents.length > 0) && (
