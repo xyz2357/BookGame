@@ -37,6 +37,7 @@
 | `quote` | ✓ | string | 台词，建议 4-15 字 |
 | `tags` | ✓ | array of string | 3-5 个 tag |
 | `description` | ✓ | string | 简介，1-2 句 |
+| `image` | 可选 | string | 书卡封面图，放在 `public/images/books/`。AssetImage 自动 fallback: webp → png → svg |
 
 ## events.json
 
@@ -120,7 +121,8 @@
 
 | 字段 | 必填 | 类型 | 说明 |
 |---|---|---|---|
-| `text` | ✓ | string | 显示给玩家的结果文本 |
+| `text` | ✓ | string | 显示给玩家的结果文本（兜底，当 book_text 无匹配时使用） |
+| `book_text` | 可选 | Record<string, string> | Per-book 风味文字。key 为 book_id，value 为该书专属的结果文本。匹配时自动覆盖 `text` |
 | `effects` | ✓ | array of Effect | 状态改变 |
 | `next_node` | 可选 | string \| null | 解决后跳转到哪个节点。为 null 表示留在当前节点 |
 
@@ -206,7 +208,8 @@
 |---|---|---|---|
 | `id` | ✓ | string | |
 | `name` | ✓ | string | UI 显示名 |
-| `description` | ✓ | string | 进入时的场景描述 |
+| `description` | ✓ | string | 进入时的场景描述（支持 `**高亮**` 标记） |
+| `image` | 可选 | string | 场景插图，放在 `public/images/nodes/`。AssetImage 自动 fallback: webp → png → svg |
 | `events` | ✓ | array of event_id | 节点上的事件 |
 | `connections` | ✓ | array of Connection | 出去的路径 |
 
