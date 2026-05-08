@@ -44,9 +44,9 @@ describe('getEventsByNode', () => {
 describe('getEndings', () => {
   it('returns all endings', () => {
     const endings = getEndings();
-    expect(endings).toHaveLength(5);
+    expect(endings).toHaveLength(6);
     expect(endings.map(e => e.id)).toEqual(
-      expect.arrayContaining(['ending_read', 'ending_truth', 'ending_substitute', 'ending_peace', 'ending_default'])
+      expect.arrayContaining(['ending_read', 'ending_remember', 'ending_truth', 'ending_substitute', 'ending_peace', 'ending_default'])
     );
   });
 });

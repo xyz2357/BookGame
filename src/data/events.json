@@ -399,6 +399,142 @@
         "effects": [],
         "next_node": null
       }
+    },
+    {
+      "id": "e16_find_little_prince",
+      "node_id": "reading_room",
+      "description": "阅览桌的桌腿旁边，一本黄色封面的小书歪倒在地上。像是有人走的时候不小心碰掉的。",
+      "prompt": "",
+      "solutions": [],
+      "default_outcome": {
+        "text": "你捡起来：**《小王子》**。封面上画着一个站在小星球上的男孩。\n\n扉页上有人用淡蓝色的笔写了一句：**'真正重要的东西，眼睛是看不见的。'**",
+        "effects": [
+          { "type": "gain_book", "book_id": "little_prince" }
+        ],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e17_phantom_reader",
+      "node_id": "reading_room",
+      "description": "那个半透明的身影坐在桌前，手指翻动着一本看不清的书。她——或者他——抬起头看了你一眼。\n\n**嘴唇在动，但没有声音。**\n\n桌上那杯干掉的茶轻轻晃了晃。",
+      "prompt": "选一本书递给她",
+      "solutions": [
+        {
+          "type": "book_match",
+          "required_book_id": "little_prince",
+          "outcome": {
+            "text": "你把《小王子》放在桌上。身影低头看了看，嘴角弯了一下。\n\n她的嘴唇动了。这一次，你听到了——很轻，像是从水底传来：\n\n**'我也在等一个人来接我回去。'**\n\n她的轮廓亮了一瞬，然后慢慢消散。桌上多了一颗小小的纸折星星。",
+            "effects": [
+              { "type": "mark_book", "book_id": "little_prince", "state": "glowing" },
+              { "type": "trigger_super_match", "match_id": "sm_prince_phantom" },
+              { "type": "set_flag", "key": "phantom_spoke", "value": true }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["纯真", "离别", "儿童", "孤独"],
+          "outcome": {
+            "text": "你把书放在桌上。身影伸手摸了摸封面，点了点头。\n\n她站起身，向书架深处走去。走到第三排书架时，**她回头看了你一眼**。\n\n然后消失了。桌上的茶杯也凉了。",
+            "effects": [
+              { "type": "set_flag", "key": "phantom_spoke", "value": true }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "身影看了看你手里的书，轻轻摇头。她的目光回到自己的书上。\n\n你被忽视了。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e18_desk_book",
+      "node_id": "reading_room",
+      "description": "阅览桌最深处，有一本摊开的书。**书页在自己翻动**——没有风，没有人碰它。\n\n每翻一页，你都能看到页面上的文字在变化。像是这本书正在自己重写自己。",
+      "prompt": "选一本书来回应这本自我重写的书",
+      "solutions": [
+        {
+          "type": "tag_match",
+          "required_tags": ["记忆", "循环", "古老"],
+          "outcome": {
+            "text": "你翻开书对着那本不断重写的书。两本书的文字似乎产生了共振。\n\n那本书的翻动渐渐慢了下来。最后一页停住了——上面写着一行字：**'所有被遗忘的人，都会在这里重复他们最后的一天。'**\n\n书合上了。你把它拿起来。",
+            "effects": [
+              { "type": "gain_book", "book_id": "solitude" },
+              { "type": "set_flag", "key": "learned_cycle", "value": true }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["揭露", "觉醒", "谜题", "知识"],
+          "outcome": {
+            "text": "你翻开书对着它。翻动停了一瞬，你看到一行字闪过：**'循环'**。\n\n然后书页又开始翻动。你没能抓住它。但你记住了那个词。",
+            "effects": [
+              { "type": "set_flag", "key": "learned_cycle", "value": true }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "你把书凑近。那本书翻动得更快了，像是在回避你。\n\n也许需要一本更懂'重复'的书。",
+        "effects": [],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e19_find_shanhai",
+      "node_id": "archive_room",
+      "description": "文件柜最底层的抽屉里，压在一叠报废表格下面，是一本用丝线装订的古书。",
+      "prompt": "",
+      "solutions": [],
+      "default_outcome": {
+        "text": "你小心翼翼地抽出来：**《山海经》**。绢本，字迹古朴。\n\n翻开一页，画着一只人面鸟身的怪物。旁边有人用现代的笔迹批注：**'它也是被变成这样的。'**",
+        "effects": [
+          { "type": "gain_book", "book_id": "shanhai_jing" }
+        ],
+        "next_node": null
+      }
+    },
+    {
+      "id": "e20_personnel_files",
+      "node_id": "archive_room",
+      "description": "文件柜上的标签写着'离职人员'。抽屉拉开，里面整整齐齐地排着几十份档案。\n\n**最上面那份的照片，你认得——是林。**",
+      "prompt": "选一本书来理解这些档案",
+      "solutions": [
+        {
+          "type": "tag_match",
+          "required_tags": ["揭露", "觉醒", "知识", "记忆"],
+          "outcome": {
+            "text": "你一份一份翻过去。每份档案的'离职原因'一栏都写着同一行字：'自愿离职'。\n\n但日期不对。有些人是十年前'离职'的，有些是二十年前。**最早的一份，是1952年。**\n\n你把档案按时间排列。每隔三到五年，就有一个人'离职'。没有例外。\n\n最后一份是林的。日期是三个月前。**下一份——是空白的。**",
+            "effects": [
+              { "type": "set_flag", "key": "found_personnel_pattern", "value": true }
+            ],
+            "next_node": null
+          }
+        },
+        {
+          "type": "tag_match",
+          "required_tags": ["规则", "整理", "基础"],
+          "outcome": {
+            "text": "你按照手册上的归档规则重新整理这些档案。\n\n分类的过程中你发现了规律：每份'离职'档案的交接人都是同一个人——那个白发老管理员。\n\n**他在这里工作了至少七十年。**",
+            "effects": [
+              { "type": "set_flag", "key": "found_personnel_pattern", "value": true }
+            ],
+            "next_node": null
+          }
+        }
+      ],
+      "default_outcome": {
+        "text": "档案太多了，你看了几份，都是'自愿离职'。也许真的只是正常的人事变动。\n\n你合上了抽屉。",
+        "effects": [],
+        "next_node": null
+      }
     }
   ]
 }

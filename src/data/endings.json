@@ -10,6 +10,16 @@
       "priority": 100
     },
     {
+      "id": "ending_remember",
+      "name": "结局：记忆",
+      "conditions": [
+        { "type": "flag", "key": "found_personnel_pattern", "value": true },
+        { "type": "flag", "key": "found_lin", "value": true }
+      ],
+      "text": "你爬上石阶。手里多了一叠档案和一本书。\n\n档案里是七十年来所有'失踪'在底层书库的人的名字。书里——是林。\n\n你没有回去上班。你去了市图书馆的旧档案室，一个一个查找那些名字。\n\n他们都有家人。有些家人还在等。\n\n你花了三个月，把所有能联系到的家属都找到了。你没办法解释发生了什么——你只是说，你在整理旧档案的时候发现了他们的名字。\n\n'我想让你们知道，有人记得他们。'\n\n最后一个电话是林的母亲。老人在电话那头沉默了很久。\n\n'谢谢你。'她说。和林的声音一模一样。",
+      "priority": 50
+    },
+    {
       "id": "ending_truth",
       "name": "结局：真相",
       "conditions": [

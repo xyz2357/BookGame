@@ -28,7 +28,8 @@
       "image": "front_room.svg",
       "events": ["e03_old_librarian"],
       "connections": [
-        { "target": "main_corridor", "label": "前往主走廊", "requirement": "none" }
+        { "target": "main_corridor", "label": "前往主走廊", "requirement": "none" },
+        { "target": "archive_room", "label": "走向档案室", "requirement": "none" }
       ]
     },
     {
@@ -39,6 +40,7 @@
       "events": ["e05_whispering"],
       "connections": [
         { "target": "shelf_a", "label": "走向书架A区", "requirement": "none" },
+        { "target": "reading_room", "label": "走向阅览室", "requirement": "none" },
         { "target": "mirror_hall", "label": "走向镜厅", "requirement": "none" },
         { "target": "shelf_b", "label": "走向书架B区", "requirement": "none" }
       ]
@@ -112,6 +114,26 @@
       "image": "deepest.svg",
       "events": ["e15_final"],
       "connections": []
+    },
+    {
+      "id": "reading_room",
+      "name": "阅览室",
+      "description": "几张老旧的阅览桌，桌面上刻满了笔痕。有人在这里读过很久很久的书。\n\n其中一张桌上还放着一杯茶。茶水已经干了，杯底留着深褐色的茶渍——但杯子是温的。\n\n**角落里，一个半透明的身影正坐在椅子上翻书。**",
+      "image": "front_room.svg",
+      "events": ["e16_find_little_prince", "e17_phantom_reader", "e18_desk_book"],
+      "connections": [
+        { "target": "main_corridor", "label": "回到主走廊", "requirement": "none" }
+      ]
+    },
+    {
+      "id": "archive_room",
+      "name": "档案室",
+      "description": "铁皮文件柜排成两列，从地面一直到天花板。每个抽屉上都贴着泛黄的标签。\n\n空气里有一股强烈的樟脑味。**某个抽屉没有关紧**，一角纸页露在外面。",
+      "image": "front_room.svg",
+      "events": ["e19_find_shanhai", "e20_personnel_files"],
+      "connections": [
+        { "target": "admin_office", "label": "回到管理员办公室", "requirement": "none" }
+      ]
     },
     {
       "id": "epilogue",
