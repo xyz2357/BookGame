@@ -1,11 +1,8 @@
-import { useState } from 'react';
 import { useGame } from '../context/GameContext';
-import { getBook } from '../core/DataLoader';
 
 export default function EventView() {
-  const { state, useBook, confirmOutcome, clearOutcome } = useGame();
-  const { currentEvent, lastOutcome, lastMatchType, gameState } = state;
-  const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
+  const { state, confirmOutcome, clearOutcome, openInventory } = useGame();
+  const { currentEvent, lastOutcome, lastMatchType } = state;
 
   if (!currentEvent) return null;
 
@@ -20,7 +17,7 @@ export default function EventView() {
         </div>
         <button
           className="btn-primary"
-          onClick={isFailure ? () => { setSelectedBookId(null); clearOutcome(); } : confirmOutcome}
+          onClick={isFailure ? clearOutcome : confirmOutcome}
         >
           {isFailure ? '换一本书试试' : '继续'}
         </button>
@@ -33,37 +30,9 @@ export default function EventView() {
       <p className="description">{currentEvent.description}</p>
       <p className={`event-prompt${currentEvent.harsh ? ' event-prompt--harsh' : ''}`}>{currentEvent.prompt}</p>
 
-      <h3 className="section-heading">选择一本书</h3>
-      <div className="book-grid">
-        {gameState.inventory.map((inst) => {
-          const book = getBook(inst.bookId);
-          if (!book) return null;
-          const isSelected = selectedBookId === inst.bookId;
-          return (
-            <div
-              key={inst.bookId}
-              className={`book-card${isSelected ? ' selected' : ''}${inst.state === 'glowing' ? ' glowing' : ''}`}
-              onClick={() => setSelectedBookId(inst.bookId)}
-            >
-              <div className="book-card__body">
-                {book.image && (
-                  <img className="book-card__thumb" src={`${import.meta.env.BASE_URL}images/books/${book.image}`} alt="" />
-                )}
-                <div>
-                  <div className="book-card__title">《{book.title}》</div>
-                  <div className="book-card__quote">{book.quote}</div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {selectedBookId && (
-        <button className="btn-primary" onClick={() => useBook(selectedBookId)}>
-          使用《{getBook(selectedBookId)?.title}》
-        </button>
-      )}
+      <button className="btn-primary" onClick={openInventory}>
+        翻开背包
+      </button>
     </div>
   );
 }

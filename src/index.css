@@ -563,6 +563,83 @@ button:disabled {
 }
 
 /* ===== Inventory ===== */
+.inventory-toolbar {
+  margin-bottom: 16px;
+}
+
+.inventory-search {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 2px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transition-fast);
+  margin-bottom: 10px;
+}
+
+.inventory-search::placeholder {
+  color: var(--text-muted);
+}
+
+.inventory-search:focus {
+  border-color: var(--accent-gold-dim);
+}
+
+.inventory-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-filter {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tag-filter:hover {
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+}
+
+.tag-filter.active {
+  background: var(--accent-gold);
+  color: var(--bg-deep);
+  border-color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.tag-filter.hint {
+  border-color: var(--accent-gold-dim);
+  color: var(--accent-gold);
+}
+
+.book-card--hint {
+  border-left-color: var(--accent-gold-bright) !important;
+  background: rgba(201, 169, 110, 0.06);
+}
+
+.tag-item--hint {
+  background: rgba(201, 169, 110, 0.2);
+  border-color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.inventory-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 20px 0;
+}
+
 .inventory-layout {
   display: flex;
   gap: 24px;

@@ -10,6 +10,7 @@ import { saveGame, loadGame, deleteSave, hasSave } from '../core/SaveLoad';
 interface State {
   gameState: GameState;
   screen: Screen;
+  previousScreen: Screen | null;
   currentEvent: GameEvent | null;
   lastOutcome: Outcome | null;
   lastMatchType: MatchType | null;
@@ -40,6 +41,7 @@ const GAME_OVER_ENDING: Ending = {
 const initialState: State = {
   gameState: createInitialState(),
   screen: 'main_menu',
+  previousScreen: null,
   currentEvent: null,
   lastOutcome: null,
   lastMatchType: null,
@@ -128,6 +130,8 @@ function reducer(state: State, action: Action): State {
         gameState: newGameState,
         lastOutcome: outcome,
         lastMatchType: matchType,
+        screen: 'event_view',
+        previousScreen: null,
       };
     }
 
@@ -171,10 +175,10 @@ function reducer(state: State, action: Action): State {
     }
 
     case 'OPEN_INVENTORY':
-      return { ...state, screen: 'inventory_view' };
+      return { ...state, screen: 'inventory_view', previousScreen: state.screen };
 
     case 'CLOSE_INVENTORY':
-      return { ...state, screen: 'node_view' };
+      return { ...state, screen: state.previousScreen || 'node_view', previousScreen: null };
 
     case 'RETURN_TO_MENU':
       return { ...initialState };
