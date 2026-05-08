@@ -44,6 +44,12 @@ export default function NodeView() {
   if (lastOutcome) {
     return (
       <div>
+        <div className="scene-illustration">
+          {node.image
+            ? <img src={`${import.meta.env.BASE_URL}images/nodes/${node.image}`} alt={node.name} />
+            : <div className="scene-illustration__placeholder" />
+          }
+        </div>
         <h2>{node.name}</h2>
         <div className="result-panel result-panel--success">
           <p className="description">{lastOutcome.text}</p>
