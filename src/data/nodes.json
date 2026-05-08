@@ -4,6 +4,7 @@
       "id": "entrance",
       "name": "入口",
       "description": "你站在底层书库的入口。一段石阶向下延伸，尽头是昏黄的灯光。\n\n空气里有旧纸和灰尘的味道。石壁上刻着不知哪年的涂鸦。",
+      "image": "entrance.svg",
       "events": ["e01_dust"],
       "connections": [
         { "target": "front_room", "label": "走下石阶", "requirement": "none" }
@@ -13,6 +14,7 @@
       "id": "front_room",
       "name": "前厅",
       "description": "灰白色的荧光灯嗡嗡地响着。一张铁皮办公桌，桌面被茶渍染出深浅不一的圆。\n\n台灯还亮着——一杯水放在桌角，水面上浮着灰尘，像是很久没人碰过。但也没人关灯。\n\n台灯下压着一张折叠的纸。",
+      "image": "front_room.svg",
       "events": ["e02_lin_desk"],
       "connections": [
         { "target": "admin_office", "label": "走向管理员办公室", "requirement": "none" },
@@ -32,6 +34,7 @@
       "id": "main_corridor",
       "name": "主走廊",
       "description": "走廊向两个方向延伸，看不到尽头。两侧的书架高耸入天花板，顶上积了厚厚的灰。\n\n头顶的灯管闪了一下，又稳住了。走廊分出几条岔路。\n\n偶尔能听到书架深处传来细微的声响——不是虫子，也不是风。像是有人在翻书。",
+      "image": "main_corridor.svg",
       "events": ["e05_whispering"],
       "connections": [
         { "target": "shelf_a", "label": "走向书架A区", "requirement": "none" },
@@ -61,6 +64,7 @@
       "id": "mirror_hall",
       "name": "镜厅",
       "description": "走廊尽头是一面巨大的穿衣镜，镜框上雕着已经模糊的花纹。\n\n镜子里映出的不只是你——好像还有别的什么。",
+      "image": "mirror_hall.svg",
       "events": ["e10_mirror"],
       "connections": [
         { "target": "main_corridor", "label": "回到主走廊", "requirement": "none" },
@@ -99,6 +103,7 @@
       "id": "deepest",
       "name": "最深处",
       "description": "石阶到这里就断了。\n\n眼前是一个不大的圆形空间，穹顶上漏着一丝微光。没有书架——只有一把木椅，椅面已经开裂，旁边散落一地手写的纸页。\n\n纸页上的字迹你认得。是林的。\n\n一个人影站在最远的阴影里。她慢慢转过身。她看起来像是等了很久。",
+      "image": "deepest.svg",
       "events": ["e15_final"],
       "connections": []
     },

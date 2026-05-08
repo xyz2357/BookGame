@@ -45,6 +45,11 @@ export default function InventoryView() {
         {selectedBook && selectedInstance && (
           <div className="inventory-detail">
             <div className="detail-panel">
+              {selectedBook.image && (
+                <div className="book-cover">
+                  <img src={`${import.meta.env.BASE_URL}images/books/${selectedBook.image}`} alt={selectedBook.title} />
+                </div>
+              )}
               <h3>《{selectedBook.title}》</h3>
               <p className="detail-field"><strong>作者</strong>{selectedBook.author}</p>
               <p className="detail-field"><strong>引言</strong><em>"{selectedBook.quote}"</em></p>

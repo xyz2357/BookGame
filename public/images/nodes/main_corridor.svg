@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="ceiling" cx="50%" cy="0%" r="50%">
+      <stop offset="0%" stop-color="#e6c87a" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="300" fill="url(#bg)"/>
+  <rect width="600" height="300" fill="url(#ceiling)"/>
+  <!-- left bookshelves (perspective) -->
+  <!-- shelf uprights -->
+  <line x1="80" y1="0" x2="200" y2="300" stroke="#5a4a38" stroke-width="2" opacity="0.6"/>
+  <line x1="140" y1="0" x2="220" y2="300" stroke="#5a4a38" stroke-width="1.5" opacity="0.5"/>
+  <!-- shelf horizontals -->
+  <line x1="80" y1="30" x2="140" y2="30" stroke="#3d3024" stroke-width="1"/>
+  <line x1="90" y1="70" x2="150" y2="70" stroke="#3d3024" stroke-width="1"/>
+  <line x1="100" y1="110" x2="160" y2="110" stroke="#3d3024" stroke-width="1"/>
+  <line x1="115" y1="150" x2="170" y2="150" stroke="#3d3024" stroke-width="1"/>
+  <line x1="130" y1="190" x2="185" y2="190" stroke="#3d3024" stroke-width="1"/>
+  <line x1="150" y1="230" x2="200" y2="230" stroke="#3d3024" stroke-width="1"/>
+  <!-- book spines on left shelves -->
+  <rect x="90" y="32" width="4" height="36" fill="#8b3a3a" opacity="0.3"/>
+  <rect x="96" y="34" width="3" height="34" fill="#9e8455" opacity="0.3"/>
+  <rect x="101" y="31" width="5" height="37" fill="#5a4a38" opacity="0.4"/>
+  <rect x="108" y="33" width="3" height="35" fill="#c9a96e" opacity="0.2"/>
+  <rect x="100" y="72" width="4" height="36" fill="#9e8455" opacity="0.25"/>
+  <rect x="106" y="74" width="5" height="34" fill="#5a4a38" opacity="0.35"/>
+  <rect x="113" y="71" width="3" height="37" fill="#8b3a3a" opacity="0.2"/>
+  <!-- right bookshelves -->
+  <line x1="520" y1="0" x2="400" y2="300" stroke="#5a4a38" stroke-width="2" opacity="0.6"/>
+  <line x1="460" y1="0" x2="380" y2="300" stroke="#5a4a38" stroke-width="1.5" opacity="0.5"/>
+  <line x1="460" y1="30" x2="520" y2="30" stroke="#3d3024" stroke-width="1"/>
+  <line x1="450" y1="70" x2="510" y2="70" stroke="#3d3024" stroke-width="1"/>
+  <line x1="440" y1="110" x2="500" y2="110" stroke="#3d3024" stroke-width="1"/>
+  <line x1="430" y1="150" x2="490" y2="150" stroke="#3d3024" stroke-width="1"/>
+  <line x1="415" y1="190" x2="475" y2="190" stroke="#3d3024" stroke-width="1"/>
+  <line x1="400" y1="230" x2="455" y2="230" stroke="#3d3024" stroke-width="1"/>
+  <!-- book spines on right -->
+  <rect x="470" y="32" width="4" height="36" fill="#5a4a38" opacity="0.35"/>
+  <rect x="476" y="34" width="5" height="34" fill="#9e8455" opacity="0.25"/>
+  <rect x="483" y="31" width="3" height="37" fill="#8b3a3a" opacity="0.2"/>
+  <rect x="455" y="72" width="5" height="36" fill="#c9a96e" opacity="0.2"/>
+  <rect x="462" y="74" width="3" height="34" fill="#5a4a38" opacity="0.3"/>
+  <!-- vanishing point - corridor end -->
+  <rect x="270" y="120" width="60" height="90" fill="#0d0a07" stroke="#3d3024" stroke-width="1" opacity="0.6"/>
+  <!-- floor perspective lines -->
+  <line x1="200" y1="300" x2="270" y2="210" stroke="#3d3024" stroke-width="0.5" opacity="0.3"/>
+  <line x1="400" y1="300" x2="330" y2="210" stroke="#3d3024" stroke-width="0.5" opacity="0.3"/>
+  <!-- ceiling light -->
+  <rect x="285" y="5" width="30" height="3" fill="#e8dcc8" opacity="0.15"/>
+  <line x1="300" y1="8" x2="300" y2="20" stroke="#9e8455" stroke-width="0.5" opacity="0.3"/>
+  <!-- dust motes -->
+  <circle cx="250" cy="80" r="1" fill="#e8dcc8" opacity="0.12"/>
+  <circle cx="350" cy="140" r="0.8" fill="#e8dcc8" opacity="0.1"/>
+  <circle cx="280" cy="200" r="1.2" fill="#e8dcc8" opacity="0.08"/>
+</svg>

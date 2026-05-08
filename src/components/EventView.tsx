@@ -45,8 +45,15 @@ export default function EventView() {
               className={`book-card${isSelected ? ' selected' : ''}${inst.state === 'glowing' ? ' glowing' : ''}`}
               onClick={() => setSelectedBookId(inst.bookId)}
             >
-              <div className="book-card__title">《{book.title}》</div>
-              <div className="book-card__quote">{book.quote}</div>
+              <div className="book-card__body">
+                {book.image && (
+                  <img className="book-card__thumb" src={`${import.meta.env.BASE_URL}images/books/${book.image}`} alt="" />
+                )}
+                <div>
+                  <div className="book-card__title">《{book.title}》</div>
+                  <div className="book-card__quote">{book.quote}</div>
+                </div>
+              </div>
             </div>
           );
         })}

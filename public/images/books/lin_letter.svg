@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="280" fill="url(#bg)"/>
+  <rect x="10" y="10" width="180" height="260" fill="none" stroke="#3d3024" stroke-width="1"/>
+  <rect x="16" y="16" width="168" height="248" fill="none" stroke="#5a4a38" stroke-width="0.5"/>
+  <!-- folded paper -->
+  <path d="M60 60 L140 60 L140 170 L120 170 L120 150 L60 150 Z" fill="none" stroke="#c9a96e" stroke-width="1.2"/>
+  <!-- fold crease -->
+  <line x1="60" y1="105" x2="140" y2="105" stroke="#9e8455" stroke-width="0.5" stroke-dasharray="4,3" opacity="0.5"/>
+  <!-- corner fold -->
+  <path d="M120 150 L120 170 L140 170" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
+  <path d="M120 150 L140 170" fill="none" stroke="#9e8455" stroke-width="0.5" opacity="0.4"/>
+  <!-- handwritten text lines (irregular) -->
+  <path d="M72 75 Q85 73 110 76 Q120 77 128 75" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.5"/>
+  <path d="M72 85 Q90 83 105 86 Q115 87 125 84" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.5"/>
+  <path d="M72 95 Q80 94 95 96" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.5"/>
+  <!-- ink blot -->
+  <circle cx="115" cy="92" r="4" fill="#9e8455" opacity="0.15"/>
+  <circle cx="118" cy="94" r="2.5" fill="#9e8455" opacity="0.1"/>
+  <!-- text below fold -->
+  <path d="M72 118 Q88 116 115 119 Q125 120 130 117" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.4"/>
+  <path d="M72 128 Q95 126 108 129" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.4"/>
+  <path d="M72 138 Q82 137 95 139 Q108 140 120 137" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.4"/>
+  <!-- title -->
+  <line x1="50" y1="200" x2="150" y2="200" stroke="#3d3024" stroke-width="0.5"/>
+  <text x="100" y="222" font-family="serif" font-size="13" fill="#c9a96e" text-anchor="middle" letter-spacing="3">林的纸条</text>
+  <text x="100" y="242" font-family="serif" font-size="9" fill="#7a6b5a" text-anchor="middle" font-style="italic">"有些书是会读人的"</text>
+  <line x1="50" y1="255" x2="150" y2="255" stroke="#3d3024" stroke-width="0.5"/>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2118"/>
+      <stop offset="60%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="light" cx="50%" cy="15%" r="40%">
+      <stop offset="0%" stop-color="#e6c87a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="stair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d3024"/>
+      <stop offset="100%" stop-color="#2a2118"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="300" fill="url(#bg)"/>
+  <rect width="600" height="300" fill="url(#light)"/>
+  <!-- walls -->
+  <path d="M180 0 L220 300" fill="none" stroke="#3d3024" stroke-width="1.5" opacity="0.6"/>
+  <path d="M420 0 L380 300" fill="none" stroke="#3d3024" stroke-width="1.5" opacity="0.6"/>
+  <!-- stone wall texture -->
+  <line x1="185" y1="50" x2="200" y2="50" stroke="#3d3024" stroke-width="0.5" opacity="0.3"/>
+  <line x1="190" y1="100" x2="210" y2="100" stroke="#3d3024" stroke-width="0.5" opacity="0.3"/>
+  <line x1="195" y1="150" x2="215" y2="150" stroke="#3d3024" stroke-width="0.5" opacity="0.3"/>
+  <line x1="410" y1="50" x2="395" y2="50" stroke="#3d3024" stroke-width="0.5" opacity="0.3"/>
+  <line x1="405" y1="100" x2="388" y2="100" stroke="#3d3024" stroke-width="0.5" opacity="0.3"/>
+  <line x1="400" y1="150" x2="382" y2="150" stroke="#3d3024" stroke-width="0.5" opacity="0.3"/>
+  <!-- stairs descending -->
+  <rect x="230" y="80" width="140" height="12" fill="url(#stair)" stroke="#5a4a38" stroke-width="0.5"/>
+  <rect x="235" y="110" width="130" height="12" fill="url(#stair)" stroke="#5a4a38" stroke-width="0.5"/>
+  <rect x="240" y="140" width="120" height="12" fill="url(#stair)" stroke="#5a4a38" stroke-width="0.5"/>
+  <rect x="245" y="170" width="110" height="12" fill="url(#stair)" stroke="#5a4a38" stroke-width="0.5"/>
+  <rect x="250" y="200" width="100" height="12" fill="url(#stair)" stroke="#5a4a38" stroke-width="0.5"/>
+  <rect x="255" y="230" width="90" height="12" fill="url(#stair)" stroke="#5a4a38" stroke-width="0.5" opacity="0.7"/>
+  <rect x="260" y="260" width="80" height="12" fill="url(#stair)" stroke="#5a4a38" stroke-width="0.5" opacity="0.4"/>
+  <!-- handrail -->
+  <line x1="228" y1="70" x2="258" y2="260" stroke="#9e8455" stroke-width="1.5" opacity="0.4"/>
+  <line x1="372" y1="70" x2="342" y2="260" stroke="#9e8455" stroke-width="1.5" opacity="0.4"/>
+  <!-- warm light at bottom -->
+  <ellipse cx="300" cy="290" rx="60" ry="20" fill="#e6c87a" opacity="0.06"/>
+  <!-- dust particles -->
+  <circle cx="270" cy="120" r="1" fill="#e8dcc8" opacity="0.2"/>
+  <circle cx="320" cy="90" r="0.8" fill="#e8dcc8" opacity="0.15"/>
+  <circle cx="290" cy="180" r="1.2" fill="#e8dcc8" opacity="0.1"/>
+  <circle cx="340" cy="150" r="0.7" fill="#e8dcc8" opacity="0.18"/>
+  <circle cx="260" cy="220" r="0.9" fill="#e8dcc8" opacity="0.08"/>
+</svg>

@@ -5,6 +5,7 @@ export interface Book {
   quote: string;
   tags: string[];
   description: string;
+  image?: string;
 }
 
 export type BookState = "normal" | "worn" | "glowing" | "consumed";
@@ -60,6 +61,7 @@ export interface GameNode {
   id: string;
   name: string;
   description: string;
+  image?: string;
   events: string[];
   connections: Connection[];
 }

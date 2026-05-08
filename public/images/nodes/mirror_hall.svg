@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="mirrorglow" cx="50%" cy="50%" r="30%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.1"/>
+      <stop offset="60%" stop-color="#9e8455" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="mirror" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2118"/>
+      <stop offset="50%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#2a2118"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="300" fill="url(#bg)"/>
+  <!-- mirror frame - ornate -->
+  <rect x="220" y="20" width="160" height="250" fill="url(#mirror)" stroke="#c9a96e" stroke-width="2.5" rx="4"/>
+  <rect x="228" y="28" width="144" height="234" fill="none" stroke="#9e8455" stroke-width="0.5" rx="2"/>
+  <!-- frame ornaments - top -->
+  <path d="M280 20 Q290 10 300 5 Q310 10 320 20" fill="none" stroke="#c9a96e" stroke-width="1.2"/>
+  <circle cx="300" cy="5" r="4" fill="none" stroke="#c9a96e" stroke-width="0.8"/>
+  <!-- frame ornaments - corners -->
+  <path d="M225 25 Q215 15 225 5" fill="none" stroke="#9e8455" stroke-width="0.8" opacity="0.5"/>
+  <path d="M375 25 Q385 15 375 5" fill="none" stroke="#9e8455" stroke-width="0.8" opacity="0.5"/>
+  <!-- mirror glow -->
+  <rect x="232" y="32" width="136" height="226" fill="url(#mirrorglow)"/>
+  <!-- figure silhouette in mirror (ghostly) -->
+  <!-- head -->
+  <ellipse cx="300" cy="100" rx="14" ry="18" fill="none" stroke="#9e8455" stroke-width="0.6" opacity="0.25"/>
+  <!-- body -->
+  <path d="M280 130 Q290 118 300 118 Q310 118 320 130 L315 200 L285 200 Z" fill="none" stroke="#9e8455" stroke-width="0.5" opacity="0.2"/>
+  <!-- hair -->
+  <path d="M286 95 Q280 80 284 70" fill="none" stroke="#9e8455" stroke-width="0.4" opacity="0.2"/>
+  <path d="M314 95 Q320 80 316 70" fill="none" stroke="#9e8455" stroke-width="0.4" opacity="0.2"/>
+  <!-- second figure (viewer) more solid -->
+  <ellipse cx="300" cy="180" rx="10" ry="13" fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.15"/>
+  <path d="M285 200 Q292 193 300 193 Q308 193 315 200 L312 240 L288 240 Z" fill="none" stroke="#c9a96e" stroke-width="0.4" opacity="0.12"/>
+  <!-- reflection distortion lines -->
+  <line x1="240" y1="80" x2="360" y2="80" stroke="#9e8455" stroke-width="0.3" opacity="0.1"/>
+  <line x1="240" y1="150" x2="360" y2="150" stroke="#9e8455" stroke-width="0.3" opacity="0.1"/>
+  <line x1="240" y1="220" x2="360" y2="220" stroke="#9e8455" stroke-width="0.3" opacity="0.1"/>
+  <!-- corridor walls leading to mirror -->
+  <line x1="100" y1="0" x2="220" y2="20" stroke="#3d3024" stroke-width="1" opacity="0.5"/>
+  <line x1="100" y1="300" x2="220" y2="270" stroke="#3d3024" stroke-width="1" opacity="0.5"/>
+  <line x1="500" y1="0" x2="380" y2="20" stroke="#3d3024" stroke-width="1" opacity="0.5"/>
+  <line x1="500" y1="300" x2="380" y2="270" stroke="#3d3024" stroke-width="1" opacity="0.5"/>
+</svg>

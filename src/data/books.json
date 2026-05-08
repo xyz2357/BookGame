@@ -6,7 +6,8 @@
       "author": "（佚名）",
       "quote": "整理是一种祈祷",
       "tags": ["规则", "整理", "基础", "知识"],
-      "description": "新人入职时领取的册子，封面磨损严重，但内容条理分明。"
+      "description": "新人入职时领取的册子，封面磨损严重，但内容条理分明。",
+      "image": "starter_handbook.svg"
     },
     {
       "id": "metamorphosis",
@@ -14,7 +15,8 @@
       "author": "卡夫卡",
       "quote": "我必须消失",
       "tags": ["异化", "甲虫", "家庭", "恐惧", "身体"],
-      "description": "格里高尔一觉醒来，变成了一只甲虫。家人的态度一天比一天冷。"
+      "description": "格里高尔一觉醒来，变成了一只甲虫。家人的态度一天比一天冷。",
+      "image": "metamorphosis.svg"
     },
     {
       "id": "painted_skin",
@@ -22,7 +24,8 @@
       "author": "蒲松龄",
       "quote": "画上人皮，遂为美女",
       "tags": ["鬼怪", "伪装", "揭露", "东方", "女性"],
-      "description": "聊斋故事。一张人皮之下，是不忍直视的真相。"
+      "description": "聊斋故事。一张人皮之下，是不忍直视的真相。",
+      "image": "painted_skin.svg"
     },
     {
       "id": "dorian_gray",
@@ -30,7 +33,8 @@
       "author": "王尔德",
       "quote": "美是一种天才",
       "tags": ["美", "画像", "堕落", "虚荣", "镜子"],
-      "description": "一幅替主人承受岁月和罪孽的画像。主人永远年轻，画像日渐狰狞。"
+      "description": "一幅替主人承受岁月和罪孽的画像。主人永远年轻，画像日渐狰狞。",
+      "image": "dorian_gray.svg"
     },
     {
       "id": "usher",
@@ -62,7 +66,8 @@
       "author": "林",
       "quote": "有些书是会读人的",
       "tags": ["警告", "谜题", "剧情"],
-      "description": "一张折叠过的便条，墨迹有些晕开。字迹急促但清晰。"
+      "description": "一张折叠过的便条，墨迹有些晕开。字迹急促但清晰。",
+      "image": "lin_letter.svg"
     },
     {
       "id": "the_book_that_reads_you",
