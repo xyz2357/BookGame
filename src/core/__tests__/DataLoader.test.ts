@@ -28,7 +28,7 @@ describe('getNode', () => {
   it('returns correct node', () => {
     const node = getNode('entrance');
     expect(node).toBeDefined();
-    expect(node!.name).toBe('入口');
+    expect(node!.name).toBe('书库入口');
     expect(node!.connections).toHaveLength(1);
   });
 });

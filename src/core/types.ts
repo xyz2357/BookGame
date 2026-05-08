@@ -28,6 +28,7 @@ export type Effect =
 
 export interface Outcome {
   text: string;
+  book_text?: Record<string, string>;
   effects: Effect[];
   next_node: string | null;
 }
