@@ -52,7 +52,7 @@ export default function EventView() {
 
     return (
       <GameLayout
-        illustration={<SceneIllustration image={sceneImage} name={node?.name} portraitOverlay={overlayPortrait} />}
+        illustration={<SceneIllustration image={sceneImage} name={node?.name} portraitOverlay={portraitOverlay} />}
         title={node?.name || ''}
         narrative={
           <>
@@ -91,7 +91,7 @@ export default function EventView() {
 
   return (
     <GameLayout
-      illustration={<SceneIllustration image={sceneImage} name={node?.name} portraitOverlay={overlayPortrait} />}
+      illustration={<SceneIllustration image={sceneImage} name={node?.name} portraitOverlay={portraitOverlay} />}
       title={currentEvent.prompt || currentEvent.description}
       narrative={
         <>
