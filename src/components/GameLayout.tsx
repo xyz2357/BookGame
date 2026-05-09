@@ -21,12 +21,19 @@ export default function GameLayout({ illustration, title, narrative, actions }: 
   );
 }
 
-export function SceneIllustration({ image, name }: { image?: string; name?: string }) {
+interface SceneIllustrationProps {
+  image?: string;
+  name?: string;
+  portraitOverlay?: ReactNode;
+}
+
+export function SceneIllustration({ image, name, portraitOverlay }: SceneIllustrationProps) {
   return (
-    <div className="scene-illustration">
+    <div className={`scene-illustration${portraitOverlay ? ' scene-illustration--with-portrait' : ''}`}>
       {image
         ? <AssetImage kind="nodes" image={image} alt={name || ''} />
         : <div className="scene-illustration__placeholder" />}
+      {portraitOverlay}
     </div>
   );
 }

@@ -6,6 +6,7 @@ import StoryText from './StoryText';
 import AssetImage from './AssetImage';
 import { playSfx } from '../core/AudioManager';
 import { t } from '../core/I18n';
+import { getDebugFlags } from '../core/DebugFlags';
 
 export default function EventView() {
   const { state, confirmOutcome, clearOutcome, openInventory } = useGame();
@@ -36,10 +37,18 @@ export default function EventView() {
   if (!currentEvent) return null;
 
   const sceneImage = node?.image;
-  const portrait = currentEvent.character ? (
-    <div className="character-portrait">
-      <AssetImage kind="characters" image={currentEvent.character} alt="" className="character-portrait__img" />
-    </div>
+  const overlayMode = getDebugFlags().portraitOverlay;
+
+  const portraitImg = currentEvent.character ? (
+    <AssetImage kind="characters" image={currentEvent.character} alt="" className="character-portrait__img" />
+  ) : null;
+
+  const overlayPortrait = portraitImg && overlayMode ? (
+    <div className="character-portrait character-portrait--overlay">{portraitImg}</div>
+  ) : null;
+
+  const inlinePortrait = portraitImg && !overlayMode ? (
+    <div className="character-portrait">{portraitImg}</div>
   ) : null;
 
   if (lastOutcome) {
@@ -51,11 +60,11 @@ export default function EventView() {
 
     return (
       <GameLayout
-        illustration={<SceneIllustration image={sceneImage} name={node?.name} />}
+        illustration={<SceneIllustration image={sceneImage} name={node?.name} portraitOverlay={overlayPortrait} />}
         title={node?.name || ''}
         narrative={
           <>
-            {portrait}
+            {inlinePortrait}
             <div className={`result-panel ${panelClass}`}>
               {isHarshFailure && <p className="hp-loss">{t('event.hp_loss')}</p>}
               <StoryText text={lastOutcome.text} className="description" />
@@ -91,11 +100,11 @@ export default function EventView() {
 
   return (
     <GameLayout
-      illustration={<SceneIllustration image={sceneImage} name={node?.name} />}
+      illustration={<SceneIllustration image={sceneImage} name={node?.name} portraitOverlay={overlayPortrait} />}
       title={currentEvent.prompt || currentEvent.description}
       narrative={
         <>
-          {portrait}
+          {inlinePortrait}
           <StoryText text={currentEvent.description} className="description" />
         </>
       }

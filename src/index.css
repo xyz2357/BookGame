@@ -1025,6 +1025,131 @@ button:disabled {
   background: var(--accent-gold-dim);
 }
 
+/* ===== Portrait Overlay Mode ===== */
+.scene-illustration--with-portrait {
+  position: relative;
+}
+
+.character-portrait--overlay {
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+  width: 140px;
+  z-index: 2;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+  animation: fadeSlideUp 0.6s ease both;
+  float: none;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  shape-outside: none;
+}
+
+.character-portrait--overlay .character-portrait__img {
+  filter: brightness(0.95);
+}
+
+@media (max-width: 767px) {
+  .character-portrait--overlay {
+    width: 100px;
+    right: 8px;
+  }
+}
+
+/* ===== Debug Menu ===== */
+.debug-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+}
+
+.debug-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-gold-dim);
+  border-radius: 8px;
+  width: 320px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  font-size: 0.9rem;
+}
+
+.debug-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.debug-panel__close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.debug-panel__body {
+  padding: 14px;
+}
+
+.debug-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 6px 0;
+}
+
+.debug-toggle input[type="checkbox"] {
+  accent-color: var(--accent-gold);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.debug-panel__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.debug-panel__reset {
+  background: none;
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.debug-panel__reset:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red-bright);
+}
+
+.debug-panel__hint {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
 /* ===== Keyframes ===== */
 @keyframes fadeIn {
   from { opacity: 0; }

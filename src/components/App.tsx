@@ -8,6 +8,7 @@ import EndingView from './EndingView';
 import ConfirmDialog from './ConfirmDialog';
 import { playSfx, playBgm, stopBgm, setMuted, isMuted, initAudioPreference } from '../core/AudioManager';
 import { t } from '../core/I18n';
+import DebugMenu from './DebugMenu';
 
 function GameHeader() {
   const { state, openInventory, returnToMenu } = useGame();
@@ -122,6 +123,7 @@ export default function App() {
       <div className="container">
         <ScreenRouter />
       </div>
+      <DebugMenu />
     </GameProvider>
   );
 }
