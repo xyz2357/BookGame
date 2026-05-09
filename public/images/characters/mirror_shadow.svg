@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" width="480" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0e18"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="mirror-glow" cx="240" cy="320" r="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#446688" stop-opacity="0.12"/>
+      <stop offset="40%" stop-color="#223355" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0a0e18" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mirror-surface" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a2233" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#2a3344" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1a2233" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+  <!-- background -->
+  <rect width="480" height="640" fill="url(#bg)"/>
+  <!-- mirror frame -->
+  <ellipse cx="240" cy="310" rx="170" ry="240" fill="none" stroke="#5a4a38" stroke-width="6" opacity="0.4"/>
+  <ellipse cx="240" cy="310" rx="160" ry="230" fill="url(#mirror-surface)"/>
+  <!-- mirror glow -->
+  <ellipse cx="240" cy="310" rx="160" ry="230" fill="url(#mirror-glow)"/>
+  <!-- ripple effects on mirror surface -->
+  <ellipse cx="240" cy="310" rx="120" ry="170" fill="none" stroke="#446688" stroke-width="0.5" opacity="0.2"/>
+  <ellipse cx="240" cy="310" rx="90" ry="130" fill="none" stroke="#5577aa" stroke-width="0.5" opacity="0.15"/>
+  <ellipse cx="240" cy="310" rx="60" ry="90" fill="none" stroke="#6688bb" stroke-width="0.5" opacity="0.1"/>
+  <!-- woman silhouette emerging from mirror -->
+  <g opacity="0.6">
+    <!-- body silhouette -->
+    <path d="M210 500 Q200 420 205 350 Q210 300 215 270 Q220 240 230 220 Q240 210 250 220 Q260 240 265 270 Q270 300 275 350 Q280 420 270 500 Z" fill="#0a0e18"/>
+    <!-- head -->
+    <ellipse cx="240" cy="195" rx="30" ry="38" fill="#0a0e18"/>
+    <!-- long black hair -->
+    <path d="M210 195 Q200 200 190 240 Q185 280 188 330 Q190 360 195 390" stroke="#111520" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M270 195 Q280 200 290 240 Q295 280 292 330 Q290 360 285 390" stroke="#111520" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M215 180 Q225 170 240 168 Q255 170 265 180" fill="#111520"/>
+    <!-- face completely obscured -->
+    <ellipse cx="240" cy="200" rx="22" ry="28" fill="#0d1020" opacity="0.9"/>
+  </g>
+  <!-- outstretched hand -->
+  <g opacity="0.55">
+    <path d="M265 300 Q290 280 320 260 Q340 248 355 245" stroke="#111520" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- fingers -->
+    <path d="M355 245 L368 238" stroke="#111520" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M355 245 L370 243" stroke="#111520" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M355 245 L368 250" stroke="#111520" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M355 245 L363 255" stroke="#111520" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- mirror reflections / light streaks -->
+  <line x1="120" y1="140" x2="140" y2="160" stroke="#6688bb" stroke-width="0.5" opacity="0.3"/>
+  <line x1="340" y1="180" x2="360" y2="150" stroke="#6688bb" stroke-width="0.5" opacity="0.2"/>
+  <line x1="130" y1="400" x2="150" y2="420" stroke="#446688" stroke-width="0.5" opacity="0.15"/>
+  <!-- name label -->
+  <text x="240" y="595" text-anchor="middle" font-family="serif" font-size="20" fill="#446688" opacity="0.5">镜中身影</text>
+</svg>

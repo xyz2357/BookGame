@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" width="480" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141820"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="240" cy="380" r="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6688aa" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0d0a07" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- background -->
+  <rect width="480" height="640" fill="url(#bg)"/>
+  <!-- bookshelf behind - visible through child -->
+  <rect x="100" y="100" width="280" height="450" rx="2" fill="#2a2118" opacity="0.3"/>
+  <rect x="120" y="130" width="22" height="90" rx="1" fill="#3d3024" opacity="0.4"/>
+  <rect x="148" y="140" width="18" height="80" rx="1" fill="#342a1f" opacity="0.4"/>
+  <rect x="172" y="125" width="25" height="95" rx="1" fill="#3d3024" opacity="0.4"/>
+  <rect x="280" y="135" width="20" height="85" rx="1" fill="#342a1f" opacity="0.4"/>
+  <rect x="310" y="120" width="24" height="100" rx="1" fill="#3d3024" opacity="0.4"/>
+  <!-- cold glow -->
+  <circle cx="240" cy="380" r="180" fill="url(#glow)"/>
+  <!-- child figure - translucent, huddled in corner -->
+  <g opacity="0.35">
+    <!-- curled up body -->
+    <ellipse cx="240" cy="400" rx="70" ry="80" fill="#8899aa"/>
+    <!-- head buried in arms -->
+    <circle cx="240" cy="330" r="40" fill="#99aabb"/>
+    <!-- arms wrapped around knees -->
+    <path d="M190 370 Q185 340 200 320 Q215 305 240 310" stroke="#aabbcc" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M290 370 Q295 340 280 320 Q265 305 240 310" stroke="#aabbcc" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <!-- knees -->
+    <ellipse cx="220" cy="370" rx="25" ry="30" fill="#8899aa"/>
+    <ellipse cx="260" cy="370" rx="25" ry="30" fill="#8899aa"/>
+    <!-- hair -->
+    <path d="M200 315 Q210 290 240 285 Q270 290 280 315" fill="#667788" opacity="0.6"/>
+  </g>
+  <!-- signal-unstable edge effect - flickering outline -->
+  <g opacity="0.2">
+    <ellipse cx="242" cy="400" rx="72" ry="82" fill="none" stroke="#aabbcc" stroke-width="1" stroke-dasharray="4 8"/>
+    <circle cx="238" cy="332" r="42" fill="none" stroke="#aabbcc" stroke-width="1" stroke-dasharray="3 10"/>
+  </g>
+  <!-- second ghost outline offset -->
+  <g opacity="0.1">
+    <ellipse cx="237" cy="398" rx="70" ry="80" fill="none" stroke="#ccddee" stroke-width="0.5"/>
+    <circle cx="243" cy="328" r="40" fill="none" stroke="#ccddee" stroke-width="0.5"/>
+  </g>
+  <!-- dust particles -->
+  <circle cx="150" cy="250" r="1.5" fill="#667788" opacity="0.3"/>
+  <circle cx="320" cy="200" r="1" fill="#667788" opacity="0.2"/>
+  <circle cx="180" cy="450" r="1.2" fill="#667788" opacity="0.25"/>
+  <circle cx="340" cy="350" r="1" fill="#667788" opacity="0.2"/>
+  <!-- name label -->
+  <text x="240" y="580" text-anchor="middle" font-family="serif" font-size="20" fill="#667788" opacity="0.5">哭泣的孩子</text>
+</svg>

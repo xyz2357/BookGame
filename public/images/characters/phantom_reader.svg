@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" width="480" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141210"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="table-lamp" cx="180" cy="300" r="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0d0a07" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- background -->
+  <rect width="480" height="640" fill="url(#bg)"/>
+  <!-- faint lamp glow -->
+  <circle cx="180" cy="300" r="200" fill="url(#table-lamp)"/>
+  <!-- reading table -->
+  <rect x="80" y="420" width="320" height="10" rx="2" fill="#3d3024" opacity="0.6"/>
+  <rect x="90" y="430" width="8" height="100" fill="#342a1f" opacity="0.4"/>
+  <rect x="382" y="430" width="8" height="100" fill="#342a1f" opacity="0.4"/>
+  <!-- dried tea cup -->
+  <ellipse cx="330" cy="405" rx="15" ry="6" fill="#3d3024" opacity="0.4"/>
+  <rect x="318" y="390" width="24" height="18" rx="3" fill="#3d3024" opacity="0.35"/>
+  <path d="M342 395 Q350 398 348 405 Q346 410 342 408" stroke="#3d3024" stroke-width="2" fill="none" opacity="0.3"/>
+  <!-- dried stain ring -->
+  <ellipse cx="330" cy="408" rx="12" ry="4" fill="none" stroke="#5a4a38" stroke-width="0.5" opacity="0.3"/>
+  <!-- open book on table -->
+  <path d="M160 395 L160 370 Q200 365 230 370 L230 395" fill="#2a2118" opacity="0.4"/>
+  <path d="M230 395 L230 370 Q260 365 290 370 L290 395" fill="#2a2118" opacity="0.35"/>
+  <line x1="230" y1="370" x2="230" y2="395" stroke="#5a4a38" stroke-width="0.5" opacity="0.3"/>
+  <!-- text lines on book -->
+  <g stroke="#7a6b5a" stroke-width="0.5" opacity="0.2">
+    <line x1="170" y1="378" x2="220" y2="378"/>
+    <line x1="172" y1="383" x2="218" y2="383"/>
+    <line x1="170" y1="388" x2="215" y2="388"/>
+    <line x1="240" y1="378" x2="280" y2="378"/>
+    <line x1="242" y1="383" x2="278" y2="383"/>
+    <line x1="240" y1="388" x2="275" y2="388"/>
+  </g>
+  <!-- phantom figure - translucent, seated -->
+  <g opacity="0.3">
+    <!-- torso -->
+    <path d="M200 280 Q190 320 188 380 Q187 400 190 420 L290 420 Q293 400 292 380 Q290 320 280 280 Q262 268 240 265 Q218 268 200 280" fill="#8899aa"/>
+    <!-- arms reaching to book -->
+    <path d="M195 340 Q185 360 180 385 Q178 395 185 400" stroke="#8899aa" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M285 340 Q295 360 298 385 Q300 395 292 400" stroke="#8899aa" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <!-- hands on book - fingers turning pages -->
+    <ellipse cx="195" cy="395" rx="16" ry="8" fill="#99aabb" opacity="0.5"/>
+    <ellipse cx="275" cy="395" rx="16" ry="8" fill="#99aabb" opacity="0.5"/>
+    <!-- finger detail -->
+    <path d="M205 390 L212 385" stroke="#99aabb" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <!-- neck -->
+    <rect x="232" y="248" width="16" height="20" rx="6" fill="#8899aa" opacity="0.5"/>
+    <!-- head - face behind frosted glass -->
+    <ellipse cx="240" cy="215" rx="36" ry="44" fill="#8899aa" opacity="0.5"/>
+    <!-- frosted glass face - vague features -->
+    <ellipse cx="240" cy="215" rx="28" ry="35" fill="#667788" opacity="0.3"/>
+    <!-- vague eye positions -->
+    <ellipse cx="228" cy="210" rx="5" ry="3" fill="#556677" opacity="0.4"/>
+    <ellipse cx="252" cy="210" rx="5" ry="3" fill="#556677" opacity="0.4"/>
+    <!-- moving lips -->
+    <path d="M233 230 Q240 233 247 230" stroke="#778899" stroke-width="1" fill="none" opacity="0.3"/>
+    <path d="M235 233 Q240 235 245 233" stroke="#778899" stroke-width="0.5" fill="none" opacity="0.2"/>
+    <!-- hair - vaguely feminine -->
+    <path d="M205 205 Q200 180 210 165 Q225 150 240 148 Q255 150 270 165 Q280 180 275 205" fill="#556677" opacity="0.4"/>
+    <path d="M205 210 Q198 240 196 270" stroke="#556677" stroke-width="8" fill="none" opacity="0.3" stroke-linecap="round"/>
+    <path d="M275 210 Q282 240 284 270" stroke="#556677" stroke-width="8" fill="none" opacity="0.3" stroke-linecap="round"/>
+  </g>
+  <!-- ghost edge flicker -->
+  <g opacity="0.12">
+    <ellipse cx="242" cy="215" rx="38" ry="46" fill="none" stroke="#aabbcc" stroke-width="1" stroke-dasharray="5 8"/>
+    <path d="M198 282 Q188 322 186 382 Q185 402 188 422 L292 422 Q295 402 294 382 Q292 322 282 282" fill="none" stroke="#aabbcc" stroke-width="0.5" stroke-dasharray="4 10"/>
+  </g>
+  <!-- dust particles -->
+  <circle cx="150" cy="180" r="1.2" fill="#7a6b5a" opacity="0.25"/>
+  <circle cx="340" cy="250" r="1" fill="#7a6b5a" opacity="0.2"/>
+  <circle cx="130" cy="350" r="0.8" fill="#7a6b5a" opacity="0.15"/>
+  <circle cx="360" cy="160" r="1" fill="#7a6b5a" opacity="0.18"/>
+  <!-- name label -->
+  <text x="240" y="580" text-anchor="middle" font-family="serif" font-size="20" fill="#667788" opacity="0.5">幽灵读者</text>
+</svg>

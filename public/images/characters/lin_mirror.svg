@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" width="480" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12101a"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="240" cy="280" r="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e6c87a" stop-opacity="0.1"/>
+      <stop offset="60%" stop-color="#c9a96e" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#0d0a07" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- background - slightly distorted/mirrored world feel -->
+  <rect width="480" height="640" fill="url(#bg)"/>
+  <!-- subtle distortion lines -->
+  <line x1="0" y1="200" x2="480" y2="202" stroke="#2a2118" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="400" x2="480" y2="398" stroke="#2a2118" stroke-width="0.5" opacity="0.3"/>
+  <line x1="120" y1="0" x2="118" y2="640" stroke="#2a2118" stroke-width="0.5" opacity="0.2"/>
+  <line x1="360" y1="0" x2="362" y2="640" stroke="#2a2118" stroke-width="0.5" opacity="0.2"/>
+  <!-- overexposed halo around figure -->
+  <ellipse cx="240" cy="300" rx="150" ry="200" fill="url(#halo)"/>
+  <!-- figure - young woman, edges watercolor-blurred -->
+  <g opacity="0.75">
+    <!-- body - dark work clothes -->
+    <path d="M195 290 Q185 330 180 400 Q178 450 180 520 L300 520 Q302 450 300 400 Q295 330 285 290 Q265 275 240 272 Q215 275 195 290" fill="#1a1410" opacity="0.85"/>
+    <!-- collar hint -->
+    <path d="M210 290 L232 310 L240 305 L248 310 L270 290" stroke="#3d3024" stroke-width="1" fill="none" opacity="0.6"/>
+    <!-- neck -->
+    <rect x="228" y="258" width="24" height="20" rx="8" fill="#8b7b68" opacity="0.5"/>
+    <!-- head - slightly blurred edges -->
+    <ellipse cx="240" cy="220" rx="42" ry="50" fill="#8b7b68" opacity="0.45"/>
+    <!-- softer outer edge (watercolor blur effect) -->
+    <ellipse cx="240" cy="220" rx="46" ry="54" fill="none" stroke="#8b7b68" stroke-width="3" opacity="0.15"/>
+    <ellipse cx="240" cy="220" rx="50" ry="58" fill="none" stroke="#8b7b68" stroke-width="2" opacity="0.08"/>
+    <!-- hair - slightly messy -->
+    <path d="M198 210 Q195 185 205 170 Q220 155 240 152 Q260 155 275 170 Q285 185 282 210" fill="#1a1410" opacity="0.7"/>
+    <path d="M198 215 Q190 240 188 280 Q187 310 190 340" stroke="#1a1410" stroke-width="10" fill="none" opacity="0.5" stroke-linecap="round"/>
+    <path d="M282 215 Q290 240 292 280 Q293 310 290 340" stroke="#1a1410" stroke-width="10" fill="none" opacity="0.5" stroke-linecap="round"/>
+    <!-- stray hair -->
+    <path d="M210 170 Q205 160 208 155" stroke="#2a2118" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <path d="M265 172 Q270 162 268 155" stroke="#2a2118" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <!-- EYES - the clearest part, "the deepest weariness" -->
+    <g opacity="1">
+      <ellipse cx="225" cy="218" rx="8" ry="5" fill="#1a1410"/>
+      <ellipse cx="225" cy="218" rx="5" ry="3.5" fill="#3d3024"/>
+      <circle cx="225" cy="217" r="2" fill="#c9a96e" opacity="0.9"/>
+      <circle cx="225" cy="217" r="0.8" fill="#e6c87a"/>
+      <ellipse cx="255" cy="218" rx="8" ry="5" fill="#1a1410"/>
+      <ellipse cx="255" cy="218" rx="5" ry="3.5" fill="#3d3024"/>
+      <circle cx="255" cy="217" r="2" fill="#c9a96e" opacity="0.9"/>
+      <circle cx="255" cy="217" r="0.8" fill="#e6c87a"/>
+      <!-- dark circles under eyes -->
+      <path d="M218 224 Q225 228 232 224" stroke="#5a4a38" stroke-width="1" fill="none" opacity="0.4"/>
+      <path d="M248 224 Q255 228 262 224" stroke="#5a4a38" stroke-width="1" fill="none" opacity="0.4"/>
+    </g>
+    <!-- nose -->
+    <path d="M238 225 L236 238 L240 240" stroke="#7a6b5a" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <!-- mouth - tired but present -->
+    <path d="M228 250 Q240 254 252 250" stroke="#7a6b5a" stroke-width="1" fill="none" opacity="0.35"/>
+  </g>
+  <!-- hands at sides -->
+  <ellipse cx="185" cy="460" rx="14" ry="10" fill="#8b7b68" opacity="0.3"/>
+  <ellipse cx="295" cy="460" rx="14" ry="10" fill="#8b7b68" opacity="0.3"/>
+  <!-- name label -->
+  <text x="240" y="590" text-anchor="middle" font-family="serif" font-size="20" fill="#c9a96e" opacity="0.5">镜中的林</text>
+</svg>

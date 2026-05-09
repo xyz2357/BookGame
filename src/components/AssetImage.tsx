@@ -19,7 +19,7 @@ function buildSrcChain(image: string, kind: AssetKind): string[] {
   return [
     `${base}/${name}.webp`,
     `${base}/${name}.png`,
-    `${base}/${image}`,
+    `${base}/${name}.svg`,
   ];
 }
 

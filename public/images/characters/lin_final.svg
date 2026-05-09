@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" width="480" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0a07"/>
+      <stop offset="100%" stop-color="#1a1410"/>
+    </linearGradient>
+    <radialGradient id="ceiling-light" cx="240" cy="80" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e6c87a" stop-opacity="0.15"/>
+      <stop offset="40%" stop-color="#c9a96e" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0d0a07" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="text-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c9a96e" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <!-- background -->
+  <rect width="480" height="640" fill="url(#bg)"/>
+  <!-- ceiling light beam -->
+  <path d="M200 0 L160 640 L320 640 L280 0 Z" fill="url(#ceiling-light)"/>
+  <!-- figure - emaciated, becoming text -->
+  <g opacity="0.8">
+    <!-- body - very thin -->
+    <path d="M215 290 Q205 340 202 400 Q200 460 205 530 L275 530 Q280 460 278 400 Q275 340 265 290 Q255 278 240 275 Q225 278 215 290" fill="#1a1410" opacity="0.8"/>
+    <!-- neck - thin -->
+    <rect x="232" y="255" width="16" height="24" rx="6" fill="#8b7b68" opacity="0.45"/>
+    <!-- head - gaunt, sharp cheekbones -->
+    <ellipse cx="240" cy="215" rx="38" ry="48" fill="#8b7b68" opacity="0.4"/>
+    <!-- sharp cheekbone lines -->
+    <path d="M210 220 L222 228" stroke="#7a6b5a" stroke-width="1" fill="none" opacity="0.5"/>
+    <path d="M270 220 L258 228" stroke="#7a6b5a" stroke-width="1" fill="none" opacity="0.5"/>
+    <!-- sunken cheeks -->
+    <path d="M215 215 Q218 225 222 230" stroke="#5a4a38" stroke-width="0.8" fill="none" opacity="0.3"/>
+    <path d="M265 215 Q262 225 258 230" stroke="#5a4a38" stroke-width="0.8" fill="none" opacity="0.3"/>
+    <!-- hair - messy, thin -->
+    <path d="M202 205 Q200 180 210 165 Q225 150 240 148 Q255 150 270 165 Q280 180 278 205" fill="#1a1410" opacity="0.6"/>
+    <path d="M202 210 Q195 240 194 280" stroke="#1a1410" stroke-width="7" fill="none" opacity="0.4" stroke-linecap="round"/>
+    <path d="M278 210 Q285 240 286 280" stroke="#1a1410" stroke-width="7" fill="none" opacity="0.4" stroke-linecap="round"/>
+    <!-- eyes - clear, calm acceptance -->
+    <ellipse cx="225" cy="212" rx="7" ry="5" fill="#1a1410"/>
+    <ellipse cx="225" cy="212" rx="4.5" ry="3" fill="#3d3024"/>
+    <circle cx="225" cy="211" r="2" fill="#c9a96e" opacity="0.9"/>
+    <ellipse cx="255" cy="212" rx="7" ry="5" fill="#1a1410"/>
+    <ellipse cx="255" cy="212" rx="4.5" ry="3" fill="#3d3024"/>
+    <circle cx="255" cy="211" r="2" fill="#c9a96e" opacity="0.9"/>
+    <!-- mouth - calm -->
+    <path d="M230 245 Q240 248 250 245" stroke="#7a6b5a" stroke-width="0.8" fill="none" opacity="0.35"/>
+  </g>
+  <!-- TEXT EMERGING FROM BODY - the key visual -->
+  <!-- text on arms/shoulders -->
+  <g font-family="serif" fill="#c9a96e" opacity="0.3" font-size="7">
+    <text x="195" y="310" transform="rotate(-5,195,310)">我曾经是一个人</text>
+    <text x="192" y="325" transform="rotate(-3,192,325)">后来我成了一本书</text>
+    <text x="258" y="305" transform="rotate(5,258,305)">文字取代了骨骼</text>
+    <text x="260" y="320" transform="rotate(4,260,320)">记忆取代了血液</text>
+    <text x="198" y="345" transform="rotate(-2,198,345)">每一页都是我的一天</text>
+    <text x="255" y="340" transform="rotate(3,255,340)">每个字都是一声心跳</text>
+  </g>
+  <!-- text flowing on skin surface -->
+  <g font-family="serif" fill="#c9a96e" opacity="0.2" font-size="5">
+    <text x="220" y="270">消失</text>
+    <text x="245" y="280">变形</text>
+    <text x="210" y="365">她在这里等了很久</text>
+    <text x="225" y="380">很久</text>
+    <text x="230" y="395">很久</text>
+    <text x="250" y="360">时间不再流动</text>
+  </g>
+  <!-- transparent fingertips -->
+  <g opacity="0.4">
+    <!-- left hand - fingertips fading -->
+    <path d="M195 430 L188 445 L185 460" stroke="#8b7b68" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <path d="M185 460 L182 470" stroke="#8b7b68" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.2"/>
+    <path d="M182 470 L180 478" stroke="#c9a96e" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.15"/>
+    <!-- text visible through transparent fingers -->
+    <text x="175" y="475" font-family="serif" font-size="4" fill="#c9a96e" opacity="0.25">指尖的文字</text>
+    <!-- right hand -->
+    <path d="M285 430 L292 445 L295 460" stroke="#8b7b68" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <path d="M295 460 L298 470" stroke="#8b7b68" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.2"/>
+    <path d="M298 470 L300 478" stroke="#c9a96e" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.15"/>
+    <text x="290" y="475" font-family="serif" font-size="4" fill="#c9a96e" opacity="0.25">骨骼是文字</text>
+  </g>
+  <!-- floating text particles around her -->
+  <g font-family="serif" fill="#c9a96e" opacity="0.15" font-size="6">
+    <text x="130" y="250">读</text>
+    <text x="340" y="300">书</text>
+    <text x="150" y="400">忆</text>
+    <text x="320" y="420">梦</text>
+    <text x="140" y="320">等</text>
+    <text x="330" y="230">待</text>
+  </g>
+  <!-- name label -->
+  <text x="240" y="590" text-anchor="middle" font-family="serif" font-size="20" fill="#c9a96e" opacity="0.5">最深处的林</text>
+</svg>

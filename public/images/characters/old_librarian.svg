@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640" width="480" height="640">
+  <defs>
+    <radialGradient id="lamp" cx="200" cy="180" r="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0d0a07" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+  </defs>
+  <!-- background -->
+  <rect width="480" height="640" fill="url(#bg)"/>
+  <!-- bookshelf shadow -->
+  <rect x="340" y="60" width="120" height="500" rx="2" fill="#2a2118" opacity="0.5"/>
+  <rect x="350" y="80" width="30" height="120" rx="1" fill="#3d3024"/>
+  <rect x="385" y="90" width="25" height="110" rx="1" fill="#342a1f"/>
+  <rect x="415" y="70" width="28" height="130" rx="1" fill="#3d3024"/>
+  <rect x="350" y="220" width="35" height="100" rx="1" fill="#342a1f"/>
+  <rect x="390" y="210" width="22" height="110" rx="1" fill="#3d3024"/>
+  <!-- desk lamp glow -->
+  <circle cx="200" cy="180" r="200" fill="url(#lamp)"/>
+  <!-- desk -->
+  <rect x="60" y="400" width="280" height="12" rx="2" fill="#3d3024"/>
+  <rect x="70" y="412" width="8" height="120" fill="#342a1f"/>
+  <rect x="322" y="412" width="8" height="120" fill="#342a1f"/>
+  <!-- lamp -->
+  <rect x="140" y="340" width="6" height="60" fill="#5a4a38"/>
+  <path d="M120 340 L170 340 L160 320 L130 320 Z" fill="#9e8455" opacity="0.8"/>
+  <ellipse cx="145" cy="318" rx="8" ry="4" fill="#c9a96e" opacity="0.6"/>
+  <!-- enamel cup -->
+  <rect x="260" y="375" width="24" height="25" rx="3" fill="#e8dcc8" opacity="0.6"/>
+  <rect x="284" y="382" width="8" height="12" rx="4" fill="#e8dcc8" opacity="0.4"/>
+  <text x="266" y="393" font-size="6" fill="#8b3a3a" opacity="0.5" font-family="serif">先进</text>
+  <!-- figure silhouette - old man -->
+  <!-- head -->
+  <ellipse cx="220" cy="200" rx="38" ry="45" fill="#2a2118"/>
+  <!-- sparse white hair -->
+  <path d="M185 175 Q190 155 210 150 Q230 148 245 155 Q255 165 258 175" stroke="#b8a890" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M190 170 Q200 155 215 152" stroke="#b8a890" stroke-width="1" fill="none" opacity="0.4"/>
+  <!-- glasses -->
+  <ellipse cx="207" cy="198" rx="14" ry="12" fill="none" stroke="#9e8455" stroke-width="1.5" opacity="0.7"/>
+  <ellipse cx="237" cy="198" rx="14" ry="12" fill="none" stroke="#9e8455" stroke-width="1.5" opacity="0.7"/>
+  <line x1="221" y1="196" x2="223" y2="196" stroke="#9e8455" stroke-width="1" opacity="0.7"/>
+  <!-- crack on lens -->
+  <path d="M200 190 L210 200 L205 208" stroke="#7a6b5a" stroke-width="0.5" fill="none" opacity="0.5"/>
+  <!-- eyes - sharp -->
+  <ellipse cx="207" cy="200" rx="4" ry="3" fill="#c9a96e" opacity="0.8"/>
+  <circle cx="207" cy="200" r="2" fill="#1a1410"/>
+  <ellipse cx="237" cy="200" rx="4" ry="3" fill="#c9a96e" opacity="0.8"/>
+  <circle cx="237" cy="200" r="2" fill="#1a1410"/>
+  <!-- nose and mouth -->
+  <path d="M220 208 L218 220 L222 222" stroke="#5a4a38" stroke-width="1" fill="none"/>
+  <path d="M210 232 Q220 236 232 232" stroke="#5a4a38" stroke-width="1" fill="none"/>
+  <!-- body - dark work clothes -->
+  <path d="M180 245 Q170 260 165 320 L165 420 L275 420 L275 320 Q270 260 260 245 Q240 238 220 238 Q200 238 180 245" fill="#1a1410"/>
+  <!-- collar -->
+  <path d="M195 245 L215 270 L220 265 L225 270 L245 245" stroke="#3d3024" stroke-width="1.5" fill="none"/>
+  <!-- hands on desk -->
+  <ellipse cx="180" cy="395" rx="20" ry="10" fill="#3d3024" opacity="0.7"/>
+  <ellipse cx="260" cy="395" rx="18" ry="9" fill="#3d3024" opacity="0.7"/>
+  <!-- name label -->
+  <text x="240" y="600" text-anchor="middle" font-family="serif" font-size="20" fill="#9e8455" opacity="0.6">老管理员</text>
+</svg>
