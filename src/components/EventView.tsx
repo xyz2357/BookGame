@@ -38,8 +38,8 @@ export default function EventView() {
   const sceneImage = node?.image;
 
   const portraitOverlay = currentEvent.character ? (
-    <div className="character-portrait character-portrait--overlay">
-      <AssetImage kind="characters" image={currentEvent.character} alt="" className="character-portrait__img" />
+    <div className="character-portrait--overlay">
+      <AssetImage kind="characters" image={currentEvent.character} alt="" />
     </div>
   ) : null;
 
