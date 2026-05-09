@@ -6,6 +6,7 @@ import StoryText from './StoryText';
 import AssetImage from './AssetImage';
 import { playSfx } from '../core/AudioManager';
 import { t } from '../core/I18n';
+import { getDebugFlags } from '../core/DebugFlags';
 
 export default function EventView() {
   const { state, confirmOutcome, clearOutcome, openInventory } = useGame();
@@ -37,8 +38,9 @@ export default function EventView() {
 
   const sceneImage = node?.image;
 
+  const blendClass = getDebugFlags().portraitBlend ? ' character-portrait--blend' : '';
   const portraitOverlay = currentEvent.character ? (
-    <div className="character-portrait--overlay">
+    <div className={`character-portrait--overlay${blendClass}`}>
       <AssetImage kind="characters" image={currentEvent.character} alt="" />
     </div>
   ) : null;

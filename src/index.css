@@ -1018,6 +1018,10 @@ button:disabled {
   display: block;
 }
 
+.character-portrait--blend {
+  mix-blend-mode: multiply;
+}
+
 @media (max-width: 767px) {
   .character-portrait--overlay {
     height: 90%;

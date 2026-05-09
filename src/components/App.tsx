@@ -6,7 +6,7 @@ import EventView from './EventView';
 import InventoryView from './InventoryView';
 import EndingView from './EndingView';
 import ConfirmDialog from './ConfirmDialog';
-import { playSfx, playBgm, stopBgm, setMuted, isMuted, initAudioPreference } from '../core/AudioManager';
+import { playBgm, setMuted, isMuted, initAudioPreference } from '../core/AudioManager';
 import { t } from '../core/I18n';
 import DebugPanel, { DebugButton } from './DebugMenu';
 

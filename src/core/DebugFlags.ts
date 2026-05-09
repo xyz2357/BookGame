@@ -1,11 +1,12 @@
 const STORAGE_KEY = 'bookgame_debug_flags';
 
 export interface DebugFlags {
-  // future flags go here
+  portraitBlend: boolean;
   [key: string]: boolean;
 }
 
 const defaults: DebugFlags = {
+  portraitBlend: false,
 };
 
 let flags: DebugFlags = { ...defaults };

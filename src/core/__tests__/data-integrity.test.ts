@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { gameData, getBook, getEvent, getNode, getEndings } from '../DataLoader';
+import { gameData, getEvent, getNode } from '../DataLoader';
 
 const { books, events, nodes, endings } = gameData;
 const bookIds = new Set(books.map(b => b.id));

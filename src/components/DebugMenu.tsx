@@ -23,6 +23,10 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
     setFlags({ ...getDebugFlags() });
   };
 
+  const flagLabels: Record<string, string> = {
+    portraitBlend: '立绘混合模式 (multiply)',
+  };
+
   const keys = Object.keys(flags);
 
   return (
@@ -37,7 +41,7 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
           {keys.map(key => (
             <label key={key} className="debug-toggle">
               <input type="checkbox" checked={!!flags[key]} onChange={() => handleToggle(key)} />
-              <span>{key}</span>
+              <span>{flagLabels[key] || key}</span>
             </label>
           ))}
         </div>
