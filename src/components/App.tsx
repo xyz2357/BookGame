@@ -7,6 +7,7 @@ import InventoryView from './InventoryView';
 import EndingView from './EndingView';
 import ConfirmDialog from './ConfirmDialog';
 import { playSfx, playBgm, stopBgm, setMuted, isMuted, initAudioPreference } from '../core/AudioManager';
+import { t } from '../core/I18n';
 
 function GameHeader() {
   const { state, openInventory, returnToMenu } = useGame();
@@ -23,31 +24,31 @@ function GameHeader() {
   return (
     <>
       <header className="game-header">
-        <div className="hp-candles">
+        <div className="hp-candles" title={t('header.hp_tooltip', { hp: gameState.hp, maxHp: gameState.maxHp })}>
           {Array.from({ length: gameState.maxHp }, (_, i) => (
             <span key={i} className={`candle ${i < gameState.hp ? 'lit' : 'spent'}`} />
           ))}
         </div>
         <div className="game-header__actions">
-          <button className="game-header__btn" onClick={toggleMute} title={audioMuted ? '开启声音' : '静音'}>
+          <button className="game-header__btn" onClick={toggleMute} title={audioMuted ? t('header.sound_off') : t('header.sound_on')}>
             {audioMuted ? '🔇' : '🔊'}
           </button>
           {screen !== 'inventory_view' && (
             <button className="game-header__btn" onClick={openInventory}>
-              背包 ({gameState.inventory.length})
+              {t('header.inventory')} ({gameState.inventory.length})
             </button>
           )}
           <button className="game-header__btn" onClick={() => setShowMenuConfirm(true)}>
-            菜单
+            {t('header.menu')}
           </button>
         </div>
       </header>
       {showMenuConfirm && (
         <ConfirmDialog
-          title="返回主菜单"
-          message="确定返回主菜单？当前进度已自动保存。"
-          confirmLabel="返回"
-          cancelLabel="继续游戏"
+          title={t('header.menu_confirm_title')}
+          message={t('header.menu_confirm_message')}
+          confirmLabel={t('header.menu_confirm_ok')}
+          cancelLabel={t('header.menu_confirm_cancel')}
           onConfirm={() => { setShowMenuConfirm(false); returnToMenu(); }}
           onCancel={() => setShowMenuConfirm(false)}
         />

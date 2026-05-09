@@ -5,6 +5,7 @@ import GameLayout, { SceneIllustration } from './GameLayout';
 import StoryText from './StoryText';
 import AssetImage from './AssetImage';
 import { playSfx } from '../core/AudioManager';
+import { t } from '../core/I18n';
 
 export default function EventView() {
   const { state, confirmOutcome, clearOutcome, openInventory } = useGame();
@@ -56,7 +57,7 @@ export default function EventView() {
           <>
             {portrait}
             <div className={`result-panel ${panelClass}`}>
-              {isHarshFailure && <p className="hp-loss">蜡烛熄灭了一根…</p>}
+              {isHarshFailure && <p className="hp-loss">{t('event.hp_loss')}</p>}
               <StoryText text={lastOutcome.text} className="description" />
               {lastOutcome.effects
                 .filter(e => e.type === 'gain_book')
@@ -67,7 +68,7 @@ export default function EventView() {
                     <div key={book.id} className="book-acquired">
                       {book.image && <AssetImage className="book-card__thumb" kind="books" image={book.image} alt={book.title} />}
                       <div>
-                        <div className="book-acquired__label">获得书籍</div>
+                        <div className="book-acquired__label">{t('event.book_acquired')}</div>
                         <div className="book-acquired__title">《{book.title}》</div>
                       </div>
                     </div>
@@ -81,7 +82,7 @@ export default function EventView() {
             className="btn-action"
             onClick={() => { playSfx('page_turn'); isFailure ? clearOutcome() : confirmOutcome(); }}
           >
-            {isFailure ? '换一本书试试' : '继续'}
+            {isFailure ? t('event.try_another') : t('event.continue')}
           </button>
         }
       />
@@ -100,7 +101,7 @@ export default function EventView() {
       }
       actions={
         <button className="btn-action" onClick={openInventory}>
-          翻开背包
+          {t('event.open_inventory')}
         </button>
       }
     />

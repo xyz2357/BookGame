@@ -1,5 +1,6 @@
 import { useGame } from '../context/GameContext';
 import StoryText from './StoryText';
+import { t } from '../core/I18n';
 
 export default function EndingView() {
   const { state, returnToMenu } = useGame();
@@ -8,10 +9,10 @@ export default function EndingView() {
   if (!ending) return null;
 
   const stats = [
-    { label: '收集书籍', value: gameState.inventory.length },
-    { label: '完成事件', value: gameState.completedEvents.length },
-    { label: '探索区域', value: gameState.visitedNodes.length },
-    { label: '超级匹配', value: gameState.triggeredSuperMatches.length },
+    { label: t('ending.stat_books'), value: gameState.inventory.length },
+    { label: t('ending.stat_events'), value: gameState.completedEvents.length },
+    { label: t('ending.stat_nodes'), value: gameState.visitedNodes.length },
+    { label: t('ending.stat_super'), value: gameState.triggeredSuperMatches.length },
   ];
 
   const paragraphs = ending.text.split('\n').filter(p => p.trim());
@@ -33,7 +34,7 @@ export default function EndingView() {
           </div>
         ))}
       </div>
-      <button className="btn-primary" onClick={returnToMenu}>返回主菜单</button>
+      <button className="btn-primary" onClick={returnToMenu}>{t('ending.back_to_menu')}</button>
     </div>
   );
 }

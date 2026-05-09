@@ -7,6 +7,7 @@ import GameLayout, { SceneIllustration } from './GameLayout';
 import StoryText from './StoryText';
 import AssetImage from './AssetImage';
 import { playSfx } from '../core/AudioManager';
+import { t } from '../core/I18n';
 
 export default function NodeView() {
   const { state, enterEvent, moveToNode, autoEventApplied, clearOutcome } = useGame();
@@ -32,7 +33,7 @@ export default function NodeView() {
     }
   }, [gameState.currentNodeId]);
 
-  if (!node) return <div>未知区域</div>;
+  if (!node) return <div>{t('node.unknown_area')}</div>;
 
   const manualEvents = node.events
     .map(eid => ({ id: eid, event: getEvent(eid) }))
@@ -63,7 +64,7 @@ export default function NodeView() {
                   <div key={book.id} className="book-acquired">
                     {book.image && <AssetImage className="book-card__thumb" kind="books" image={book.image} alt={book.title} />}
                     <div>
-                      <div className="book-acquired__label">获得书籍</div>
+                      <div className="book-acquired__label">{t('node.book_acquired')}</div>
                       <div className="book-acquired__title">《{book.title}》</div>
                     </div>
                   </div>
@@ -72,7 +73,7 @@ export default function NodeView() {
           </div>
         }
         actions={
-          <button className="btn-action" onClick={clearOutcome}>继续</button>
+          <button className="btn-action" onClick={clearOutcome}>{t('node.continue')}</button>
         }
       />
     );
@@ -87,7 +88,7 @@ export default function NodeView() {
         <>
           {(availableEvents.length > 0 || completedEvents.length > 0) && (
             <div>
-              <h3 className="section-heading">事件</h3>
+              <h3 className="section-heading">{t('node.section_events')}</h3>
               {availableEvents.map(({ id, event }) => (
                 <button key={id} className={`btn-event${event!.harsh ? ' btn-event--harsh' : ''}`} onClick={() => { playSfx('page_turn'); enterEvent(id); }}>
                   {event!.prompt || event!.description}
@@ -103,7 +104,7 @@ export default function NodeView() {
 
           {node.connections.length > 0 && (
             <div>
-              <h3 className="section-heading">前往</h3>
+              <h3 className="section-heading">{t('node.section_navigate')}</h3>
               {node.connections.map((conn) => {
                 const traversable = canTraverse(gameState, conn);
                 return (

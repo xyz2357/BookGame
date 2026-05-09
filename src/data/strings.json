@@ -2,23 +2,68 @@
   "ui": {
     "main_menu": {
       "title": "底层书库",
-      "start": "开始",
-      "continue": "继续",
-      "quit": "退出"
+      "subtitle": "在书页之间，寻找被遗忘的真相",
+      "start": "开始游戏",
+      "restart": "重新开始",
+      "continue": "继续游戏",
+      "hint": "一座图书馆的最底层，藏着不该被读到的书。",
+      "restart_confirm_title": "重新开始",
+      "restart_confirm_message": "当前存档将被覆盖，确定重新开始？",
+      "cancel": "取消"
+    },
+    "header": {
+      "sound_on": "静音",
+      "sound_off": "开启声音",
+      "inventory": "背包",
+      "menu": "菜单",
+      "menu_confirm_title": "返回主菜单",
+      "menu_confirm_message": "确定返回主菜单？当前进度已自动保存。",
+      "menu_confirm_ok": "返回",
+      "menu_confirm_cancel": "继续游戏",
+      "hp_tooltip": "剩余灯火：{hp}/{maxHp}"
     },
     "inventory": {
-      "title": "你的书",
+      "title": "背包",
+      "title_select": "选择一本书",
       "empty": "你的背包是空的。",
-      "back": "返回"
+      "search_placeholder": "搜索书名…",
+      "no_match": "没有匹配的书。",
+      "select_hint": "选择一本书查看详情",
+      "back_event": "返回事件",
+      "back_game": "返回游戏",
+      "use_book": "使用《{title}》",
+      "label_author": "作者",
+      "label_quote": "引言",
+      "label_tags": "标签",
+      "label_state": "状态",
+      "state_normal": "正常",
+      "state_worn": "磨损",
+      "state_glowing": "发光",
+      "state_consumed": "消耗"
+    },
+    "node": {
+      "section_events": "事件",
+      "section_navigate": "前往",
+      "unknown_area": "未知区域",
+      "continue": "继续",
+      "book_acquired": "获得书籍"
     },
     "event": {
       "select_book": "选一本书来应对",
       "use_book": "使用《{title}》",
       "no_book_chosen": "你还没选书。",
-      "continue": "继续"
+      "continue": "继续",
+      "open_inventory": "翻开背包",
+      "try_another": "换一本书试试",
+      "hp_loss": "蜡烛熄灭了一根…",
+      "book_acquired": "获得书籍"
     },
     "ending": {
-      "back_to_menu": "返回主菜单"
+      "back_to_menu": "返回主菜单",
+      "stat_books": "收集书籍",
+      "stat_events": "完成事件",
+      "stat_nodes": "探索区域",
+      "stat_super": "超级匹配"
     }
   }
 }

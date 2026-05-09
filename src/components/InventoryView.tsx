@@ -4,13 +4,12 @@ import { getBook } from '../core/DataLoader';
 import type { Book, BookInstance } from '../core/types';
 import AssetImage from './AssetImage';
 import { playSfx } from '../core/AudioManager';
+import { t } from '../core/I18n';
 
-const stateLabels: Record<string, string> = {
-  normal: '',
-  worn: '磨损',
-  glowing: '发光',
-  consumed: '消耗',
-};
+function stateLabel(state: string): string {
+  if (state === 'normal') return '';
+  return t(`inventory.state_${state}`);
+}
 
 function getEventHintTags(event: { solutions: Array<{ required_tags?: string[] }> }): Set<string> {
   const tags = new Set<string>();
@@ -83,13 +82,13 @@ export default function InventoryView() {
 
   return (
     <div>
-      <h2>{isSelectMode ? '选择一本书' : `背包 (${gameState.inventory.length})`}</h2>
+      <h2>{isSelectMode ? t('inventory.title_select') : `${t('inventory.title')} (${gameState.inventory.length})`}</h2>
 
       <div className="inventory-toolbar">
         <input
           className="inventory-search"
           type="text"
-          placeholder="搜索书名…"
+          placeholder={t('inventory.search_placeholder')}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
@@ -110,7 +109,7 @@ export default function InventoryView() {
         <div className="inventory-list">
           {filteredAndSorted.map(({ inst, book }) => {
             const isRelevant = isSelectMode && computeRelevance(book, hintTags) > 0;
-            const badge = stateLabels[inst.state];
+            const badge = stateLabel(inst.state);
             return (
               <div
                 key={inst.bookId}
@@ -131,7 +130,7 @@ export default function InventoryView() {
             );
           })}
           {filteredAndSorted.length === 0 && (
-            <p className="inventory-empty">没有匹配的书。</p>
+            <p className="inventory-empty">{t('inventory.no_match')}</p>
           )}
         </div>
 
@@ -144,35 +143,35 @@ export default function InventoryView() {
                 </div>
               )}
               <h3>《{selectedBook.title}》</h3>
-              <p className="detail-field"><strong>作者</strong>{selectedBook.author}</p>
-              <p className="detail-field"><strong>引言</strong><em>"{selectedBook.quote}"</em></p>
+              <p className="detail-field"><strong>{t('inventory.label_author')}</strong>{selectedBook.author}</p>
+              <p className="detail-field"><strong>{t('inventory.label_quote')}</strong><em>"{selectedBook.quote}"</em></p>
               <div className="detail-field">
-                <strong>标签</strong>
+                <strong>{t('inventory.label_tags')}</strong>
                 <div className="tag-list">
                   {selectedBook.tags.map(tag => (
                     <span key={tag} className={`tag-item${isSelectMode && hintTags.has(tag) ? ' tag-item--hint' : ''}`}>{tag}</span>
                   ))}
                 </div>
               </div>
-              <p className="detail-field"><strong>状态</strong>{stateLabels[selectedInstance.state] || '正常'}</p>
+              <p className="detail-field"><strong>{t('inventory.label_state')}</strong>{stateLabel(selectedInstance.state) || t('inventory.state_normal')}</p>
               <p className="description">{selectedBook.description}</p>
 
               {isSelectMode && (
                 <button className="btn-primary inventory-use-btn" onClick={() => { playSfx('book_use'); useBook(selectedBookId!); }}>
-                  使用《{selectedBook.title}》
+                  {t('inventory.use_book', { title: selectedBook.title })}
                 </button>
               )}
             </div>
           ) : (
             <div className="detail-panel detail-panel--empty">
-              <p className="inventory-empty">选择一本书查看详情</p>
+              <p className="inventory-empty">{t('inventory.select_hint')}</p>
             </div>
           )}
         </div>
       </div>
 
       <button className="btn-secondary inventory-back-btn" onClick={closeInventory}>
-        {isSelectMode ? '返回事件' : '返回游戏'}
+        {isSelectMode ? t('inventory.back_event') : t('inventory.back_game')}
       </button>
     </div>
   );

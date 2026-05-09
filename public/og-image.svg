@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a07"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="600" cy="280" r="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0d0a07" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <!-- border frame -->
+  <rect x="30" y="30" width="1140" height="570" rx="4" fill="none" stroke="#c9a96e" stroke-width="1" opacity="0.3"/>
+  <rect x="40" y="40" width="1120" height="550" rx="2" fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.15"/>
+  <!-- bookshelf silhouettes -->
+  <g opacity="0.15">
+    <rect x="80" y="120" width="30" height="140" rx="2" fill="#c9a96e"/>
+    <rect x="118" y="130" width="25" height="130" rx="2" fill="#c9a96e"/>
+    <rect x="150" y="115" width="28" height="145" rx="2" fill="#c9a96e"/>
+    <rect x="185" y="140" width="22" height="120" rx="2" fill="#c9a96e"/>
+    <rect x="980" y="125" width="28" height="135" rx="2" fill="#c9a96e"/>
+    <rect x="1015" y="115" width="25" height="145" rx="2" fill="#c9a96e"/>
+    <rect x="1048" y="135" width="30" height="125" rx="2" fill="#c9a96e"/>
+    <rect x="1085" y="120" width="26" height="140" rx="2" fill="#c9a96e"/>
+  </g>
+  <!-- candles -->
+  <g>
+    <rect x="520" y="160" width="4" height="30" rx="2" fill="#c9a96e" opacity="0.6"/>
+    <ellipse cx="522" cy="155" rx="6" ry="10" fill="#e6c87a" opacity="0.5"/>
+    <ellipse cx="522" cy="155" rx="3" ry="6" fill="#e6c87a" opacity="0.8"/>
+    <rect x="600" y="155" width="4" height="35" rx="2" fill="#c9a96e" opacity="0.6"/>
+    <ellipse cx="602" cy="150" rx="6" ry="10" fill="#e6c87a" opacity="0.5"/>
+    <ellipse cx="602" cy="150" rx="3" ry="6" fill="#e6c87a" opacity="0.8"/>
+    <rect x="680" y="162" width="4" height="28" rx="2" fill="#c9a96e" opacity="0.6"/>
+    <ellipse cx="682" cy="157" rx="6" ry="10" fill="#e6c87a" opacity="0.5"/>
+    <ellipse cx="682" cy="157" rx="3" ry="6" fill="#e6c87a" opacity="0.8"/>
+  </g>
+  <!-- ornament -->
+  <text x="600" y="230" text-anchor="middle" font-family="serif" font-size="24" fill="#c9a96e" opacity="0.4">✦</text>
+  <!-- title -->
+  <text x="600" y="310" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="72" fill="#c9a96e" font-weight="700">底层书库</text>
+  <!-- subtitle -->
+  <text x="600" y="370" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="28" fill="#e8dcc8" opacity="0.7">在书页之间，寻找被遗忘的真相</text>
+  <!-- ornament bottom -->
+  <text x="600" y="420" text-anchor="middle" font-family="serif" font-size="24" fill="#c9a96e" opacity="0.4">✦</text>
+  <!-- tagline -->
+  <text x="600" y="480" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="18" fill="#9e8455" opacity="0.6">一座图书馆的最底层，藏着不该被读到的书</text>
+  <!-- genre tag -->
+  <text x="600" y="540" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="16" fill="#7a6b5a" opacity="0.5">文字冒险 · 叙事解谜</text>
+  <!-- dust particles -->
+  <circle cx="300" cy="200" r="2" fill="#c9a96e" opacity="0.1"/>
+  <circle cx="900" cy="250" r="1.5" fill="#c9a96e" opacity="0.08"/>
+  <circle cx="400" cy="450" r="1.5" fill="#c9a96e" opacity="0.1"/>
+  <circle cx="850" cy="400" r="2" fill="#c9a96e" opacity="0.08"/>
+</svg>
