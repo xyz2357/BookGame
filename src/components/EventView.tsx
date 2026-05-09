@@ -6,7 +6,6 @@ import StoryText from './StoryText';
 import AssetImage from './AssetImage';
 import { playSfx } from '../core/AudioManager';
 import { t } from '../core/I18n';
-import { getDebugFlags } from '../core/DebugFlags';
 
 export default function EventView() {
   const { state, confirmOutcome, clearOutcome, openInventory } = useGame();
@@ -37,18 +36,11 @@ export default function EventView() {
   if (!currentEvent) return null;
 
   const sceneImage = node?.image;
-  const overlayMode = getDebugFlags().portraitOverlay;
 
-  const portraitImg = currentEvent.character ? (
-    <AssetImage kind="characters" image={currentEvent.character} alt="" className="character-portrait__img" />
-  ) : null;
-
-  const overlayPortrait = portraitImg && overlayMode ? (
-    <div className="character-portrait character-portrait--overlay">{portraitImg}</div>
-  ) : null;
-
-  const inlinePortrait = portraitImg && !overlayMode ? (
-    <div className="character-portrait">{portraitImg}</div>
+  const portraitOverlay = currentEvent.character ? (
+    <div className="character-portrait character-portrait--overlay">
+      <AssetImage kind="characters" image={currentEvent.character} alt="" className="character-portrait__img" />
+    </div>
   ) : null;
 
   if (lastOutcome) {
@@ -64,8 +56,7 @@ export default function EventView() {
         title={node?.name || ''}
         narrative={
           <>
-            {inlinePortrait}
-            <div className={`result-panel ${panelClass}`}>
+                        <div className={`result-panel ${panelClass}`}>
               {isHarshFailure && <p className="hp-loss">{t('event.hp_loss')}</p>}
               <StoryText text={lastOutcome.text} className="description" />
               {lastOutcome.effects
@@ -104,8 +95,7 @@ export default function EventView() {
       title={currentEvent.prompt || currentEvent.description}
       narrative={
         <>
-          {inlinePortrait}
-          <StoryText text={currentEvent.description} className="description" />
+                    <StoryText text={currentEvent.description} className="description" />
         </>
       }
       actions={

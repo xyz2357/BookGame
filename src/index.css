@@ -965,31 +965,11 @@ button:disabled {
   border-color: var(--accent-gold);
 }
 
-/* ===== Character Portrait ===== */
-.character-portrait {
-  float: right;
-  width: 120px;
-  margin: 0 0 12px 16px;
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
-  animation: fadeIn 0.6s ease both;
-  shape-outside: margin-box;
-}
-
+/* ===== Character Portrait (overlay on scene) ===== */
 .character-portrait__img {
   display: block;
   width: 100%;
   height: auto;
-  filter: sepia(0.15) brightness(0.9);
-}
-
-@media (max-width: 767px) {
-  .character-portrait {
-    width: 90px;
-    margin: 0 0 8px 12px;
-  }
 }
 
 /* ===== Event View ===== */
@@ -1025,7 +1005,7 @@ button:disabled {
   background: var(--accent-gold-dim);
 }
 
-/* ===== Portrait Overlay Mode ===== */
+/* ===== Portrait Overlay (on scene illustration) ===== */
 .scene-illustration--with-portrait {
   position: relative;
 }
@@ -1038,17 +1018,6 @@ button:disabled {
   z-index: 2;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
   animation: fadeSlideUp 0.6s ease both;
-  float: none;
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: visible;
-  shape-outside: none;
-}
-
-.character-portrait--overlay .character-portrait__img {
-  filter: brightness(0.95);
 }
 
 @media (max-width: 767px) {
@@ -1153,6 +1122,13 @@ button:disabled {
 .debug-panel__reset:hover {
   border-color: var(--accent-red);
   color: var(--accent-red-bright);
+}
+
+.debug-panel__empty {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0;
 }
 
 .debug-panel__hint {
