@@ -8,12 +8,13 @@ import EndingView from './EndingView';
 import ConfirmDialog from './ConfirmDialog';
 import { playSfx, playBgm, stopBgm, setMuted, isMuted, initAudioPreference } from '../core/AudioManager';
 import { t } from '../core/I18n';
-import DebugMenu from './DebugMenu';
+import DebugPanel, { DebugButton } from './DebugMenu';
 
 function GameHeader() {
   const { state, openInventory, returnToMenu } = useGame();
   const { gameState, screen } = state;
   const [showMenuConfirm, setShowMenuConfirm] = useState(false);
+  const [showDebug, setShowDebug] = useState(false);
   const [audioMuted, setAudioMuted] = useState(isMuted);
 
   const toggleMute = () => {
@@ -31,6 +32,7 @@ function GameHeader() {
           ))}
         </div>
         <div className="game-header__actions">
+          <DebugButton onClick={() => setShowDebug(true)} />
           <button className="game-header__btn" onClick={toggleMute} title={audioMuted ? t('header.sound_off') : t('header.sound_on')}>
             {audioMuted ? '🔇' : '🔊'}
           </button>
@@ -44,6 +46,7 @@ function GameHeader() {
           </button>
         </div>
       </header>
+      {showDebug && <DebugPanel onClose={() => setShowDebug(false)} />}
       {showMenuConfirm && (
         <ConfirmDialog
           title={t('header.menu_confirm_title')}
@@ -123,7 +126,6 @@ export default function App() {
       <div className="container">
         <ScreenRouter />
       </div>
-      <DebugMenu />
     </GameProvider>
   );
 }

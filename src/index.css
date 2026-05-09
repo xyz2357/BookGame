@@ -1058,7 +1058,18 @@ button:disabled {
   }
 }
 
-/* ===== Debug Menu ===== */
+/* ===== Debug ===== */
+.debug-btn {
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 0.75rem;
+  opacity: 0.4;
+  min-width: 28px;
+}
+
+.debug-btn:hover {
+  opacity: 1;
+}
 .debug-overlay {
   position: fixed;
   inset: 0;
