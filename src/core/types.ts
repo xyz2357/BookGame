@@ -49,6 +49,7 @@ export interface GameEvent {
   solutions: Solution[];
   default_outcome: Outcome;
   harsh?: boolean;
+  character?: string;
 }
 
 export interface Connection {

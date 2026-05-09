@@ -106,6 +106,7 @@
 | `solutions` | ✓ | array | 各种解法，按数组顺序匹配 |
 | `default_outcome` | ✓ | Outcome | 没有任何匹配时的默认结果 |
 | `harsh` | 可选 | boolean | 为 `true` 时，用错书会扣 HP；默认 `false`，用错书仅显示 miss 面板，不扣血 |
+| `character` | 可选 | string | 角色立绘文件名，放在 `public/images/characters/`。AssetImage 自动 fallback: webp → png → svg |
 
 ### Solution 字段
 

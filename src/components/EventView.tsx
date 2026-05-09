@@ -35,6 +35,11 @@ export default function EventView() {
   if (!currentEvent) return null;
 
   const sceneImage = node?.image;
+  const portrait = currentEvent.character ? (
+    <div className="character-portrait">
+      <AssetImage kind="characters" image={currentEvent.character} alt="" className="character-portrait__img" />
+    </div>
+  ) : null;
 
   if (lastOutcome) {
     const isFailure = lastMatchType === 'default';
@@ -48,25 +53,28 @@ export default function EventView() {
         illustration={<SceneIllustration image={sceneImage} name={node?.name} />}
         title={node?.name || ''}
         narrative={
-          <div className={`result-panel ${panelClass}`}>
-            {isHarshFailure && <p className="hp-loss">蜡烛熄灭了一根…</p>}
-            <StoryText text={lastOutcome.text} className="description" />
-            {lastOutcome.effects
-              .filter(e => e.type === 'gain_book')
-              .map(e => {
-                const book = getBook((e as { type: 'gain_book'; book_id: string }).book_id);
-                if (!book) return null;
-                return (
-                  <div key={book.id} className="book-acquired">
-                    {book.image && <AssetImage className="book-card__thumb" kind="books" image={book.image} alt={book.title} />}
-                    <div>
-                      <div className="book-acquired__label">获得书籍</div>
-                      <div className="book-acquired__title">《{book.title}》</div>
+          <>
+            {portrait}
+            <div className={`result-panel ${panelClass}`}>
+              {isHarshFailure && <p className="hp-loss">蜡烛熄灭了一根…</p>}
+              <StoryText text={lastOutcome.text} className="description" />
+              {lastOutcome.effects
+                .filter(e => e.type === 'gain_book')
+                .map(e => {
+                  const book = getBook((e as { type: 'gain_book'; book_id: string }).book_id);
+                  if (!book) return null;
+                  return (
+                    <div key={book.id} className="book-acquired">
+                      {book.image && <AssetImage className="book-card__thumb" kind="books" image={book.image} alt={book.title} />}
+                      <div>
+                        <div className="book-acquired__label">获得书籍</div>
+                        <div className="book-acquired__title">《{book.title}》</div>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-          </div>
+                  );
+                })}
+            </div>
+          </>
         }
         actions={
           <button
@@ -84,7 +92,12 @@ export default function EventView() {
     <GameLayout
       illustration={<SceneIllustration image={sceneImage} name={node?.name} />}
       title={currentEvent.prompt || currentEvent.description}
-      narrative={<StoryText text={currentEvent.description} className="description" />}
+      narrative={
+        <>
+          {portrait}
+          <StoryText text={currentEvent.description} className="description" />
+        </>
+      }
       actions={
         <button className="btn-action" onClick={openInventory}>
           翻开背包
