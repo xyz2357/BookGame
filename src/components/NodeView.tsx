@@ -8,6 +8,7 @@ import StoryText from './StoryText';
 import AssetImage from './AssetImage';
 import { playSfx } from '../core/AudioManager';
 import { t } from '../core/I18n';
+import { getDebugFlags } from '../core/DebugFlags';
 
 export default function NodeView() {
   const { state, enterEvent, moveToNode, autoEventApplied, clearOutcome } = useGame();
@@ -35,6 +36,13 @@ export default function NodeView() {
 
   if (!node) return <div>{t('node.unknown_area')}</div>;
 
+  const blendClass = getDebugFlags().portraitBlend ? ' character-portrait--blend' : '';
+  const portraitOverlay = node.character ? (
+    <div className={`character-portrait--overlay${blendClass}`}>
+      <AssetImage kind="characters" image={node.character} alt="" />
+    </div>
+  ) : null;
+
   const manualEvents = node.events
     .map(eid => ({ id: eid, event: getEvent(eid) }))
     .filter(({ event }) => event && event.solutions.length > 0);
@@ -50,7 +58,7 @@ export default function NodeView() {
   if (lastOutcome) {
     return (
       <GameLayout
-        illustration={<SceneIllustration image={node.image} name={node.name} />}
+        illustration={<SceneIllustration image={node.image} name={node.name} portraitOverlay={portraitOverlay} />}
         title={node.name}
         narrative={
           <div className="result-panel result-panel--success">
@@ -81,7 +89,7 @@ export default function NodeView() {
 
   return (
     <GameLayout
-      illustration={<SceneIllustration image={node.image} name={node.name} />}
+      illustration={<SceneIllustration image={node.image} name={node.name} portraitOverlay={portraitOverlay} />}
       title={node.name}
       narrative={<StoryText text={node.description} className="description" />}
       actions={

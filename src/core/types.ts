@@ -65,6 +65,7 @@ export interface GameNode {
   name: string;
   description: string;
   image?: string;
+  character?: string;
   events: string[];
   connections: Connection[];
 }
