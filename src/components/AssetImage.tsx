@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-type AssetKind = 'books' | 'nodes' | 'characters';
+type AssetKind = 'books' | 'nodes' | 'characters' | 'events' | 'endings';
 
 interface AssetImageProps {
   alt: string;

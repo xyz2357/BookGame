@@ -1,6 +1,7 @@
 import { useGame } from '../context/GameContext';
 import StoryText from './StoryText';
 import { t } from '../core/I18n';
+import { SceneIllustration } from './GameLayout';
 
 export default function EndingView() {
   const { state, returnToMenu } = useGame();
@@ -21,6 +22,11 @@ export default function EndingView() {
     <div className="ending-view">
       <div className="ending-ornament">✦</div>
       <h1 className="ending-title">{ending.name}</h1>
+      {ending.image && (
+        <div className="ending-illustration">
+          <SceneIllustration image={ending.image} kind="endings" name={ending.name} />
+        </div>
+      )}
       <div className="ending-text">
         {paragraphs.map((p, i) => (
           <StoryText key={i} text={p} className="ending-paragraph" />

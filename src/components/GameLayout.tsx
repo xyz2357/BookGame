@@ -25,13 +25,14 @@ interface SceneIllustrationProps {
   image?: string;
   name?: string;
   portraitOverlay?: ReactNode;
+  kind?: 'nodes' | 'events' | 'endings';
 }
 
-export function SceneIllustration({ image, name, portraitOverlay }: SceneIllustrationProps) {
+export function SceneIllustration({ image, name, portraitOverlay, kind = 'nodes' }: SceneIllustrationProps) {
   return (
     <div className={`scene-illustration${portraitOverlay ? ' scene-illustration--with-portrait' : ''}`}>
       {image
-        ? <AssetImage kind="nodes" image={image} alt={name || ''} />
+        ? <AssetImage kind={kind} image={image} alt={name || ''} />
         : <div className="scene-illustration__placeholder" />}
       {portraitOverlay}
     </div>

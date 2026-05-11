@@ -50,6 +50,7 @@ export interface GameEvent {
   default_outcome: Outcome;
   harsh?: boolean;
   character?: string;
+  image?: string;
 }
 
 export interface Connection {
@@ -82,6 +83,7 @@ export interface Ending {
   conditions: EndingCondition[];
   text: string;
   priority: number;
+  image?: string;
 }
 
 export interface GameState {

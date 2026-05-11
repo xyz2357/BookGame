@@ -36,7 +36,8 @@ export default function EventView() {
 
   if (!currentEvent) return null;
 
-  const sceneImage = node?.image;
+  const sceneImage = currentEvent.image || node?.image;
+  const sceneKind = currentEvent.image ? 'events' : 'nodes';
 
   const blendClass = getDebugFlags().portraitBlend ? ' character-portrait--blend' : '';
   const portraitOverlay = currentEvent.character ? (
@@ -54,7 +55,7 @@ export default function EventView() {
 
     return (
       <GameLayout
-        illustration={<SceneIllustration image={sceneImage} name={node?.name} portraitOverlay={portraitOverlay} />}
+        illustration={<SceneIllustration image={sceneImage} kind={sceneKind} name={node?.name} portraitOverlay={portraitOverlay} />}
         title={node?.name || ''}
         narrative={
           <>
@@ -93,7 +94,7 @@ export default function EventView() {
 
   return (
     <GameLayout
-      illustration={<SceneIllustration image={sceneImage} name={node?.name} portraitOverlay={portraitOverlay} />}
+      illustration={<SceneIllustration image={sceneImage} kind={sceneKind} name={node?.name} portraitOverlay={portraitOverlay} />}
       title={currentEvent.prompt || currentEvent.description}
       narrative={
         <>

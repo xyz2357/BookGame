@@ -632,6 +632,12 @@ button:disabled {
   background: linear-gradient(to right, transparent, var(--accent-gold-dim), transparent);
 }
 
+.ending-illustration {
+  max-width: 760px;
+  margin: 0 auto 24px;
+  animation: fadeSlideUp 0.8s ease 0.45s both;
+}
+
 .ending-text {
   max-width: 500px;
   margin: 0 auto 32px;
