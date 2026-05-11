@@ -1,0 +1,76 @@
+[
+  { "action": "click:开始游戏", "note": "开始新游戏" },
+  { "action": "click:继续", "note": "阅读开场白" },
+  { "action": "click:走下石阶", "note": "进入前厅，发现林的桌子" },
+  { "action": "click:继续", "note": "阅读前厅描述" },
+
+  { "action": "click:走向管理员办公室", "note": "遇见老管理员" },
+  { "action": "event", "note": "触发老管理员事件" },
+  { "action": "book:画皮", "note": "质疑老管理员（揭露 tag）" },
+  { "action": "click:继续", "note": "继续剧情" },
+
+  { "action": "click:走向档案室", "note": "探索档案室" },
+  { "action": "click:继续", "note": "阅读档案室描述" },
+  { "action": "event", "note": "触发人事档案事件" },
+  { "action": "book:图书馆员手册", "note": "整理档案（整理 tag）" },
+  { "action": "click:继续", "note": "继续剧情" },
+
+  { "action": "click:回到管理员办公室", "note": "返回" },
+  { "action": "click:前往主走廊", "note": "进入主走廊" },
+  { "action": "event", "note": "触发走廊低语事件" },
+  { "action": "book:图书馆员手册", "note": "整理/规则 tag 匹配低语" },
+  { "action": "click:继续", "note": "继续剧情" },
+
+  { "action": "click:走向阅览室", "note": "探索阅览室" },
+  { "action": "click:继续", "note": "阅读阅览室描述" },
+  { "action": "click:选一本书递给她", "note": "触发幽灵读者事件" },
+  { "action": "book:小王子", "note": "给幽灵读者一本温暖的书" },
+  { "action": "click:继续", "note": "继续剧情" },
+  { "action": "click:选一本书来回应这本自我重写的书", "note": "触发桌上书事件" },
+  { "action": "book:山海经", "note": "古老/循环 tag 匹配" },
+  { "action": "click:继续", "note": "继续剧情" },
+
+  { "action": "click:回到主走廊", "note": "返回主走廊" },
+  { "action": "click:走向书架A区", "note": "探索书架A区" },
+  { "action": "click:继续", "note": "阅读书架A区描述" },
+  { "action": "event", "note": "触发错位书事件" },
+  { "action": "book:图书馆员手册", "note": "整理 tag 解码错位书" },
+  { "action": "click:继续", "note": "继续剧情" },
+
+  { "action": "click:穿过书架间的缝隙", "note": "进入后走廊" },
+  { "action": "click:回到主走廊", "note": "返回主走廊" },
+
+  { "action": "click:走向镜厅", "note": "探索镜厅" },
+  { "action": "event", "note": "触发镜厅事件" },
+  { "action": "book:画皮", "note": "揭露/镜像 tag" },
+  { "action": "click:继续", "note": "继续剧情" },
+  { "action": "click:走进镜中", "note": "进入镜中世界" },
+  { "action": "event", "note": "触发镜中林事件" },
+  { "action": "book:道林", "note": "镜像/画像 tag 超级匹配" },
+  { "action": "click:继续", "note": "继续剧情" },
+
+  { "action": "click:从镜中走出", "note": "退出镜中世界，进入书架B区" },
+  { "action": "click:继续", "note": "阅读书架B区描述" },
+  { "action": "click:走向书架B区", "note": "进入书架B区" },
+  { "action": "event", "note": "触发哭泣小孩事件" },
+  { "action": "book:小王子", "note": "儿童/温暖 tag" },
+  { "action": "click:继续", "note": "继续剧情" },
+
+  { "action": "click:穿过书架间的缝隙", "note": "进入后走廊" },
+  { "action": "click:选一本书来应对坍塌", "note": "触发坍塌事件" },
+  { "action": "book:厄舍府", "note": "崩塌 tag 超级匹配" },
+  { "action": "click:继续", "note": "继续剧情" },
+  { "action": "click:选一本书照亮黑暗", "note": "触发黑暗事件" },
+  { "action": "book:狂人日记", "note": "觉醒/揭露 tag" },
+  { "action": "click:继续", "note": "继续剧情" },
+
+  { "action": "click:穿过坍塌处", "note": "进入禁区" },
+  { "action": "event", "note": "触发无名之书事件" },
+  { "action": "book:林的纸条", "note": "关键剧情道具" },
+  { "action": "click:继续", "note": "继续剧情" },
+
+  { "action": "click:继续深入", "note": "进入最深处" },
+  { "action": "event", "note": "触发最终与林相遇事件" },
+  { "action": "book:无名之书", "note": "关键剧情道具，触发真结局" },
+  { "action": "click:继续", "note": "到达结局" }
+]
